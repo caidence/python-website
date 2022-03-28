@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Class Methods</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Class Methods</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="decorators.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="staticmethods.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>Class methods are slightly different than instances methods. Even though it is possible to call a class method from an instance; generally,
+	    you will only see programmers call class methods from the class itself. Class methods belong to the class, not any particular instance. Like
+		with other methods, they do accept a first automatic argument. You can think of this argument much the same as <i>self</i>. Instead of using
+		self, class methods use <i>cls</i> as the first argument. This is because we are passing the class as the first argument to the method rather
+		than an instance.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>To make turn a method in to a class method, we can use the @classmethod decorator. Just remember, class methods operate on the class, not 
+	    an instance. Because of this, two of teh most common use cases for class methods are: changing class variables, and customizing how we are
+		able to initialize instances of the class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>example</h3>
+	  <p>Let's make a class called Person. It will be a simple class, but we will use it to demonstrate both; how we can use class methods to change class
+	    variables, as well as how we can use class methods to customize how we initialize instances of our class. All people have a first name, last name, and 
+		age. People, however, are all from different nations. For the sake of example, we are going assume that our class is being used in the United States
+		and that the instances of people we create live in America. Assuming this, we are going to create a class variable called <i>nation</i> and set
+		its value equal to "America". A class like this would look something like the following.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Person</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;nation = <span class="red">'America'</span><br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, first_name, last_name, age):<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.first_name = first_name<br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.last_name = last_name <br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.age = age<br>
+          7. <br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">fullname</span>(self):<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> <span class="red">f'{self.first_name} 
+		     {self.last_name}'</span><br>
+          10.<br>
+          11. &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@classmethod</span><br>
+          12. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_nation</span>(cls, new_nation):<br>
+          13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cls.nation = new_nation<br>
+          14. <br>
+          15. &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@classmethod</span><br>
+          16. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">from_string</span>(cls, person_string):<br>
+          17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first, last, age = person_string.split(<span class="red">','</span>)<br>
+          18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> cls(first.strip(), last.strip(),
+		      <span class="green">int</span>(age))
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This is a basic class. We can create instances of Person which can all have a different first name, last name, and age. Even though these 
+	    instance variables can be different; they will all share the nation class variable. We can modify the nation variable with the class method
+        <i>change_nation</i>. To tell Python that a method is a class method, we put the @classmethod decorator directly above the method definition.
+		Like with regular methods, class methods accept a first, automatic argument. Instead of using <i>self</i>, we use <i>cls</i>. This is because
+		class methods work on the class, not a particular instance. This first argument will refer to whatever the class name is, in this case, Person. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The first class method will change the class variable nation. Notice how we use cls.nation in the method to access this variable? This is the
+	    same as saying Person.nation because the class name is Person. The next method <i>from_string</i> customizes how we can create instances of the person
+		class. For example, say we have a string like this: 'Caiden, Thompson, 19'. We can create an instance of the class from this string by using
+		the from_string method. How this method works is: it takes a string, creates first, last, and age variables by parsing the string and passes them
+		to the person class by using the cls argument, and returns the instance created. Let's take a look at an interactive session.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> p1 = Person(<span class="red">'Will'</span>, <span class="red">'Schield'</span>, <span class="green">22</span>)<br>
+		  >>> p1.fullname()<br>
+		  'Will Schield'<br>
+		  >>> p2 = Person.from_string(<span class="red">'Caiden, Thompson, 19'</span>)<br>
+		  >>> p2.age<br>
+		  19<br>
+		  >>> p2.fullname()<br>
+		  'Caiden Thompson'<br>
+		  >>> Person.change_nation(<span class="red">'Canada'</span>)<br>
+		  >>> p1.nation<br>
+		  'Canada'<br>
+		  >>> p2.nation<br>
+		  'Canada'
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Here, we first create an instance of Person called p1. Next, we call the fullname method on this instance just to demonstrate what the method does.
+	    After that, we create an instance of Person by using the from_string class method. This method works by taking a string that we pass to it;
+		parsing the string for the first name, last name, and age; and passing the variables from the parsed string to the class and returning the instance 
+		created. When we create an instance of Person from the class method, we have to explicitly call it from the class like: Person.from_string(). This
+		is because class methods do not operate on instances, they operate on the class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Like with the from_string class method, you should call the change_nation class method directly from the class rather than an instance. As you
+	    can see, when we call Person.change_nation, it will change the nation for all instances of the class. This will change the nation class variable
+		for all current and future instances that we create of Person.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="decorators.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="staticmethods.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

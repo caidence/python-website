@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Enumerate</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Enumerate</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="advancedstringformatting.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="listcomprehension.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Enumerate is a very useful built in Python function. It essentially "counts", the values in an iterable object. I use the word "count" loosely because
+	    this is not actually what the function does, this is just a common use case. enumerate(iterable) will return an object that is basically a list
+		of two value tuples. The first value in the tuples is a number and the second value is a single index of the iterable object. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> <span class="green">enumerate</span>(<span class="red">'test'</span>)<br>
+		  &lt;enumerate object at 0x0000015F46A85C18><br>
+		  >>> <span class="green">list</span>(<span class="green">enumerate</span>(<span class="red">'test'</span>))<br>
+		  [(0, 't'), (1, 'e'), (2, 's'), (3, 't')]<br>
+		  >>> <span class="green">list</span>(<span class="green">enumerate</span>(<span class="red">'test'</span>, <span class="green">5</span>))<br>
+		  [(5, 't'), (6, 'e'), (7, 's'), (8, 't')]
+		</code>
+	  </div>
+	  <p>As you can see, the enumerate function will return a new object. If you wish to view the contents of this object, you need to wrap it with list( ).
+	    Have a look at the output. We see that the object created by enumerate is a list of two item tuples. The first item in the tuple is the <i>counter</i>. This
+		is the number at which the counting is started. By default this value convinently is 0. The second item in the tuple is an index of the iterable.
+		We can see that the counter item increments by one with every index in the iterable object. We can pass a second optional argument to enumerate, 
+		a value at which we want the counter to start at. If we pass this argument to enumerate, it will start counting at that value. For instance, in the
+		example in the last call to enumerate, we pass 5 as the second argument. In the output we see that the first value of the first tuple is 5.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Using Enumerate</h3>
+	  <p>There are more use cases for enumerate that I will demonstrate in later tutorials, these examples are just a few common use cases. We can use
+	    enumerate to easily number lists and pick out certain indices of iterable objects. For example, this program numbers a shopping list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> shopping_list = [<span class="red">'apples'</span>, <span class="red">'eggs'</span>, <span class="red">'milk'</span>]<br>
+		  >>> <span class="green">for</span> counter, item <span class="green">in enumerate</span>(shopping_list, <span class="green">1</span>):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">f'{counter}. {item}'</span>)<br>
+		  1. apples<br>
+		  2. eggs<br>
+		  3. milk
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>On the first line of code, we create a variable called <i>shopping_list</i> which contains a list of items that you can buy at a grocery store.
+	    The next line starts a for loop. The loop variables can be confusing, so let me explain them. <i>counter</i> is referring to the first value in
+		each tuple within the enumerate object. Remember, this is the value that is incremented by one with each progressing tuple. In this example, 
+		the loop variable <i>item</i> is actually referring to the item in the iterable object or the second value in each tuple in the enumerate object.
+		The name of these loop variables is arbitrary, it is the position of these variables in the loop header that matters. Next, we just print a 
+		formatted string with the counter value on the left and the item's value on the right.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+	    >>> name = <span class="red">"Tommy Le"</span><br>
+        >>> upper_indices = []<br>
+        >>> <span class="green">for</span> index, char <span class="green">in enumerate</span>(name):<br>
+        ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> char.isupper():<br>
+        ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upper_indices.append(index)<br>
+        >>> upper_indices<br>
+		[0, 6]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>The first two lines of the example above are pretty straight forward. On the third line, we begin the for loop. Within the for loop, each element in
+        the iterable object is checked to see if it is an uppercase letter. If the item is an uppercase letter, the index of that item in the object is
+        appended to the list <i>upper_indices</i>. This works because enumerate starts counting at 0 by default. Conveniently, indices of items in iterable
+        objects also start counting at 0 by default. This means that the enumerate counter will match an item's index in an iterable object. The final line of 
+	    code in this example is to view the contents of <i>upper_indices</i>. We can see that our program worked and returns the indices of the uppercase letters
+		in the string <i>name</i>.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="advancedstringformatting.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="listcomprehension.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

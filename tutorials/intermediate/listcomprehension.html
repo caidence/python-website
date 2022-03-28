@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>List Comprehensions</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>List Comprehensions</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="enumerate.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="generator.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Simply put, list comprehensions are a compact way to pack logic and loops into one line of code in order to create a new list object. All of the
+	    code in a list comprehension goes inside of square brackets because the comprehension is performed in order to create a new list object. List 
+		comprehensions can contain for loops, if else statements, and conditions. One list comprehension can even have more than one loop if you want but, 
+		this is considered unreadable and a bad practice. We have actually already met list comprehensions in prior sections. [x for x in dir(object)] from 
+		a previous tutorial is actually a list comprehension.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>[x for x in dir(object)] is actually a pretty simple list comprehension and a good place to start learning about the general syntax of a
+	    a comprehension. Let us walk through what is going on in this example. Firstly, <i>x</i> is called the <i>condition</i>. Often times you
+		will manipulate this variable with a conditional statement. In this case, we do not manipulate the value of x, we just want it as is. The next part
+		(for x in dir(object)) you should recognize. This is just a for loop header. This comprehension will take every item in the output of dir(object)
+		and put it into a new list object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  1. <span class="light-gray"># With list comprehension</span><br>
+		  2. new = [x <span class="green">for</span> x <span class="green">in dir</span>(<span class="green">object</span>)]<br>
+		  3.<br>
+		  4. <span class="light-gray"># Without list comprehension</span><br>
+		  5. new = []<br>
+		  6. <span class="green">for</span> x <span class="green">in dir</span>(<span class="green">object</span>)<br>
+		  7. &nbsp;&nbsp;&nbsp;&nbsp;new.append(x)
+		</code>
+	  </div>
+	  <p>On line two, we have a list comprehension which creates a list called <i>new</i> of every item in dir(object). Line two does the exact same thing as 
+	    lines five, six, and seven combined. Without the list comprehension, we create a new list object, create a for loop, and append each item in dir(object) to
+		the list <i>new</i> manually from within the loop body. As you can see, the list comprehension requires much less code. The downside of comprehensions
+		is they can get pretty messy to read and understand. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> a = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>,
+		      <span class="green">5</span>]<br>
+		  >>> [x <span class="purple">+</span> 1 <span class="green">for</span> x <span class="green">in</span> a]<br>
+		  [2, 3, 4, 5, 6]
+		</code>
+	  </div>
+	  <p>I created this example to further demonstrate the <i>expression</i> portion of a list comprehension. The expression in this comprehension is at the 
+	    beginning, x + 1. This comprehension will create a new list object containing all of the elements in the list <i>a</i>, but adding one to each element.
+		The expression portion of a comprehension can be basically anything you want. The expression is executed for each element of the iterable object passed
+		to the comprehension just as it is in a generic for loop.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Adding Logic</h3>
+	  <p>We can get even more granular with list comprehensions by adding if else statements. These statements work just as they normally would, to control
+	    the flow of the program.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> name = <span class="red">"John Doe"</span><br>
+		  >>> [index <span class="green">for</span> index, char <span class="green">in enumerate</span>(name) <span class="green">if</span> char.isupper()]<br>
+		  [0, 5]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>As you can see, we can use the <i>enumerate</i> built in function within a list comprehension. Remember, enumerate returns a list of two item tuples
+	    containing the index of that item as the first value and the item itself as the second value. We can use this to our advantage to easily create a list
+		containing the index of every letter in a string that is uppercase. This example does just that. The comprehension evaluates if a letter is uppercase
+		using the .isupper() method. If, infact, the letter is uppercase, the comprehension will add the index of that letter to the new list object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> <span class="light-gray"># List comprehension coin flip simulator</span><br>
+		  >>> <span class="green">import</span> random<br>
+		  >>> [<span class="red">"Heads"</span> <span class="green">if</span> random.choice(<span class="green">range</span>(<span class="green">2</span>))
+ 		      <span class="purple">==</span> <span class="green">1 else</span> <span class="red">"Tails"</span>][<span class="green">0</span>]<br>
+		  'Heads'
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Above is an example of how you can use a list comprehension to make a coin flip simulator. I am sure that there are better ways to program a coin
+	    flip simulator, this is just to demonstrate some properties of list comprehensions. This comprehension will create a single itemized list of either "Heads"
+		or "Tails" depending on the output of the call to random.choice(range(2)). random.choice(range(2)) will either be a 0 or a 1, if it is 1, the list
+		will only contain the string "Heads". If the value is 0, the list will only contain the string "Tails". Because the list is guaranteed to only contain
+		one item, we can access that item by appending [0] to the end of the list comprehension. This will get the item at the 0<sup>th</sup> index of the 
+		list object created by the list comprehension.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Reading Files</h3>
+	  <p>You can create a list of all of the lines in a file, do some editing on them, and then print the lines to the console by using a simple list
+	    comprehension.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. lines = [line.rstrip() <span class="green">for</span> line <span class="green">in open</span>(<span class="red">'test.txt'</span>)]<br>
+		  2. <span class="green">for</span> line <span class="green">in</span> lines:<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(line)
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This program creates a list object of all the lines in the file object created within the list comprehension (open('test.txt')). The 
+	  comprehension calls .rstrip() on each line within the file object. rstrip will take out any whitespace at the end of each line including
+	  newlines (\n) and tabs (\t). The program then continues to print each line in the file by using a for loop.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Nested For Loops</h3>
+	  <p>As you know, we can nest for loops in our programs. This is often used to find the sum of multi-dimensional arrays. We also have the ability to nest
+	    for loops within list comprehensions to achieve the same behavior. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. array_2d = [[<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], [<span class="green">4</span>, 
+		     <span class="green">5</span>, <span class="green">6</span>]]<br>
+		  2.<br>
+		  3. <span class="light-gray"># With list comprehension</span><br>
+		  4. total = <span class="green">sum</span>([number <span class="green">for</span> sub_array <span class="green">in</span> array_2d 
+		     <span class="green">for</span> number <span class="green">in</span> sub_array])<br>
+		  5.<br>
+		  6. <span class="light-gray"># Without list comprehension</span><br>
+		  7. total = <span class="green">0</span><br>
+		  8. <span class="green">for</span> sub_array <span class="green">in</span> array_2d:<br>
+		  9. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> sub_array:<br>
+          10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total <span class="purple">+=</span> number
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Line four does the same thing as lines seven, eight, nine, and ten combined. It will sum all of the items in the 2D list using a nested for loop. Notice how
+	    we wrap the entire list comprehension within the <i>sum</i> built in function. We can treat list comprehensions just like list objects. This is
+		because the comprehension will run and create a new list object before it is used anywhere else in the program. This comprehension essentially is
+		just "flattening" the 2D list <i>array_2d</i> and combining all of its elements into a single 1D list. After all of the elements are in a single list,
+		the sum function is called on the new list created by the list comprehension which will add all of the items together. This value is then stored in 
+		a variable, <i>total</i>.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>We can actually nest as many for loops in a list comprehension as we want. The amount of logic that you pack into a list comprehension is
+	    arbitrary. Even though there is no limitation on how much logic we can use in a list comprehension, it is a bad practice to use long list
+		comprehensions. This is because with their length, they quickly become very difficult to read and understand, and they just look messy! Code 
+		readability is an extremely critical part of being a good programmer. As John Johnson says, "Any fool can
+		write code that a computer can understand. Good programmers write code that humans can understand.".
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. array_3d = [[[<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], [<span class="green">4</span>,
+		     <span class="green">5</span>, <span class="green">6</span>]], [[<span class="green">7</span>, <span class="green">8</span>, 
+			 <span class="green">9</span>], [<span class="green">10</span>, <span class="green">11</span>, <span class="green">12</span>]]]<br>
+		  2.<br>
+		  3. <span class="light-gray"># With list comprehension</span><br>
+		  4. total = <span class="green">sum</span>([number <span class="green">for</span> sub_array_1 <span class="green">in</span> array_3d 
+		     <span class="green">for</span> sub_array_2 <span class="green">in</span> sub_array_1 <span class="green">for</span> number <span class="green">in
+			 </span>sub_array_2])<br>
+		  5.<br>
+		  6. <span class="light-gray"># Without list comprehension</span><br>
+		  7. total = <span class="green">0</span><br>
+		  8. <span class="green">for</span> sub_array_1 <span class="green">in</span> array_3d:<br>
+		  9. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> sub_array_2 <span class="green">in</span> sub_array_1:<br>
+          10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> sub_array_2:<br>
+          11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; total <span class="purple">+=</span> number
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p><i>array_3d</i> is a list that contains two nested lists that each contain two more nested lists. In order to add all of the numbers in a 3D list
+	    using for loops, we would need one for loop for each dimension of the array. As you can see on line four, this is how you could store the sum of the
+		lists in a variable called <i>total</i>. Similarly, you can do the same thing without a list comprehension. Lines seven, eight, nine, ten, and eleven do the same 
+		thing as line four. They do not do exactly the same thing in the same way, but the code achieves the same results. As you can see, long list
+		comprehensions can become very difficult to read. The comprehension in this example contains three nested for loops! If you are going to use 
+		for loops to sum all of the items in the 3D list, it would be better practice to not use a list comprehension due to code maintenance and readability.
+	</div>
+	<div class="p-container">
+	  <h3>A Better Approach</h3>
+	  <p>Since I have shown two examples of how to use list comprehensions to find the sum of multidimensional lists. I thought it would be appropriate to
+	    introduce a better solution to this common problem. We can use something called <i>recursion</i> to find the sum of multidimensional lists. 
+		Using this method is more practical because no matter how many dimensions the list is, you do not have to change the code to get the sum. If you
+		for loops, you have to add a loop every time there is another nested list. This can get messy fast. Not to mention, the parent list has to be symmetric
+		when you use for loops, meaning, every element in the parent list must contain the same number of nested lists.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		   1. <span class="light-gray"># Symmetric list</span><br>
+		   2. [[<span class="green">1</span>, <span class="green">2</span>], [<span class="green">3</span>, <span class="green">4</span>]]<br>
+		   3.<br>
+		   4. <span class="light-gray"># Asymmetric list</span><br>
+		   5. [<span class="green">1</span>, [<span class="green">2</span>, <span class="green">3</span>, [<span class="green">4</span>,
+		      <span class="green">5</span>]], [<span class="green">6</span>, <span class="green">7</span>]]
+		</code>
+	  </div>
+	  <p>The list on line two is symmetric, each of its elements are lists. For loop summation would work with this list using a double nested for loop.
+	    Now look at the list on line five. The first element in this list is an integer, the second element is a list of integers and a nested list, and 
+		the third element is a list. The nested for loop approach would not work on a list like this, not easily anyways. This is where recursion is useful.
+		Using a recursive function would work for summing either of these lists. I am not going to dive too deep into recursion here because it is a 
+		computer science topic, but basically, a recursive function is a function that calls itself. This can be dangerous, so be careful with recursion.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="light-gray"># A recursive approach</span><br> 
+		  2. <span class="green">def</span> <span class="blue">sum_array</span>(array):<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;total = <span class="green">0</span></br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> item <span class="green">in</span> array:<br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if isinstance</span>(item, <span class="green">list</span>):<br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total <span class="purple">+=</span> sum_array(item)<br>
+          7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total <span class="purple">+=</span> item<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> total
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p><i>sum_array</i> is what is called a <i>recursive function</i>. This is because nested within the logic, it calls itself. You can see this on line
+	    six of the example. This function can sum any list in any of the list summing examples thus far, even the asymmetric list. Let's break this code down.
+		On the second line, we define a function, <i>sum_array</i>, that accepts one argument, a list. The argument can be a be a 1D list or it can contain
+		as many nested lists as you want. This function will also work with symmetric and asymmetric lists. Next, we define a variable within the function, 
+		<i>total</i>. This variable is used to keep track of the running total of the elements as the function is executing. Next, we enter a for loop for
+		every item in the parent list. After that, the function checks to see if the current item is a list or not. If the item <i>is</i> a list, the function
+		will call itself, passing the list as an argument. Notice how we add the value of the function call to the <i>total</i> variable. This is important, for
+		if we did not, the function would only return the total value of items in the parent list that are integers and floats, it would not add any elements 
+		inside of nested lists!
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="enumerate.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="generator.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

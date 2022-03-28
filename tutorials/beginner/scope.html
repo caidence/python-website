@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Scope</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Scope</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="functionparameters.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="fileio.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>What is scope?</h3>
+	  <p>Whenever you use a name in a program, Python will look up that name in what is called a <i>namespace</i>.
+        When we talk about <i>scope</i>, what we are really referring to is the name's relation to the part of the
+        code that it resides in. Python uses a name's place of assignment to associate it with a particular
+        namespace.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Functions are a great of example of what we call a <i>local namespace</i>. This means that variables
+        created here cannot be used outside of the local function. You cannot access names declared within a
+        function from namespaces outside of the function. Also, names declared in the local function namespace will
+        not clash with names declared in namespace outside of the function, even if the same names are used in more
+        than one namespace. A namespace that resides inside of another namespace can use names declared in its
+        parent namespace but not the other way around.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>In this tutorial, we are going to learn about the four namespaces built in, global, nonlocal, and local.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Global, Built in</h3>
+	  <p>When we talk about <i>global</i> namespace, we are talking about names that reside at the top-level of the
+        enclosing module. Every module (collection of files) is its own global scope. This means that variables
+        created here live at the top-level of the module. Any namespace declared within the module can access the
+        global namespace. This is commonly where functions and classes live.
+      </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. x = <span class="green">10</span> <span class="light-gray">&nbsp;&nbsp;# Global namespace</span><br>
+		  2. <span class="green">def</span> <span class="blue">func1</span>():<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(x)<br>
+		  4. <span class="green">def</span> <span class="blue">func2</span>():<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> func1()
+		</code>
+	  </div>
+	  <p>In the example, the variable <i>x</i> is in the global namespace. It is not declared inside of a function
+        or class, meaning that it can be accessed by all functions and classes in the same module. func1 and func2
+        also reside in the global namespace. We are able to print x from func1 because x is in the global namespace,
+        and we are able to call func1 from func2 because func1 and func2 reside in the same namespace. Remember,
+        anything declared within the global namespace can be used anywhere within the global namespace, including
+        namespaces created within the global scope.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Built-in is a namespace that resides in every Python module that you create because it is literally built in.
+        The built-in namespace resides one step above the global namespace. Even though this module is built into
+        Python, you still have to import it to view its contents, because the word <i>builtins</i> does not reside
+        in the namespace that it includes.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">import</span> builtins<br>
+		  >>> [x <span class="green">for</span> x <span class="green">in</span> <span class="green">dir</span>(builtins)]
+		</code>
+	  </div>
+	  <p>This example will display the contents of all Python's built in errors, keywords, and functions. Python uses
+        this list when looking up a name that it cannot find in any other namespace. Since this namespace is included
+        in every module's namespace, that means that you can use anything in this list without importing it. The
+        order of namespaces that Python will search for a name in order are local, nonlocal, global, built-in.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>The Global Statement</h3>
+	  <p>The <i>global</i> statement is what we call a <i>namespace declaration</i>. Global is a reserved word in
+        Python used for special cases where you need to change a global variable from inside a function. Normally,
+        we cannot change the values of global variables from local namespaces. If you declare a variable in a local
+        namespace with the global keyword, the variable will then refer to the global variable, and you are free to
+        change it from the local namespace.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. x = <span class="green">10</span><br>
+		  2. <span class="green">def</span> <span class="blue">change_x</span>(value):<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">global</span> x<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;x = value<br>
+		  5. <span class="green">print</span>(x)
+		</code>
+	  </div>
+	  <p>The global statement within the <i>change_x</i> function makes the variable <i>x</i> inside of the function
+        refer to the <i>x</i> variable declared in the global scope. Now when we pass a value to the function, it
+        will change the value of x in the global scope.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Be careful with global statements! If you are new to programming, you should probably try to avoid using
+        global statements all together, for now. Globals are needed in a few cases, but do not use them unless
+        absolutely necessary. They are notorious for making code difficult to understand and reuse.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>local, nonlocal</h3>
+	  <p>Local namespace is referring to names that are created within a local scope. Every function has a local
+        namespace; meaning, names declared within the function only reside in in that function's scope. When we
+        declare a variable in a function, it cannot be used outside of that function because it resides in the local
+        namespace.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. x = <span class="green">1</span> <span class="light-gray">&nbsp;&nbsp;# Global namespace variable</span><br>
+		  2. <span class="green">def</span> <span class="blue">local_x</span>():<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;x = <span class="green">2</span> <span class="light-gray">&nbsp;&nbsp;# Local namespace variable</span><br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(x)<br>
+		  5. <span class="green">print</span>(x)
+		</code>
+	  </div>
+	  <p>When this function is called, it will print 2 because that is the value of x in the local namespace. After
+        the function, there is a print statement, which also will print the value of x. This will print out 1 because
+        that is the value of x in the global scope, and we cannot access the function's local scope from outside of
+        the function body.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Nonlocal namespace is created whenever we nest a local namespace within another local namespace. A good
+        example of this is called a <i>closure</i>. We won't get into closers here, but basically they are functions
+        nested inside other functions to change the functionallity of one of the functions. Remember, every function
+        has its own local namespace. This means that if we nest a function inside another function, we are nesting a
+        local namespace inside of another local namespace. This creates a nonlocal namespace for the inner function.
+        All names declared inside of the outer function are considered nonlocal variables from the perspective of the
+        inner function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>The Nonlocal Statement</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. x = <span class="green">10</span><br>
+		  2. <span class="green">def</span> <span class="blue">outer</span>():<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;x = <span class="green">3</span><br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">inner</span>():<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">nonlocal</span> x<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = <span class="green">0</span><br>
+		  7. &nbsp;&nbsp;&nbsp;&nbsp;inner()<br>
+		  8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(x)<br>
+		  9. outer()<br>
+		  10. <span class="green">print</span>(x)
+		</code>
+	  </div>
+	  <p>The first time that we declare x, we set its value equal to 10. This variable lives in the global namespace
+        of this program. We then declare x again within the <i>outer</i> function, this x variable lives within the
+        outer function's namespace and is local to <i>outer</i>. Because the inner is function nested within the
+        outer function, this function, too, can use the x variable declared within <i>outer</i>. Relative to the
+        inner function, the x variable declared in the outer function is a <i>nonlocal</i> variable. Normally, we
+        would not be able to change the value of x from the inner function, but we can because we use the nonlocal
+        keyword in the inner function. The statement "nonlocal x" in the inner function makes the value of x in the
+        inner function refer to x in the outer function. We then change the value of x in the inner function. After
+        the inner function, but still within the outer function, we call the inner function. This will change the
+        value of x in the outer function. Finally, in the outer function, we print the new value of x. The final
+        print statement after the function call to outer will print the global variable x just to show that nonlocal
+        does not impact global variables.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="functionparameters.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="fileio.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

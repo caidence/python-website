@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Dictionary Operations</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Dictionary Operations</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="listoperations.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="tupleoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>keys, values, items</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> test = {<span class="red">'test1'</span>: <span class="green">1</span>, 
+		     <span class="red">'test2'</span>: <span class="green">2</span>}<br>
+		  >>> test[<span class="red">'test1'</span>]<br>
+		  1<br>
+		  >>> test[<span class="red">'test2'</span>]<br>
+		  2
+		</code>
+	  </div>
+	  <p>Dictionaries are collections of key value pairs. Generally, you use the key of a dictionary to retrieve
+        the value stored at that key. dictionary['key'] will return the value stored at a key in the dictionary.
+        In the example, test['test1'] returns 1 because that is the value stored at the 'test1' key. In a dictionary,
+        we associate a key with a value by placing a colon between the key and its value, key: value. We can separate
+        key value pairs by placing a comma between them. Make sure that you create your dictionary with curly braces
+        { } otherwise, it will not be a dictionary, and you may get an error.		
+	  </p>
+	</div>
+    <div class="p-container">
+	  <p>As you learned in the data types tutorial, dictionaries have key value pairs. The main use case of a
+        dictionary is to use the key to retrieve the value. These methods are common for getting the keys, values,
+        or both! Starting off, <i>keys</i> will return a view object of the dictionary's keys. Likewise,
+        <i>values</i> will return a view object of all of the dictionary's values. <i>items</i> will return a view
+        object of two item tuples containing the dictionary's key value pairs. You can treat the returned view
+        objects from these method calls as you would treat a list or tuple.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> person = {<span class="red">"Name"</span>: <span class="red">"Joe"</span>,
+    		  <span class="red">"Age"</span>: <span class="green">30</span>, <span class="red">"Hobby"</span>: <span class="red">"Programming"</span>}<br>
+		  >>> <span class="light-gray"># Get the dict's keys</span><br>
+		  >>> person.keys()<br>
+		  dict_keys(['Name', 'Age', 'Hobby'])<br>
+		  >>> <span class="light-gray"># Get dict's values</span><br>
+		  >>> person.values()<br>
+		  dict_values(['Joe', 30, 'Programming'])<br>
+		  >>> <span class="light-gray"># Get dist's key value pairs</span><br>
+		  >>> person.items()<br>
+		  dict_items([('Name', 'Joe'), ('Age', 30), ('Hobby', 'Programming')])
+		</code>
+	  </div>
+	  <p>There is a lot going on here so let's break it down. On the first line, we have a dictionary named
+        <i>person</i>. After the dictionary declaration, we get a view object of just the keys by calling the
+        <i>keys</i> method on the person object. Don't be intimidated by the return value of these method calls,
+		you can treat the returned object exactly like a list or tuple. Going on, we then get a view object of the
+        values by calling the values method on the person dictionary. Again, the return object acts like a list or
+        tuple. Finally, we call the <i>items</i> method on the person object. This returns a list of tuples
+        containing the dictionary's key value pairs. These methods will make more sense and appear more useful when
+        you learn about for loops.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>update, del</h3>
+	  <p>The next two topics are update and del. del is not a method, but I thought it appropriate to introduce it
+        here, considering that &ndash; as of this writing &ndash; there is no remove method for dictionaries.
+        update is used to add key value pairs to an existing dictionary and/or change the value of an existing key.
+		You can use update to add or update more than one key value pair to a dictionary at a time. You can use del
+        to remove key value pairs from a dictionary. The syntax of del is different than what you're used to, but
+        you will get used to it over time.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> example = {<span class="red">'one'</span>: <span class="green">1</span>, <span class="red">'two'</span>:
+    		  <span class="green">2</span>}<br>
+		  >>> example.update({<span class="red">'three'</span>: <span class="green">3</span>, <span class="red">'one'</span>:
+    		  <span class="red">'uno'</span>})<br>
+		  >>> example<br>
+		  {'one': 'uno', 'three': 3, 'two': 2}
+		</code>
+	  </div>
+	  <p>There are a few things to notice here. Do you see how when we pass an object to the update method, the
+        object that is passed is a dictionary? Also notice, we are updating an existing value, and adding a new
+        value at the same time. If a key already exists when you call the update method, Python will override
+		the existing key in the dictionary with the new one. The next thing to notice is in the output. Can you
+        spot it? Dictionaries are an unordered collection of key value pairs. There does exist an object in Python
+        called an OrderedDict, if you want to check it out, it lives in a module called <i>collections</i>. In this
+        example specifically, a key named one already exists in the dictionary, so when we call update, passing a
+        key value pair with a key being 'one', the 'one' key is overridden in the existing dictionary with the value
+        'uno'.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Like I said earlier, the del keyword is not a method, nor is it specific to dictionaries. However, we can
+        use it with dictionaries to remove a key value pair, by key. Say we wanted to remove the key value pair
+        {'delete_me': -1} from the dictionary <i>example</i>. We would write del example['delete_me'].
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> test = {<span class="red">'to-delete'</span>: <span class="green">1</span>, 
+		      <span class="red">'to-keep'</span>: <span class="green">2</span>}<br>
+		  >>> <span class="green">del</span> test[<span class="red">'to-delete'</span>]<br>
+		  >>> test<br>
+		  {'to-keep': 2}
+		</code>
+	  </div>
+	  <p>When we delete a key value pair from a dictionary, we only need to use the key with the delete keyword.
+        Also, notice that we need to have the dictionary's name before the square braces with the key name of the
+        key value pair to delete. You can think of deleting a key value pair much the same that you would access
+        the value stored at a key, just prepend the statement with the <i>del</i> keyword.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="listoperations.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="tupleoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

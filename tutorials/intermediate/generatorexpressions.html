@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Generator Expressions</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Generator Expressions</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="generator.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="argsandkwargs.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Syntax</h3>
+	  <p>Generator expressions are somewhere between a generator function and a list comprehension. A generator has the functionality of a generator
+	    object with the syntax of a list comprehension. The only difference in syntax between generator expressions and list comprehensions is with
+		generator expressions, you wrap with ( ) rather than [ ]. Generator expressions support for loop nesting and if statements. Like generator
+		functions, generator expressions create a generator object that we can iterate over in our program. One call thing about generator expressions
+		is, because they are wrapped in ( ), we do not need to wrap them in parentheses in function calls.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The functionality of generator expressions is exactly the same as generator functions. Because I covered what generators actually do in the
+	    previous tutorial, I will not discuss much how generators work on this page. This tutorial assumes you have read the previous one and is
+		aimed at generator expression syntax rather than what the generator is actually doing behind the scenes.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>As mentioned earlier, generator expressions create generator objects just like generator functions. The difference is, generator expressions can
+	    be coded on one line like list comprehensions. Let's take a look at a few examples where I demonstrate a generator function and create
+		a generator expression that is equivalent to the function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  1. test_list = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>,
+		     <span class="green">4</span>]<br>
+		  2. <br>
+		  3. <span class="light-gray"># Generator function</span><br>
+		  4. <span class="green">def</span> <span class="blue">gen_squares</span>(array):<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> num <span class="green">in</span> array:<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> num <span class="purple">**</span> 
+		     <span class="green">2</span><br>
+		  7. example = gen_squares(test_list)<br>
+		  8. <br>
+		  9. <span class="light-gray"># Generator expression</span><br>
+		  10 example = (num <span class="purple">**</span> <span class="green">2 for</span> num <span class="green">in</span> test_list)
+		</code>
+	  </div>
+	  <p>Lines 7 and 10 achieve the exact same result. The difference is, line 7 creates a generator object by calling a generator function where as 
+	    line 10 is a generator expression. As you can see, generator expressions have the same syntax as list comprehensions with the difference being
+		that the expression is wrapped in ( ) rather than [ ]. Because generator expressions create generator objects just like generator functions,
+		we can iterate over generator expressions too. We can even replace where we would normally place a variable in our code with a generator
+		expression if we want. A way of doing this is by replacing variable names in for loops with a generator expression.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> <span class="green">for</span> x <span class="green">in</span> (x <span class="purple">**</span> <span class="green">2 for</span>
+		      x <span class="green">in range</span>(<span class="green">4</span>)):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(x, end=<span class="red">' - '</span>)<br>
+		  0 - 1 - 4 - 9 - 
+		</code>
+	  </div>
+	  <p>More often than not, we put a variable referencing an object in the for loop header: for x in <i>variable</i>:. In this example, we see
+	    that we can replace where we would usually put a variable with a generator expression. This works because a generator expression creates
+		a generator object. Remember, generator objects are iterators so when we put a generator object directly in the header of a for loop, the
+		loop will automatically iterate over the generator object created by the expression.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Nested Generators</h3>
+	  <p>Believe it or not, we have been working with generators in many of the previous tutorials. Python's range built in function actually returns
+	    a generator object. This is why we can get away with putting massive numbers in a function call to range. Any time that we use range
+		in a generator we are actually nesting a generator within a generator. Nesting generators has the advantage of saving memory. This is because
+		they will execute without creating multiple lists that would need to be stored in memory.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	   <code>
+	      >>> <span class="light-gray"># Nested list comprehension</span><br>
+		  >>> [x <span class="purple">**</span> <span class="green">2 for</span> x <span class="green">in</span>
+		      [x <span class="purple">**</span> <span class="green">3 for</span> x <span class="green">in</span>
+			  (<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>)]]<br>
+		  [1, 64, 729, 4096]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Nested generator expression</span><br>
+		  >>> <span class="green">list</span>(x <span class="purple">**</span> <span class="green">2 for</span> x <span class="greem">in</span>
+		      (x <span class="purple">**</span> <span class="green">3 for</span> x <span class="green">in</span> (<span class="green">1</span>,
+			  <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>)))<br>
+		  [1, 64, 729, 4096]
+	   </code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Both the nested list comprehension and the nested generator expression have the same effect. Both also have advantages and disadvantages.
+	    Let's start with the list comprehension. The major advantage of the list comprehension is its speed. List comprehensions are faster than
+		generator expressions because the list is loaded into memory before the computation begins on the object. The main disadvantage of list
+		comprehensions is; they take up a lot more memory. This is because the entire list object is loaded into memory before the program can
+		execute tasks on the list. This is fine for small lists, but becomes a major disadvantage for large list objects. Generators pretty much have
+		the inverse advantages and disadvantages of list comprehensions. An advantage of generator expressions is; they consume much less memory. This
+		is because as we iterate through a generator object, each element of the object is only loaded into memory as needed. The entire object is 
+		not loaded all at once. A disadvantage of generator functions, as you can probably guess by this point, are slower to iterate over than the 
+		list object created by comprehensions. This is because the expression actually has to execute with each iteration of the generator object.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="generator.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="argsandkwargs.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

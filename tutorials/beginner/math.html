@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Math Operations</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Math Operations</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="variables.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="assignment.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>Math operators such as addition, subtraction, etc. (+, -, *, /). Work differently on different objects
+        and in different contexts. Technically, these operators can do anything that you want, when you define
+        your own classes, but we're not there yet. Succinctly put, classes have methods that you can change
+		to change the functionality of the operator. This is called <i>operator overloading</i> and is a good
+        example of polymorphism in Python.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>In this section, you will get some hands-on experience of how these math operators change depending on the
+        context that they are used in. We will also explore how they work differently depending on the data types
+        that we are using them on. Eventually, in the advanced tutorials, we will create classes where we can change
+        the functionality of these operators by using user-defined methods. 
+	  </p>
+	</div>
+    <div class="p-container">
+	  <h3>Addition</h3>
+	  <p>Addition works on numbers in Python as you would expect. The only thing to note about addition is if you
+        add an int to a float, the object returned will be a float. This is true for all of Python's math
+        operations where one data type is an int and the other is a float. The returned value will always be a float.
+        Take a look at the examples for clarity.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Adding an int to a float</span><br>
+		  >>> <span class="green">1</span> <span class="purple">+</span> <span class="green">1.1</span><br>
+		  2.1<br>
+		  >>> <span class="green">1</span> <span class="purple">+</span> <span class="green">1.0</span><br>
+		  1.0
+		</code>
+	  </div>
+	  <p>The interesting thing about the addition operator is that we can use it on other data types. It is not
+        just limited to ints and floats, we can also use it on tuples and lists. Once again, it probably works
+        as expected. When you use + with lists and tuples, it simply adds the list or tuple to the end of the
+        one that appears before the operator. Here are a few examples to make this more clear.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> [<span class="green">1</span>, <span class="green">2</span>] <span class="purple">+</span> 
+		      [<span class="green">3</span>, <span class="green">4</span>]<br>
+		  [1, 2, 3, 4]<br>
+		  >>> (<span class="green">1</span>, <span class="green">2</span>) <span class="purple">+</span> 
+		      (<span class="green">3</span>, <span class="green">4</span>)<br>
+		  (1, 2, 3, 4)
+		</code>
+	  </div>
+	  <p>We start by adding two separate lists together. This essentially appends the second list to the end of
+        the first. Remember, lists are mutable objects, which means that we can add to them. Next, we do the same
+        thing with two tuples. Wait, if tuples are immutable, then how can we add two together? Well, we are not
+        really adding the two tuples together at all. When we use the + operator on two tuples, Python creates a new
+        tuple object with the combined contents of the tuples. Remember, math operators work differently in
+        different contexts.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>We can also add two strings together. This is called <i>concatenation</i>. I covered this concept in the
+         strings tutorial. Like tuples, strings are immutable. This means that we're not really adding strings
+         together, but creating an entirely new string that contains the contents of both strings.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Subtraction</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">5</span> <span class="purple">-</span> <span class="green">4</span><br>
+		  1<br>
+		  >>> <span class="green">6.0</span> <span class="purple">-</span> <span class="green">1</span><br>
+		  5.0<br>
+		  >>> <span class="green">1</span> <span class="purple">-</span> <span class="green">2</span><br>
+		  -1
+		</code>
+	  </div>
+	  <p>Subtraction only works on ints and floats and, once again, works much as you'd expect. Like addition, if
+        one of the numbers is a float and the other is an int, Python will return a float. We subtract using the
+        minus sign, of course.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Multiplication</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">5</span> <span class="purple">*</span> <span class="green">5</span><br>
+		  25<br>
+		  >>> <span class="green">1.5</span> <span class="purple">*</span> <span class="green">3</span><br>
+		  4.5<br>
+          >>> [<span class="green">1</span>, <span class="green">2</span>] <span class="purple">*</span> <span class="green">2</span><br>
+          [1, 2, 1, 2]<br>
+          >>> (<span class="green">1</span>, <span class="green">2</span>) <span class="purple">*</span> <span class="green">3</span><br>
+          (1, 2, 1, 2, 1, 2)<br>
+          >>> <span class="red">"foo"</span> <span class="purple">*</span> <span class="green">4</span><br>
+          'foofoofoofoo'
+		</code>
+	  </div>
+	  <p>Nothing too fancy with multiplication. We can multiply numbers using the asterisk character (*). Again,
+        if you multiply an int and a float Python will return a float. Like with addition, and unlike with subtraction,
+        multiplication will work on list, tuples, and strings. For these three data types, it essentially concatenates
+        the object with itself however many times you multiply by. As you can see in the examples, all of the most
+        rudimentary Python data type classes define a method for multiplication.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Division</h3>
+	  <div class=" left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">25</span> <span class="purple">/</span> <span class="green">5</span><br>
+		  5.0<br>
+		  >>> <span class="green">1</span> <span class="purple">/</span> <span class="green">3</span><br>
+		  0.3333333333333333
+		</code>
+	  </div>
+	  <p>In Python, we can divide two numbers using a forward slash (/). Division is different than the other
+        math operators, because no matter what numbers you divide, Python always will return a float.
+        You can even divide an int by an int, and Python still will return a float.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Exponents</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">1</span> <span class="purple">**</span> <span class="green">10</span><br>
+		  1<br>
+		  >>> <span class="green">2</span> <span class="purple">**</span> <span class="green">3</span><br>
+		  8<br>
+		  >>> <span class="green">10</span> <span class="purple">**</span> <span class="green">2</span><br>
+		  100
+		</code>
+	  </div>
+	  <p>Python also makes exponents easy to use in math expressions. To get two to the power of three, for example,
+        we would write 2 ** 3. This will return 2 to the power of 3. We use a double asterisk to define an exponent.
+        Here are a few exponent examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Basically, how this works is Python takes the number on the right and multiplies it by itself as many times
+        as the number on the left, which is technically the definition of exponents.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Floor Division</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">5</span> <span class="purple">//</span> <span class="green">3</span><br>
+		  1<br>
+		  >>> <span class="green">11</span> <span class="purple">//</span> <span class="green">3</span><br>
+		  3
+		</code>
+	  </div>
+	  <p>In case you do not know, floor division is where you drop the decimal completely to get a whole number. Do
+        not confuse floor division with rounding, because it is very different! For example, if you divide 11 by
+        three, you get 3.6666. With floor division, you would not round this decimal up to make the answer 4,
+        instead you would completely truncate the decimal to make the answer 3. We can achieve floor division by
+        using double forward slash (//).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>modulo</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">5</span> <span class="purple">%</span> <span class="green">3</span><br>
+		  2<br>
+		  >>> <span class="green">6</span> <span class="purple">%</span> <span class="green">3</span><br>
+		  0<br>
+		  >>> <span class="green">10</span> <span class="purple">%</span> <span class="green">7</span><br>
+		  3
+		</code>
+	  </div>
+	  <p>This one is pretty abnormal, so bear with me. The modulo character will divide the two numbers and return
+        the remainder from the division. For example, if you were to divide five by three; three goes into five one
+        time and leaves a remainder of two. Because the remainder is two, that is what modulo will return. If there
+        is no remainder then modulo will return zero. How we do this is just like dividing, but instead of a forward
+        slash use the modulo operator (%). Just remember that modulo will return the remainder from division. How 
+        is this useful? It is used mainly in data structures and algorithms. Oversimplified, if you want to get
+        a random index of a list (Python sets and dictionaries use this in the background), you can have an
+        algorithm that calculates a large number, and take the modulus of that large number by the length of the
+        list. This algorithm will always return an index within the range of the list, because the remainder can
+        never be greater than the length of the list.
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container aniview" data-av-animation="slideInUp">
+      <div class="previous radio">
+	    <a href="variables.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container aniview" data-av-animation="slideInUp">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container aniview" data-av-animation="slideInUp">
+	  <div class="next radio">
+	    <a href="assignment.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

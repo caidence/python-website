@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Inheritance</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Inheritance</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="del.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="multipleinheritance.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>Inheritance is probably one of the most notable features of OOP. It allows us to build new classes that take code from classes that we have
+	    already made. Inheritance makes programs more flexible, versatile, and expandable. With inheritance, we can create base classes, which will
+		act as a common functionality for all future classes. If we program this way, we will not have to write the same method in more than on class
+		because the method can just be inherited if we want!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Generally, when a class inherits from another, it will acquire all properties and methods of the parent class. This is what I mean when I
+	    say that OOP is a way to create classes from existing classes. We have really been using inheritance all along believe it or not. Every
+		class that we create actually inherits from a class called <i>object</i>. This is the base class that all objects in Python inherit from.
+		Writing: class Test: is the same as writing class Test(object):. This is the syntax used for inheritance in Python, as you'll see very soon!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Getting Started</h3>
+	  <p>When one class inherits from another, it will acquire most of the methods from the class that it inherits from. A few of the methods that
+	    are not inherited are constructors, destructors, and Python's __init__. To mitigate a child class not calling its parent's __init__ method,
+		we can call the parent's __init__ method explicitly from the child's __init__ method. Let's look at an example to show how this works, as well
+		as how a child inherits methods from its parent class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Parent</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, x=<span class="green">0</span>,
+		     y=<span class="green">0</span>):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.x = x<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.y = y<br>
+          5. <br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">do_stuff</span>(self):<br>
+          7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = <span class="green">0</span><br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> v <span class="green">in</span> 
+		     self.__dict__.values():<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total <span class="purple">+=</span> v<br>
+          10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> total<br>
+		  11. <br>
+		  12. <br>
+		  13. <span class="green">class</span> <span class="blue">Child</span>(Parent):<br>
+          14. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, x=<span class="green">0</span>,
+		      y=<span class="green">0</span>, z=<span class="green">0</span>):<br>
+          15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent.__init__(self, x, y)<br>
+          16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.z = z
+		</code>
+	  </div>
+	  <p>The Parent class accepts two arguments: x and y. Parent also has a method: <i>do_stuff</i> that will add all of the instance variables
+	    together and return the total. There is also a class called <i>Child</i> which inherits from Parent. To make Child inherit from Parent, we 
+        have to put Parent in the parentheses following the Child class definition like this: class Child(Parent):. Because Child inherits from
+        Parent, we will also be able to call the <i>do_stuff</i> method from an instance of Child. A key point to notice is the __init__ method in
+        Child. Because Child accepts some of the same arguments as Parent, we want to use the __init__ method in Parent for those arguments. We do_stuff
+        this by explicitly calling the Parent's __init__ in the Child's __init__ method and passing the similar vales to the explicitly called parent
+		__init__. For instance, in the example, both Chile and Parent accept the arguments <i>x</i> and <i>t</i>. Because these arguments are the same
+        in both classes, we want to initialize these two arguments by using the __init__ method in Parent. To do this, we can write: 
+		Parent.__init__(self, x, y). This will initialize the variables with the Parent's __init__, but we can still treat them as a part of the
+        Child instance, because they are. We can still access these variables from child instances by writing: child)instance.x, or; child_instance.y. 		
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>If we create an instance of Child, we can do everything that is defined in the Parent class. The difference between Parent and Child is that,
+	    Child has a third instance variable &ndash; z. You can think of Child as an extension of Parent. Child will act the same as parent, but it has
+		another instance variable.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> test = Child(x=<span class="green">1</span>, y=<span class="green">2</span>, z=<span class="green">3</span>)<br>
+		  >>> test.x<br>
+		  1<br>
+		  >>> test.y<br>
+		  2<br>
+		  >>> test.z<br>
+		  3<br>
+		  >>> test.do_stuff()<br>
+		  6
+		</code>
+	  </div>
+	  <p>First, we create an instance of Child called <i>test</i>. As you can see, we can access the x, y, and z instance variables of instances
+	    of Child just like we can with instances of Parent (excluding z). Since Parent does not have an instance variable called z, we have to
+		explicitly set it in the initialization method of Child. However, if we can, we want to initialize Child classes with their Parent's
+		initialization functions. Even though we did not explicitly create a do_stuff function in the Child class, we can still call it on child
+		instances because it is inherited from the Parent class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Super()</h3>
+	  <p>There is, however, an alternative to explicitly calling methods from the parent class by their name. We can use the <i>super()</i> function
+	    to do this for us. We use the syntax: super().method_name(), to call the parent's method that is named <i>method_name</i>. The advantage
+		of using super over explicitly writing the name of the method in the Parent function is: it eliminates the need to declare certain characteristics
+		of a class. If a class inherits from more than one other
+		class and, for instance, needs to initialize variables that are inherited from each parent class, super will call the __inti__ method from each
+		parent class in one statement rather than having to call each parents' __init__ explicitly.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>When you can, you will want to use super in place of directly calling methods from the Parent class. It will reduce maintenance overhead,
+	    improve readability, and reduce code redundancy. For instance, in the last example, we had the opportunity to use super. In the __init__
+		method of Child, because Child and Parent have two of the same instance variables -- x and y. We could call super instead of explicitly
+		calling __init__ from Parent. Here is a look at what the before and after Child class would look like.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		1. <span class="light-gray"># Without using super()</span><br>
+		2. <span class="green">class</span> <span class="blue">Child</span>(Parent):<br>
+        3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, x=<span class="green">0</span>,
+		   y=<span class="green">0</span>, z=<span class="green">0</span>):<br>
+        4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent.__init__(self, x, y)<br>
+        5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.z = z<br>
+		6.<br>
+		7. <span class="light-gray"># With using super()</span><br>
+		8. <span class="green">class</span> <span class="blue">Child</span>(Parent):<br>
+        9. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, x=<span class="green">0</span>,
+		   y=<span class="green">0</span>, z=<span class="green">0</span>):<br>
+        10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(x, y)<br>
+        11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.z = z
+		</code>
+	  </div>
+	  <p>These two definitions of Child will work exactly the same. The difference is -- one calls the Parent __init__ method explicitly
+        by using the name of the Parent class (Parent.__init__(self, x, y)), and one calls the Parent __init__ method by using super() 
+		(super().__init__(x, y)). Notice how when we use super to call the parent's initialization method, that we do not have to pass 
+        <i>self</i> as the first argument to __init__. We do, however, have to pass <i>self</i> when we write: Parent.__initn__(self, x, y).
+        Python's super function is smart enough to where we can exclude the self argument and it will still work the same as calling the parent __init__ by
+		name with the self argument.
+	  </p>
+    </div>
+	<div class="p-container">
+	  <h3>We're all people; right?</h3>
+	  <p>I wanted to take the opportunity to look at a slightly more sophisticated and larger example of a program that uses inheritance.
+	    A simple way to demonstrate this is by using people. We all have different relationships with different people. For instance, we all have
+		friends, family, co-workers, classmates, etc. Even though our relationship is different between each person, they're all still people. This
+		makes for an excellent example to use inheritance. All people, despite their relation to us, have many of the same attributes such as a first
+		name, last name, and age. We can use these common attributes to create a base class, Person. The relationship that we have with each person
+		will all have these attributes in our base class. We can then create a subclass that inherits from Person for people who have different
+		types relationships with us. For instance, Employee, Friend, and Family. These classes can each have their own unique attributes and methods,
+		but still have the same attributes and methods as our base Person class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+	      1. <span class="green">class</span> <span class="blue">Person</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, first_name, last_name,
+    		 <span class="purple">**</span>kwargs):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.first_name = first_name<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.last_name = last_name<br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> key, value <span class="green">in</span>
+		     kwargs.items():<br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">setattr</span>(self, key, value)<br>
+          7.<br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">full_name</span>(self):<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> <span class="red">f'{self.first_name}
+		     {self.last_name}'</span><br>
+          10.<br>
+          11.<br>
+          12. <span class="green">class</span> <span class="blue">Coworker</span>(Person):<br>
+          13. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, first_name, last_name,
+		      salary=<span class="green">50000</span>, <span class="purple">**</span>kwargs):<br>
+          14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(first_name, last_name,
+		      <span class="purple">**</span>kwargs)<br>
+          15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.email = first_name[<span class="green">0</span>].lower()
+		      <span class="purple">+</span> last_name.lower() <span class="purple">+</span> <span class="red">"@example.com"</span><br>
+          16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.salary = salary<br>
+          17.<br>
+          18. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">give_raise</span>(self,
+		      percent=<span class="green">1.02</span>):<br>
+          19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.salary <span class="purple">*=</span> percent<br>
+          20.<br>
+          21.<br>
+          22. <span class="green">class</span> <span class="blue">Friend</span>(Person):<br>
+          23. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, first_name, last_name,
+		      phone=<span class="green">None</span>, <span class="purple">**</span>kwargs):<br>
+          24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(first_name, last_name,
+		      <span class="purple">**</span>kwargs)<br>
+          25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.phone = phone<br>
+          26.<br>
+          27. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_phone</span>(self, new_number):<br>
+          28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.phone = new_number<br>
+          29.<br>
+          30.<br>
+          31. <span class="green">class</span> <span class="blue">Family</span>(Friend):<br>
+          32. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, first_name, last_name,
+		      phone=<span class="green">None</span>, address=<span class="green">None</span>, <span class="purple">**</span>kwargs):<br>
+          33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(first_name, last_name,
+		      phone, <span class="purple">**</span>kwargs)<br>
+          34. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.address = address<br>
+          35.<br>
+          36. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_address</span>(self, new_address):<br>
+          37. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.address = new_address
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>There is a ton of code here, so let's take it line-by-line. On the first line, we create a class called Person. This is going to be our
+	    base class that all other classes will inherit from. This class defines instance variables called first_name and last_name. All other
+		classes will have these variables as well and will set them by calling the __init__ method from Person. In Person, there is also a method
+		called <i>full_name</i>. This will return the full name of the person and will work on instances created from any class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The next class is called <i>Coworker</i> and inherits from <i>Parent</i>. Because of this, we are able to call the <i>full_name</i> method
+	    from instances that we create of Coworker. Notice the initialization method in Coworker. Because, first_name and last_name instance variables
+		are required for both Coworker and Person, we want to initialize those variables with the Person __init__ method. We do this by directly
+		passing the variables from the init method in Coworker to the super().__init__() method. Coworker extends Person. The difference is, Coworker
+        accepts an  additional argument &ndash; a salary. There is also an additional method in Coworker. <i>give_raise</i> will raise the salary by 2%.		
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The third class is called <i>Friend</i>. Friends are also people (believe it or not) and that iw why the Friend class inherits from Person. 
+	    Because Friend inherits from Person, we are able to call the <i>full_name</i> method in the Person class definition from instances of Friend.
+		Like Coworker, Friend has all of the same attributes as Person, it just extends the abilities of Person. Also, like Coworker, Friend creates
+		instances variables called <i>first_name</i> and <i>last_name</i>. Again, we want to create these instance variables from the parent's
+		__init__ method. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The final class in this program is called Family. This class varies slightly from Coworker and Friend in its inheritance scheme. We want
+	    this class to inherit from both Person and Friend. We need it to inherit from Person so that we can easily define first_name and last_name
+		instance variables and still get the functionality of Person's full_name method. We also want to use the change_phone method defined within
+		the Friend class. To get the functionality of both, we can choose to inherit from the Friend class. This works because Friend inherits from
+		Person, giving us the functionality of both classes if we inherit from Friend. In Family's __init__ method, when we call super().__init__,
+		phone will be initialized from Friend and the Friend class will pass first_name and last_name to Person so that they can be initialized there.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="del.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="multipleinheritance.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

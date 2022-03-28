@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Map</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Map</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="lambda.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="zip.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>Map is a useful built in function in Python, but there is not too much to explain about it which will leave
+        this section relatively short. Map accepts two arguments, a function, and an iterable object. Map will return
+        a list of results after applying the function to each item of the given iterable object. You can use
+        functions or lambda expressions as the first argument in a call to map.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Examples</h3>
+	  <p>First, we'll start by looking how to use map with a function that uses one argument. Next, we will see how
+        to use map with functions that use multiple arguments. All map does is return an iterable object of each
+        value passed in the second argument run through the function passed as the first argument. When we pass a
+        function to map, we do not need parentheses, we only need to pass the function name. The syntax is
+        map(function, iterable).
+	  </p>
+	</p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Passing a defined function to map</span><br>
+		  >>> <span class="green">def</span> <span class="blue">add_one</span>(x):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> x <span class="purple">+</span> <span class="green">1</span><br>
+		  >>> <span class="green">list</span>(<span class="green">map</span>(add_one,
+		      [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]))<br>
+		  [2, 3, 4]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Passing lambda expression to map</span><br>
+		  >>> <span class="green">list</span>(<span class="green">map</span>(<span class="green">lambda</span> x: x <span class="purple">+</span>
+		      <span class="green">1</span>, [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]))<br>
+		  [2, 3, 4]
+		</code>
+	  </div>
+	  <p>The first time we call map, we pass a function that we have defined in the code as a first argument. Notice
+        how we exclude the parentheses when we pass the function as an argument to map? The second argument that we
+        pass to map is a list. This will execute the code within the function on every item in the list. In the
+        second call to map, we use a lambda expression rather than a predefined function. This will achieve the same
+        result as the map call with the predefined function, lambda just uses less code.		
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>If we are mapping to a function that uses more than one argument, we need to pass more than one list to the
+        map function. The first list of items will be the first arguments and the second list of items will be the
+        second arguments and so on. This can be a little confusing, so here is an example. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Using map with a predefined function</span><br>
+		  >>> <span class="green">def</span> <span class="blue">add</span>(x, y):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> x <span class="purple">+</span> y<br>
+		  >>> <span class="green">list</span>(<span class="green">map</span>(add, [<span class="green">1</span>, <span class="green">2</span>,
+		      <span class="green">3</span>, <span class="green">4</span>], [<span class="green">1</span>, <span class="green">2</span>,
+			  <span class="green">3</span>, <span class="green">4</span>]))<br>
+		  [2, 4, 6, 8]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Using map with a lambda expression</span><br>
+		  >>> <span class="green">list</span>(<span class="green">map</span>(<span class="green">lambda</span> x, y: x <span class="purple">+</span>
+		      y, [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>],
+			  [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>]))<br>
+		  [2, 4, 6, 8]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Like with the previous example, the first call to map uses a predefined function as its first argument and
+        the second call to map uses a lambda expression as its first argument. There is a lot going on here so, let's
+        start from the beginning. We create a function called <i>add</i>. This function accepts two arguments and
+        returns the sum of the two values. When we pass this function to <i>map</i>, we must pass two separate
+		argument lists because the function takes two arguments. Map will use the corresponding indices of the two
+        lists as the first and second arguments to the function. For example, the first index of both argument lists
+        that we pass to map will be the first, and second argument passed together to the function respectively. Then
+        the second index of each list is passed to map as the first and second argument etc.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>A more Practical Example</h3>
+	  <p>Thus far, we have been using simple examples in order to demonstrate how the map function works. I think
+        now it is time to move on to a slightly more "practical" example. Let's create a function that will tell us
+        whether a number is prime or not and map it to a range of numbers with the final result being a list of two
+        value tuples containing each number and a Boolean value telling us whether that particular number is prime or
+        not.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">is_prime</span>(number):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> num <span class="green">in range</span>(<span class="green">2</span>,
+		      number):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> number <span class="purple">%</span> num 
+		      <span class="purple">==</span> <span class="green">0</span>:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> (number,
+		      <span class="green">False</span>)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> (number, <span class="green">True</span>)<br>
+		  >>><br>
+	      >>> <span class="green">list</span>(<span class="green">map</span>(is_prime, <span class="green">range</span>(<span class="green">5</span>,
+		      <span class="green">11</span>)))<br>
+		  [(5, True), (6, False), (7, True), (8, False), (9, False), (10, False)]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Getting primes between 1 and 50 just for fun</span><br>
+		  >>> [x[<span clsas="green">0</span>] <span class="green">for</span> x <span class="green">in</span>
+		      <span class="green">map</span>(is_prime, <span class="green">range</span>(<span class="green">1</span>, <span class="green">51</span>))
+			  <span class="green">if</span> x[<span class="green">1</span>] <span class="purple">==</span> <span class="green">True</span>]<br>
+		  [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Don't worry too much about how <i>is_prime</i> works, just know that we pass a number to this function and
+        it will return a two item tuple containing the number and a Boolean value stating whether the number is prime
+        or not. The call to map will return every value in the range that we passed as the second argument and
+        whether that value is prime or not. The second to last line is how we can get the prime numbers between 1 and
+        50. This is a list comprehension, we have not covered list comprehensions yet, but this is a good time to
+        point out that you should not use them if they are as messy as this one. This line of code is almost
+        impossible to read, which is frowned upon by programmers. It can be fun to see how much logic you can package
+        into as small amount of space as possible, and it is fine if you do so just for fun in your own programs,
+        but please don't do this if other people are going to be reading your code, you'll thank me later.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="lambda.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="zip.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+
+	<div class="line"></div>
+
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+

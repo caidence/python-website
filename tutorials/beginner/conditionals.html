@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Conditional Statements</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Conditional Statements</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="range.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="slices.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>if</h3>
+	  <p>Simply put, <i>if</i> statements are a compound statements that dictate the logic of a program. <i>if</i>
+        is used to see if a statement evaluates to True, if the statement, in fact, does evaluate to True, the
+        indented code inside of the if block will run. If the statement evaluates to False, Python will skip the
+        code within the code block of the if statement and continue executing.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+		<code>
+		  1. <span class="green">if True</span>:<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="green">True</span>)<br>
+		  3. <br>
+		  4. <span class="green">print</span>(<span class="red">'This prints no matter what'</span>)
+		</code>
+	  </div>
+	  <p>There is a lot that you should be aware of in this statement. The if statement should end with a colon (:)
+        and the code inside the code block should be indented by four spaces. It is not required that you indent your
+        code blocks by four spaces, but it must be indented. It is just a strong Python convention to indent blocks
+        of code by four spaces. I suggest you follow this convention.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Usually, you will be evaluating a statement that will be either True or False, but I wanted to show you
+        exactly how the <i>if</i> statement works by forcing the condition to evaluate to True. The output of this
+        statement will always be True. Because the if statement evaluates to True, the indented code inside of the
+        if block will run, which will print True. If the statement was False, then the code inside of the block would
+        not run and the program would continue to execute. The print statement on line four will execute, regardless
+        of what the if statement evaluates to because it is not indented inside the if block.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. age = <span class="green">int</span>(<span class="green">input</span>(<span class="red">"Age: "</span>))<br>
+		  2. <span class="green">if</span> age <span class="purple">></span> <span class="green">100</span>:<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"You're pretty old!"</span>)
+		</code>
+	  </div>
+	  <p>This is a more practical example of using an <i>if</i> statement. This program first will ask the user for
+        their age and store the value in a variable called <i>age</i>. The program then evaluates whether the age
+        variable is greater than 100 or not by using the expression if age > 100. If and only if (iff) this statement
+        evaluates to true, then the code inside the if block will run. In this case, if the statement is True, that
+        means the user is over 100 years old and the program will tell the user that they are old.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>elif</h3>
+	  <p>Adding onto the if statement, we have the <i>elif</i> statement. We use elif if we are evaluating multiple
+        conditions. elif works exactly the same as if, it evaluates a statement, if the statement evaluates to true,
+        the code indented inside of the elif block will run. Elif can only come after an <i>if</i> statement and the elif
+        statement will only be evaluated if the <i>if</i> statement evaluates to false. You can use as many elif
+        statements as you want, just remember that order does matter when it comes to elif statements. After one
+        elif statement evaluates to true, none of the elif statements after the true statement will even be evaluated.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. age = <span class="green">int</span>(<span class="green">input</span>(<span class="red">"Age: "</span>))<br>
+		  2. <span class="green">if</span> age <span class="purple">></span> <span class="green">100</span>:<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"You're pretty old!"</span>)<br>
+		  4. <span class="green">elif</span> age <span class="purple">&lt;</span> <span class="green">18</span>:<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Dang you're young"</span>)<br>
+		  6. <span class="green">elif</span> age <span class="purple">==</span> <span class="green">21</span>:<br>
+		  7. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"You're old enough to drink!"</span>)
+		</code>
+	  </div>
+	  <p>Building on our age example from earlier, this example will ask a user to input their age and will still
+        tell the person that they are old if their age is over 100. What is different about this program is that
+        there is the added logic, testing for multiple conditions by using multiple elif statements if the first if
+        statement evaluates to false. If the age input to the program is less than 100, the program then checks to
+        see if the first elif statement evaluates to true, if it does, the code indented inside of it will run and
+        the following elif statements will not be evaluated. However, if it evaluates to false, the next elif
+        condition is checked and so on.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>else</h3>
+	  <p>Else can only appear after all if and elif statements. This is essentially a "failover statement," if you
+        will. This statement does not need an expression to evaluate because it only runs if all if and elif
+        statements evaluate to false. The else statement needs its code indented just like the if and elif
+		statements. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. name = <span class="green">input</span>(<span class="red">"Whats your name? "</span>)<br>
+		  2. <span class="green">if</span> name <span class="purple">==</span> <span class="red">"Aaron"</span>:<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Hi Aaron!"</span>)<br>
+		  4. <span class="green">else</span>:<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"You're not Aaron!"</span>)
+		</code>
+	  </div>
+	  <p>This program will ask a user for their name. If the user's name is "Aaron", the program will greet them by
+        saying "Hello Aaron!". If the user's name is anything besides "Aaron", the program will say "You're not
+        Aaron!". The else statement does not need to evaluate an expression because if the if statement evaluates to
+        false, the else block will run no matter what.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>and, or</h3>
+	  <p>Very common logical operators used with if clauses are the <i>and</i> and <i>or</i> keywords. These keywords
+        allow us more granular control over the logic of our programs. These operators are used to evaluate more
+        than one condition in a single statement. The <i>and</i> keyword will return true iff both conditions are
+        true. If either condition evaluates to false, the and expression will evaluate to false, too. The <i>or</i>
+        keyword will return true so long as one of the expressions evaluates to true. The syntax of these statements
+        looks like (condition 1) and (condition 2), (condition 1) or (condition 2).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="green">True and True</span>&nbsp;&nbsp;<span class="light-gray"># Returns True</span><br>
+		  2. <span class="green">True and False</span>&nbsp;&nbsp;<span class="light-gray"># Returns False</span><br>
+		  3. <span class="green">False and True</span>&nbsp;&nbsp;<span class="light-gray"># Returns False</span><br>
+		  4. <span class="green">False and False</span>&nbsp;&nbsp;<span class="light-gray"># Returns False</span><br>
+		  5.<br>
+		  6. <span class="green">True or True</span>&nbsp;&nbsp;<span class="light-gray"># Returns True</span><br>
+		  7. <span class="green">True or False</span>&nbsp;&nbsp;<span class="light-gray"># Returns True</span><br>
+		  8. <span class="green">False or True</span>&nbsp;&nbsp;<span class="light-gray"># Returns True</span><br>
+		  9. <span class="green">False or False</span>&nbsp;&nbsp;<span class="light-gray"># Returns False</span> 
+		</code>
+	  </div>
+	  <p>These are not really practical examples of how to use <i>and</i> and <i>or</i>. These are more or less to
+        demonstrate the logic behind these two keywords. You will often hear an example like this called a
+        <i>logic table</i> or <i>truth table</i>. Next, we will look at some more real-world-like examples of how to
+		use <i>and</i> and <i>or</i>.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>You probably would not want to write a program like this, but it is a much more practical example than the
+        previous ones. This next program will prompt the user for a username and a password. It will only grant the
+        user access if the username and password match what they should be. Here, we want to use the <i>and</i>
+        keyword to check the conditions. The username must be correct <i>and</i> the password must be correct.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. username = <span class="green">input</span>(<span class="red">"Username: "</span>)<br>
+		  2. password = <span class="green">input</span>(<span class="red">"Password: "</span>)<br>
+		  3. <span class="green">if</span> username <span class="purple">==</span> <span class="red">"Bill"</span> <span class="green">and</span>
+    		 password <span class="purple">==</span> <span class="red">"secret"</span>:<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Access granted."</span>)<br>
+		  5. <span class="green">else</span>:<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Access denied."</span>)
+		</code>
+	  </div>
+	  <p>This program begins by asking a user for their username password. Next, Python checks to see if the username
+        equals "Bill" and if the password equals "secret". If so, then access is granted to the user. If either the
+        username or the password does not equal what it should, the program will execute the else block, which will
+        print "Access denied." to the screen.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Building on our last example, lets add an <i>or</i> keyword to our program. Let's make the program print
+        access granted if the username is either "Bill" or "Steve". We'll make the program grant access to either
+        Bill or Steve as long as the password is still "secret". We can do this by putting an <i>or</i> keyword in
+        the first conditional statement on the left side of the <i>and</i> keyword.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. username = <span class="green">input</span>(<span class="red">"Username: "</span>)<br>
+		  2. password = <span class="green">input</span>(<span class="red">"Password: "</span>)<br>
+		  3. <span class="green">if</span> username <span class="purple">==</span> <span class="red">"Bill"</span> <span class="green">or</span>
+    		 username <span class="purple">==</span> <span class="red">"Steve"</span> <span class="green">and</span> password <span class="purple">
+			 ==</span> <span class="red">"secret"</span>:<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Access granted."</span>)<br>
+		  5. <span class="green">else</span>:<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Access denied."</span>)
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>In this example, the user's name can be either Bill or Steve. The password has to still be "secret" no
+        matter which username is typed. Remember, on either side of <i>or</i> you must explicitly write an
+        expression comparing the name to username. It is a common mistake to leave out the second expression and 
+		just write another string. You must do this(username == "Bill" or username == "Steve") not this (username 
+        == "Bill" or "Steve"). The second will not work and I will explain why in the next paragraph. If you use
+        the second, the username can be anything as long as the password is "secret", that's not what we want!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+        <code>
+		  1. <span class="light-gray"># This won't work, common mistake</span><br>
+	      2. username = <span class="green">input</span>(<span class="red">"Username: "</span>)<br>
+		  3. password = <span class="green">input</span>(<span class="red">"Password: "</span>)<br>
+		  4. <span class="green">if</span> username <span class="purple">==</span> <span class="red">"Bill"</span> <span class="green">or</span>
+    	     <span class="red">"Steve"</span> <span class="green">and</span> password <span class="purple">
+		     ==</span> <span class="red">"secret"</span>:<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Access granted."</span>)<br>
+		  6. <span class="green">else</span>:<br>
+		  7. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Access denied."</span>)
+        </code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Remember how data types have a Boolean value? Remember how strings in particular will always evaluate to
+        true as long as they are not empty? The expression (username == "Bill" or "Steve") will evaluate to true no
+        matter what the username is. This is because <i>or</i> evaluates the Boolean value of expressions or data
+        types, not the content of the data type. Because the second expression that <i>or</i> evaluates ("Steve")
+        is not  an expression, <i>or</i> will evaluate the Boolean value of the data type. Strings with characters
+        in them always evaluate to true. "Steve" is a string with characters, so it will evaluate to true every time.
+        Since <i>or</i> only needs one of its values to evaluate to true to make the expression true, and because
+        "Steve" will evaluate to true every time, this will make the <i>or</i> expression evaluate to true every time!
+		This means that you could input "Bob" as the username and still get granted access if you input the correct
+        password.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="range.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="slices.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Lambda</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Lambda</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="stringformatting.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="map.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Python provides a way to create expressions that generate function objects. We can use <i>lambda</i> to
+        create a function to be called later, but creating functions like this will return the function instead of
+        assigning the function to a name. Lambdas are also known as anonymous functions because they are often used
+        inline and do not have a name. If you are familiar with JavaScript, lambda is basically Python's equivalent
+        of an arrow function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The syntax of this expression is the keyword <i>lambda</i>, followed by one or more arguments, followed by
+        an expression proceeding a colon. There are a few things to keep in-mind when using lambda expressions.
+        Firstly, lambda is an expression that returns a new function which optionally can be assigned a name. With
+        traditional functions, we assign the function a name within the def header rather than returning it as a
+        result. Secondly, a lambda's body is a single, usually succinct, expression; not a body of statements. Lambda
+        expressions are usually short. They were never meant to be a replacement for functions, their purpose is to
+        return a function in places where we cannot use a normal function and/or to package logic into a single line
+        to perform some mundane task that it would be hardly appropriate to create a function for.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Examples and Use cases</h3>
+	  <p> The syntax for
+	    a lambda expression is as follows lambda arg1, arg2: expression. We create a lambda expression with the
+        <i>lambda</i> keyword, followed by arguments, and finally the expression. Like I stated earlier, we can
+        assign a variable to a lambda expression essentially making the variable a callable function. We could write
+        function = lambda arg1, arg2: expression. In this example, <i>function</i> is assigned the function object
+		that lambda creates.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> function = <span class="green">lambda</span> x, y: x <span class="purple">**</span> y<br>
+		  >>> function(<span class="green">2</span>, <span class="green">3</span>)<br>
+		  8
+		</code>
+	  </div>
+	  <p>This example demonstrates how lambda works along with the syntax. We create a variable called <i>function</i>
+        and assign it to the function object created by the lambda expression. In the lambda expression, we declare
+        x and y as arguments before the colon and we return x to the power of y after the colon. We then can use the
+        expression the same way that we call a function by using the variable assigned to the lambda expression
+        essentially as the function name. Lambdas are most commonly used where we need to place small pieces of
+		executable code where statements are illegal.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Sort items by the second item in the tuple</span><br>
+		  >>> a = [(<span class="green">1</span>, <span class="green">3</span>), (<span class="green">4</span>, <span class="green">1</span>),
+		     (<span class="green">7</span>, <span class="purple">-</span><span class="green">1</span>)]<br>
+		  >>> <span class="green">sorted</span>(a, key=<span class="green">lambda</span> x: x[<span class="green">1</span>])<br>
+		  [(7, -1), (4, 1), (1, 3)]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Sort items in reverse by the second item in the tuple</span><br>
+		  >>> <span class="green">sorted</span>(a, key=<span class="green">lambda</span> x: x[<span class="green">1</span>], 
+		      reverse=<span class="green">True</span>)<br>
+		  [(1, 3), (4, 1), (7, -1)]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>The above examples are much more practical use cases for lambda. Python's sorted function accepts an
+        optional keyword argument called <i>key</i>. This argument is a function that serves as a key for the sort
+        comparison. In this case, we use the lambda expression "lambda x: x[1]" which will sort the tuples in the
+        list by the item at the first index. The second example demonstrates how to sort a list in reverse order by
+        the second item in the tuples within the parent list. We can achieve the same result with dictionaries using
+        almost the same syntax. By default, if we do not pass a value to the <i>key</i> argument in sorted with a
+        dictionary, the function will sort the dictionary by the dictionary's keys. We can use this lambda syntax
+        that we just learned to sort a dictionary by its values.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> test = {<span class="red">'a'</span>: <span class="green">3</span>, <span class="red">'b'</span>: <span class="green">1</span>,
+		      <span class="red">'c'</span>: <span class="green">2</span>}<br>
+		  >>> <span class="green">sorted</span>(test.items())<br>
+		  [('a', 3), ('b', 1), ('c', 2)]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Sort a dictionary by values</span><br>
+		  >>> <span class="green">sorted</span>(test.items(), key=<span class="green">lambda</span> x: x[<span class="greem">1</span>])<br>
+		  [('b', 1), ('c', 2), ('a', 3)]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Sort a dictionary by values in reverse</span><br>
+		  >>> <span class="green">sorted</span>(test.items(), key=<span class="green">lambda</span> x: x[<span class="green">1</span>],
+		      reverse=<span class="green">True</span>)<br>
+		  [('a', 3), ('c', 2), ('b', 1)]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>First, we create a dictionary called test with three key value pairs. On the second line, we sort the
+        dictionary with the <i>sorted</i> function. This will sort the dictionary key value pairs by key by default.
+        In the next example, we use the lambda syntax from earlier to sort the dictionary by value. This works
+        because the .items() dictionary method returns a list of two value tuples containing all of a dictionary's
+        key value pairs. Finally, we see how we can sort a dictionary in reverse order by value.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Lambda in lists and dicts</h3>
+	  <p>You can branch logic within lists and dictionaries using lambda expressions. To get this functionality, we
+        can use a list/dictionary with lambda expressions packed inside of it the same way as we usually would, but
+        put the parentheses after the statement defining which lambda to use within the list or dict object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. power = [<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">lambda</span> x: x <span class="purple">**</span> <span class="green">2</span>,<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">lambda</span> x: x <span class="purple">**</span> <span class="green">3</span>,<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">lambda</span> x: x <span class="purple">**</span> <span class="green">4</span><br>
+		  5. ]<br>
+		  6. <span class="green">print</span>(power[<span class="green">0</span>](<span class="green">5</span>), end=<span class="red">' '</span>)<br>
+		  7. <span class="green">print</span>(power[<span class="green">1</span>](<span class="green">5</span>), end=<span class="red">' '</span>)<br>
+		  8. <span class="green">print</span>(power[<span class="green">2</span>](<span class="green">5</span>))<br>
+		  25 125 625
+		</code>
+	  </div>
+	  <p>In this example, we create a list called <i>power</i>, whose elements are lambda expressions. We can index
+        this list appended with a function call to the lambda expression. "power[0](5)" will call the first lambda
+        expression because it is at index 0 in the list and pass 5 as the argument to lambda. Likewise,
+        "power[1](5)" will retrieve the second index in the <i>power</i> list and pass 5 as an argument to that
+        lambda expression. You can pack as many lambda expressions into a list as you want. This is an easy way to
+        package many simple logic switches together in a single object. We can make this particular program a little
+        more obvious if we use a dictionary rather than a list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. power = {<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="red">'squared'</span>: <span class="green">lambda</span> x: x
+		     <span class="purple">**</span> <span class="green">2</span>,<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="red">'cubed'</span>: <span class="green">lambda</span> x: x <span class="purple">**</span>
+		     <span class="green">3</span>,<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="red">'quartic'</span>: <span class="green">lambda</span> x: x <span class="purple">**</span>
+		     <span class="green">4</span>,<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="red">'quintic'</span>: <span class="green">lambda</span> x: x <span class="purple">**</span>
+		     <span class="green">5</span><br>
+		  6. }<br>
+		  7. <span class="green">print</span>(power[<span class="red">'quintic'</span>](<span class="green">2</span>),
+		     end=<span class="red">' '</span>)<br>
+		  8. <span class="green">print</span>(power[<span class="red">'cubed'</span>](<span class="green">7</span>))<br>
+		  32 343
+		</code>
+	  </div>
+	  <p>This example is practically the same as the last, the difference is we are essentially naming our lambda
+        functions with dictionary keys. We can access the function by fetching the value (lambda function) the same
+        way that we fetch values from any other dictionary. Again, we append the vale getting statement with
+        parentheses, which acts as a function call to the lambda that resides at that particular key. For instance,
+        "power['squared'](3)" will retrieve the value stored at the key "squared" in the dictionary. In this case,
+        the value stored at "squared" is a lambda function. Hence, this statement will return the value of 3 after
+        pushing it through the lambda function stored at the dictionary key "squared".
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="stringformatting.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="map.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+
+	<div class="line"></div>
+
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Decorators</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Decorators</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="operatoroverloading.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="classmethods.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>In layman's terms, decorators are functions that accept other functions as arguments. They then modify how the function passed to it works
+	    and returns a callable object which will call the original function along with the added functionality. They do this by wrapping a "wrapper"
+		function within another function. We'll call these two functions <i>outer</i> and <i>inner</i>. Outer accepts a function as an argument, 
+		calls that function within inner along with other modifications, and returns inner without calling it.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>There are many ways that we can write decorators. In this tutorial, we will focus on three of the simplest. First, I want to show you
+	    how decorators work without using the @ syntax so you really get a feel for what is going on behind the scenes. Next, we will walk through
+		using decorator functions with the @ syntax. Finally, we will look at how to turn decorator functions in to decorator classes.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Simple decorator</h3>
+	  <p>Before we go any further, I thought it would be useful to introduce you to the syntax of a decorator function. To demonstrate how they
+	    really work, let's create a very basic decorator function and a very basic function to test it on.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">decorator</span>(function):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">wrapper</span>():<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'Before the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function()<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'After the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> wrapper<br>
+	      >>><br>
+	      >>> <span class="green">def</span> <span class="blue">test</span>():<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'This is a test'</span>)<br>
+	      >>><br>
+	      >>> dec_test = decorator(test)<br>
+	      >>> dec_test()<br>
+	      Before the function runs<br>
+          This is a test<br>
+          After the function runs
+		</code>
+	  </div>
+	  <p>Just so we are on the same page: <i>decorator</i> is the decorator function in this example and <i>test</i> is the function that we will be
+	    passing to decorator. First, let's look at decorator. It accepts a function as an argument and has a nested function within it called <i>wrapper</i>.
+		This wrapper function is where the magic happens. Within wrapper, we modify how the function runs that we passed as an argument to decorator,
+		then decorator will return wrapper without calling it. That is important, so I'll say it again. The decorator function returns the wrapper
+		function without calling it. Let's walk through what is happening in this code.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>We declare a function called decorator that accepts one argument, a function. Within the outer decorator function, there is another function
+	    called wrapper. Within wrapper, there are two print statements. These statements will run before and after the function call. Between the
+		two print statements, we call the function passed to decorator. After the wrapper function, decorator will return wrapper with the function
+		passed to decorator, without calling the wrapper function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>After the decorator function, we create a function to pass to decorator as an argument called <i>test</i>. Side note, our decorator function
+	    does not have to be called <i>decorator</i>, its name is arbitrary. The reason that I called it this is to clarify which function is actually
+		the decorator function. Back to the example, all that test will do when it is called is print "This is a test". The next few lines are what is
+		important and make our decorator function work the way it is supposed to. dec_test = decorator(test), creates a variable called dec_test, and
+		passes the test function to the decorator function. The reason that we do not need to pass test to the decorator with parentheses is because
+		we do not want to call it yet. Passing it as an argument without parentheses means that it will only be called from within the decorator function.
+		On the next line, we can see that we are able to call dec_test just like any other function. When we call dec_test, it is really calling the
+		wrapper function within decorator. This works because wrapper was returned without being called and set equal to the dec_test variable. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>@decorator</h3>
+	  <p>Now that we know how decorators work behind the scenes, let's recreate the same example, but by using the @ syntax. When we use this syntax,
+	    basically, what is happening is Python creates a variable that has the same name as the function and sets it equal to decorator(function).
+		To visualize this with the last example, that line would look like this: test = decorator(test). So now when we call test, it will call
+		the decorator and pass test to it.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">decorator</span>(function):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">wrapper</span>():<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'Before the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function()<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'After the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> wrapper<br>
+	      >>><br>
+	      >>> <span class="purple">@decorator</span><br>
+          ... <span class="green">def</span> <span class="blue">test</span>():<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'This is a test'</span>)<br>
+	      >>><br>
+	      >>> test()<br>
+		  Before the function runs<br>
+		  This is a test<br>
+		  After the function runs
+		</code>
+	  </div>
+	  <p>This example works exactly the same as the last. The difference is how we pass the test function to the decorator function. In the last
+	    example, we did it manually by writing: dec_test = decorator(test). This example, we do it by decorating test. This is done by typing an
+		@ symbol, appended with the decorator function, directly above the function that you want to decorate. By using this syntax, Python will 
+		automatically pass <i>test</i> to <i>decorator</i> for us whenever we directly call <i>test</i>. Now that's all fine and dandy, but what
+		if we want to pass arguments to the functions that we decorate? Well, that is another great use for *args and **kwargs!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>This may seem a little strange, but we actually pass *args and **kwargs to the wrapper function, not the decorator function. If you think about
+	    it, it makes sense. When we run decorator, it will return the wrapper function, so if we pass the function arguments (of the function that we
+		want to decorate) to wrapper, then wrapper can directly pass them to the function when it calls it.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">decorator</span>(function):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">wrapper</span>(<span class="purple">*</span>args,
+ 		      <span class="purple">**</span>kwargs):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'Before the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function(<span class="purple">*</span>args, <span class="purple">**</span>kwargs)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'After the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> wrapper<br>
+	      >>><br>
+	      >>> <span class="purple">@decorator</span><br>
+          ... <span class="green">def</span> <span class="blue">test</span>(message):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(message)<br>
+	      >>> <br>
+	      >>> test(<span class="red">'Now we can use arguments!'</span>)<br>
+	      Before the function runs<br>
+          Now we can use arguments!<br>
+          After the function runs
+		</code>
+	  </div>
+	  <p>This example functions the same as the last. The difference is: the function <i>test</i> in this example accepts an argument called message.
+	    Instead of it printing "This is a test" every time it is called, now it will print the message argument that is passed to it. In order to
+		make the decorator function pass arguments to the function that we are decorating, we need a way of passing the arguments to the function
+		within the decorator. This is where we use *args and **kwargs. When we pass these as arguments to the wrapper function, wrapper can pass the
+		arguments directly to the function that is passed to decorator. Now we are able to pass arguments to the decorator and still get the full 
+		functionality of test.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Decorator as a class</h3>
+	  <p>Some programmers like to write decorators as a class rather than a function. This (in my opinion) is a lot cleaner than having a nasty 
+	    decorator function. To demonstrate this, let's use the same example that we have been using, but turn decorator in to a class rather than 
+		a function. To make this work, the wrapper function has a special method called __call__. The class name will be decorator and all of 
+		the functionality that we will get from the decorator class will be wrapped in the __call__ method. We use __call__ so that the @ syntax will
+		still work the same as it does in the previous examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">class</span> <span class="blue">Decorator</span>:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, function):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.function = function<br>
+          ...<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__call__</span>(self, <span class="purple">*</span>args,
+		      <span class="purple">**</span>kwargs):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'Before the function runs'</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.function(<span class="purple">*</span>args, <span class="purple">**</span>kwargs)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'After the function runs'</span>)<br>
+		  >>><br>
+		  >>> <span class="purple">@Decorator</span><br>
+          ... <span class="green">def</span> <span class="blue">test</span>(message):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(message)<br>
+	      >>><br>
+	      >>> test(<span class="red">'It works as a class too!'</span>)<br>
+		  Before the function runs<br>
+		  It works as a class too!<br>
+		  After the function runs
+		</code>
+	  </div>
+	  <p>This example works the same as the last few. Instead of using a decorator function, we create a Decorator class. The init method accepts
+	    the function that we want to decorate as an argument. In the Decorator class, the wrapper function is replaced with the __call__ method.
+		Like with wrapper, we want to pass *args and **kwargs to __call__ so that it can pass them to self.function. Remember, self.function is &ndash;
+		in this case &ndash; referring to the <i>test</i> function. As you can see, the @ syntax works exactly the same when decorating the <i>test</i>
+		function. We just use @ appended with the name of the decorator class to decorate a function. This works because the @ operator can be
+		overloaded by using the __call__ magic method. As you can see, now when we call test, the decorator class works just as it did in the previous
+		examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Timer class</h3>
+	  <p>Decorators are one of Python's more abstract concepts, so I thought that I would show a more practical example. This example will still be simple,
+	    but will make more sense to use over the previous examples. Let's create a decorator class that can benchmark how fast our functions
+		run. This may seem silly, but if/when you start caring about algorithms, this will be much more useful to you. This is not the only thing
+		that decorators can be used for, but it is one of the simplest use cases. Some other ways that we can use decorators include, but are
+		not limited to: meta programming, benchmarking, logging, and type checking. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> <span class="green">class</span> <span class="blue">Timer</span>:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, function):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.function = function<br>
+          ...<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__call__</span>(self, <span class="purple">*</span>args,
+		      <span class="purple">**</span>kwargs):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">import</span> time<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">'{} took {:.4f} seconds to execute'</span><br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start = time.clock()<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.function(<span class="purple">*</span>args,
+ 		      <span class="purple">**</span>kwargs)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = time.clock()<br>
+          ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="green">return</span> template.format(self.function.__name__,
+		     end <span class="purple">-</span> start)<br>
+		  >>><br>
+		  >>> <span class="purple">@Timer</span><br>
+          ... <span class="green">def</span> <span class="blue">is_prime</span>(num):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(<span class="green">2</span>, num):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> num <span class="purple">%</span> x 
+		      <span class="purple">==</span> <span class="green">0</span>:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return False</span><br>
+          ...&nbsp;&nbsp;&nbsp;&nbsp; <span class="green">return True</span><br>
+	      >>><br>
+	      >>> is_prime(<span class="green">9918199</span>)<br>
+	      'is_prime took 1.4397 seconds to execute'
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Here we create a class called Timer. The purpose of this class is to use it as a decorator so that we can easily time how long functions
+	    take to execute. This is incredibly useful when benchmarking code. This method of benchmarking makes it so where we only have to
+		write one extra line of code to time functions: @Timer. Timer works the same as the Decorator class in the last example. Timer, however, 
+		will time how long a function takes rather than print statements before and after the function.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="operatoroverloading.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="classmethods.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

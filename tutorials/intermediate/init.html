@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>__init__</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>__init__</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="methods.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="del.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>In Python, there are several special method names that are reserved for special use cases. __init__ is one of them 
+	    (pronounced <i>dunder init</i>).
+	    We use __init__ to <i>initialize</i> objects when we create them in Python. Most OOP languages have something called a constructor, which is a 
+		special method used to initialize instances created from a class. Python's constructor technically is not __init__,
+		but many people use it this way. It is called automatically when we 
+		instantiate (create) and object. We can pass values to it to prepare instance objects for use. __init__ can accept arguments which, often 
+		times, are used to set <i>instance variables</i>. In previous tutorials, we learned about <i>class variables</i> which are the same for all 
+		instances. <i>Instance variables</i> have the same name across all instances, but they can have different values depending on what we
+		pass to the init method.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>
+	  </p>
+	  </div>
+	<div class="p-container">
+	  <h3>dunder init</h3>
+	  <p>Usually to make things simple, people list __init__ as the first method of the class. This is not necessary, but it greatly improves 
+	    code readability. Like with many other methods, __init__ does accept the instance as a first argument by using <i>self</i> as the first argument.
+		This is because we are initializing instances, not the class itself. We can pass arguments to __init__ just like we can to other methods.
+		Often times, you'll see the scheme: self.argument = argument used in __init__. This is how we set the arguments that we pass to it to
+		be instance variables. Remember, <i>self</i> is referring to the current instance. This makes "self.argument = argument" refer to the argument
+		of the current instance and not of other instances. Let's create a class with __init__ to demonstrate how this works.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Person</span>:<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self,
+		     first_name=<span class="red">''</span>, last_name=<span class="red">''</span>):<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.first_name = first_name<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.last_name = last_name<br>
+		  5. <br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">full_name</span>(self):<br>
+		  7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">f"{self.first_name}
+		     {self.last_name}"</span>)<br>
+		  8. <br>
+		  9. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">email</span>(self, 
+		     email_domain=<span class="red">"example.com"</span>):<br>
+		  10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email = self.first_name[<span class="green">0</span>].lower() 
+		      <span class="purple">+</span> self.last_name.lower()<br>
+		  11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domain = <span class="red">"@"</span> <span class="purple">+</span> email_domain<br>
+		  12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(email <span class="purple">+</span> domain)
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>On line two, we have defined a method called __init__. Remember, this method is called automatically whenever we create an instance of the
+	    class. We pass arguments to __init__ when we create an instance in the parentheses of the class name. i.e. "instance = class_name(arg1, arg2)".
+		arg1 and arg2 are passed to the init method by position in this case. The first position of init is reserved by <i>self</i>, so arg1 will
+		technically be passed to the second position. Back to the example, notice lines three and four. This is setting the arguments of the instances
+		that we create by creating <i>instance variables</i>. self refers to the instance being created and is appended with a period followed
+		by the variable name that we want. <i>Instance variables</i> can be accessed by any method that uses <i>self</i> as its first argument. This
+		is how we are able to access the variables from the methods <i>full_name</i> and <i>email</i>. Also notice that we can pass default values to
+		the arguments in init. This is useful for making our classes more robust. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Let's take a look at an interactive session with the Person class we created in the last example. We will create two instances of Person
+        to get a grasp on how init works.	  
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> p1 = Person(<span class="red">"Bill"</span>, <span class="red">"Nye"</span>)<br>
+		  >>> p2 = Person(<span class="red">"John"</span>, <span class="red">"Doe"</span>)<br>
+		  >>> p1.first_name()<br>
+		  Bill Nye<br>
+		  >>> p2.full_name()<br>
+		  John Doe<br>
+		  >>> p1.email(<span class="red">"gmail.com"</span>)<br>
+		  bnye@gmail.com<br>
+		  >>> p2.email()<br>
+		  jdoe@example.com
+		</code>
+	  </div>
+	  <p>First we create two instances of Person -- p1 and p2. As you can see, we pass arguments to __init__ through the creation of objects. This is done
+        by putting the arguments in the parentheses after the object name. We can then call the methods on the objects instances that we have
+		created and the output will change based on the instance variables that we created with __init__. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>
+		First, we call the full_name function on
+		p1 which just prints a formatted string of self.first_name and self.last_name. I've said it many times and I'll probably say it many more
+		because I don't want it to be as hard to learn for you as it was for me. <i>self</i> refers to the instance that we are calling the method on.
+		We have to use the syntax "self.variable_name" to get the variable of the particular instance that we are working with. Back to the example,
+		next, we call the full_name function on p2; which will print a formatted string of the self.first_name and self.last_name variables that we 
+		created in __init__. Finally, we can create email addresses for the instances that we create with the <i>email</i> method. This method 
+		accepts an optional argument, an email domain (icloud.com, gmail.com, yahoo.com, etc.). If we do not pass a domain to the method, it will
+		default to "example.com". This method works by manipulating the self.first_name and self.last_name variables that we created with __init__
+		into a valid email address and appending an "@domain" to the end of it. When we view the output of this method, again, we can see that
+		it depends on the instance variables that we created in __init__.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>dunder dict</h3>
+	  <p>A useful special method is __dict__. We can call __dict__ on any instance, it will return a dictionary of key value pairs containing
+	    a mapping of instance variable names and their values. Let's look at an example to further demonstrate this.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">class</span> <span class="blue">Test</span>:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, arg1, arg2):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.arg1 = arg1<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.arg2 = arg2<br>
+		  >>><br>
+		  >>> t1 = Test(<span class="green">1</span>, <span class="green">2</span>)<br>
+		  >>> t2 = Test(<span class="green">3</span>, <span class="green">4</span>)<br>
+		  >>> t1.__dict__<br>
+		  {'arg1': 1, 'arg2': 2}<br>
+		  >>> t2.__dict__<br>
+		  {'arg1': 3, 'arg2': 4}
+		</code>
+	  </div>
+	  <p>We start by creating a very simple class called <i>Test</i>. We then create two instances of Test called <i>t1</i> and <i>t2</i>. I passed
+	    different values to these two instances to demonstrate that __dict__ returns a dictionary of instance variables that you call it on, meaning,
+		it will return different values for instances if the variables are different. We do not put parentheses after __dict__ because it is not
+		callable, it just returns a dictionary object of variables and the values they store. If we did have class variables in <i>Test</i>, they
+		would not appear in the dictionary returned by calling __dict__. If we call __dict__ on an instance, the dictionary returned
+		will only contain instance variables. Calling __dict__ on instances looks abnormal: instance.__dict__, but it is a pretty handy feature of
+		Python. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The reason that I introduced __dict__ in this article, is so that I can easily demonstrate how <i>setattr</i> works in the next subsection.
+	    Just remember, __dict__ returns a dictionary of instance variables. Because this method returns a dictionary, we can treat the call to it like
+		a dictionary object. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>setattr</h3>
+	  <p>We can easily create an arbitrary number of instance variables by using **kwargs along with <i>setattr</i> in the __init__ method of a class.
+	    When used in this context, <i>setattr</i> will take the values stored in a dictionary and map them to instance variables. You can think of
+		<i>setattr</i> kind of like the opposite of __dict__. Instead of making a dictionary of instance variables, we can use it to create instance
+		variables from a dictionary. **kwargs is an easy way to package an arbitrary number of keyword arguments into a dictionary. This makes it easy
+		to set as many instance variables that we want!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Test</span>:<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, arg1, arg2,
+  		     <span class="purple">**</span>kwawrgs):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.arg1 = arg1<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.arg2 = arg2<br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> key, value <span class="green">in</span> 
+		     kwargs.items():<br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">setattr</span>(self, key, value)<br>
+          7.<br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">view_instance_variables</span>(self):<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> key, value <span class="green">in</span>
+		     self.__dict__.items():<br>
+          10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="green">print</span>(key 
+		      <span class="purple">+</span> <span class="red">":"</span>, value)
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Don't worry too much about the method <i>view_instance_variables</i>. All it does is: get the instance variable dictionary of itself
+	    and print all the variable names along with their values. What we want to focus on here is lines five and six. The for loop will iterate over every 
+		key value pair created by the **kwargs dictionary. Line six is what I wanted to show you. This will create instance variables from the
+		kwargs dictionary. setattr accepts three arguments: (object, attribute, value). We are passing <i>self</i> as the object so that it will
+		initialize the instance with variables that we pass as keyword arguments. <i>Attribute</i>, you can think of as the name of the variable that
+		we want to set. And <i>value</i>, obviously, is the value of the variable that we want to set.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Let's have a look at an interactive session to get a feel for how this works. Remember, just because **kwargs is an argument does not mean
+	    that we have to pass any values to it.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+	      >>> t = Test(<span class="green">1</span>, <span class="green">2</span>, arg3=<span class="green">3</span>,
+		      arg4=<span class="green">4</span>)<br>
+		  >>> t.view_instance_variables()<br>
+		  arg1: 1<br>
+		  arg2: 2<br>
+		  arg3: 3<br>
+		  arg4: 4
+		</code>
+	  </div>
+	  <p>It is important that keyword arguments are passed after positional arguments when creating instances. Notice that __init__ only has
+	    two required arguments -- <i>arg1</i> and <i>arg2</i>. We, however, can pass an arbitrary number of keyword arguments because of lines
+		five and six combined with **kwargs in the method's definition. When we call <i>view_instance_methods</i>, we see that, lines five
+		and six of the class turned the kwargs dictionary in to instance variables.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="methods.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="del.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

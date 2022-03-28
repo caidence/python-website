@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Zip</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Zip</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="map.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="#">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>Zip is a built-in function in Python. We use it to put the similar index of two or more containers into a
+        single container together. Generally, zip is used with two or more arguments, but it can be used with just
+        one. If you only pass one argument to zip, it creates an object containing single item tuples, each of which
+        contain a single item of the object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Zip in Use</h3>
+	  <p>Like I said earlier, we can pass a single argument to zip or as many arguments as we want. If we pass a
+        single item, zip will create single item tuples of the items in the argument object. If we pass more than
+        one argument to zip, it will create tuples whose length depends on how many arguments we passed to the
+        function. This is because the tuples created by zip contain similar indices of the items.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Passing a single item</span><br>
+		  >>> <span class="green">list</span>(<span class="green">zip</span>(<span class="red">'Hello'</span>))<br>
+		  [('H',), ('e',), ('l',), ('l',), ('o',)]<br>
+		  >>><br>
+		  >>> <span class="light-gray"># Passing more that one item</span><br>
+		  >>> <span class="green">list</span>(<span class="green">zip</span>(<span class="red">'Hello'</span>, <span class="red">'world'</span>))<br>
+		  [('H', 'w'), ('e', 'o'), ('l', 'r'), ('l', 'l'), ('o', 'd')]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>The first thing to notice is that I wrap the zip call with "list". This is not necessary; I am only doing
+        this in order to view the contents of the zip object that we create from the function. The first time that
+        we call zip, we only pass one argument, a string. Because we do not pass any additional arguments to "zip"
+        our string with, we get back single value tuples containing each index of the string. Remember, single value
+        tuples must have a trailing comma, otherwise they are not a tuple. In the next call to zip, we pass two
+        arguments the strings "hello" and "world". The function will take the first indices of these two strings and
+        pack them in a tuple together. Zip will do this for every pair of indices in the two strings.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Zip is not limited to two arguments, how many objects that we want to zip together is arbitrary. We can zip
+        three, four, or as many objects as we want. Below is an example of passing three objects to the zip function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  chars = (<span class="red">'one'</span>, <span class="red">'two'</span>, <span class="red">'three'</span>)<br>
+		  spanish_chars = (<span class="red">'uno'</span>, <span class="red">'dos'</span>, <span class="red">'tres'</span>)<br>
+		  ints = (<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  <span class="green">list</span>(<span class="green">zip</span>(chars, spanish_chars, ints))<br>
+		  [('one', 'uno', 1), ('two', 'dos', 2), ('three', 'tres', 3)]
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This example in particular I thought would be helpful because the number in each tuple corresponds to its position in the tuple. Zip will
+	    package all of the first values into a tuple, all of the second values into a tuple, and all of the third values into a tuple.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Zipping Dictionaries</h3>
+	  <p>Zip also makes it easy to create dictionaries on the fly out of lists. If we have a list of keys and values,
+        and wrap the call to zip in a dict container, zip will actually map keys to values for us.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> keys, values = (<span class="red">'one'</span>, <span class="red">'two'</span>, <span class="red">'three'</span>),
+		      (<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  >>> <span class="green">dict</span>(<span class="green">zip</span>(keys, values))<br>
+		  {'one': 1, 'two': 2, 'three': 3}
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>On the first line, we create two tuples with the first tuple being all of the values we want in the dict as
+        keys, and the second tuple being the values that we want to match to those keys. There is no special syntax
+        when creating dictionaries with zip, all you need to do is wrap the zip function call with "dict( )".
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Let's take it one step further just to make sure that you know how the zip function works. Consider from
+        this point on in this subsection optional reading. Let's create a dictionary from three tuples. We want the
+        vales of this dictionary to be two item tuples. Since, we are given three tuples to begin with, we can use a
+        nested zip call to achieve this. The outer zip will take the dictionary keys as a first argument and a nested
+        call to zip as the second argument. The nested zip will execute first, creating the tuples that we want to
+        pass to the first zip function which will be the values to the keys passed as the first argument to the outer
+        zip call.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> keys = (<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  >>> english_chars = (<span class="red">'one'</span>, <span class="red">'two'</span>, <span class="red">'three'</span>)<br>
+		  >>> spanish_chars = (<span class="red">'uno'</span>, <span class="red">'dos'</span>, <span class="red">'tres'</span>)<br>
+		  >>> <span class="green">dict</span>(<span class="green">zip</span>(keys, <span class="green">zip</span>(english_chars, spanish_chars)))<br>
+		  {1: ('one', 'uno'), 2: ('two', 'dos'), 3: ('three', 'tres')}
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>We are given three tuples to create a dictionary out of <i>keys</i>, <i>english_chars</i>, and
+        <i>spanish_chars</i>. In Python, nested function calls work from inside to out. This means that the nested
+        zip call will execute before the outer zip call executes. The nested zip creates two values tuples by zipping
+        together <i>english_chars</i> and <i>spanish_chars</i>. These tuples will become the values of the keys
+        passed to the outer zip call. After the outer zip creates two item tuples (the first value being from
+        <i>keys</i> and the second value being a tuple created by the nested zip call), <i>dict</i> will map the
+        first value to the second as key value pairs.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Unzipping</h3>
+	  <p>First, we learned how to zip objects together into tuples, now we are going to learn how to use the zip
+        function call to unzip these tuples back into their original state. The items that we "unzip" do not have to
+        have been zipped originally, they just have to follow the syntax of a zipped item.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> zipped_list = [(<span class="red">'one'</span>, <span calss="green">1</span>), (<span class="red">'two'</span>,
+		      <span class="green">2</span>), (<span class="red">'three'</span>, <span class="green">3</span>)]<br>
+          >>> chars, ints = <span class="green">zip</span>(<span class="purple">*</span>zipped_list)<br>
+          >>> chars, ints<br>
+		  (('one', 'three', 'two'), (1, 3, 2))
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>On the first line, we have a list of tuples. If we unzip this object, we can put all of the first indices
+        into a single tuple and all of the second indices into a separate tuple. Unzipping objects is just the
+        opposite of zipping objects. Notice the asterisk (*) before the object in the call to zip? This is important,
+        we will cover this syntax in a later tutorial, but for now just know that this is how to  unzip objects. All
+        of the first indices will be placed in <i>chars</i> and all of the second indices will be placed in
+        <i>ints</i>. When we view the contents of our two newly created tuples (<i>chars</i> and <i>ints</i>), we can
+        see that the first index of each tuple in the original object (<i>zipped_list</i>)is in <i>chars</i> and the
+        second index of each tuple in the original object is in <i>ints</i>.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>We are not just limited to unzipping lists of tuples, we can also unzip dictionaries as well. To do this,
+        within the call to zip, we have to call the .items( ) method on the dictionary object. This works because
+        .items( ) will create two value tuples of key value pairs, which, coincidentally, is exactly what we need in
+        order to unzip an object!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> zip_dict = {<span class="red">'one'</span>: <span class="green">1</span>, <span class="red">'three'</span>:
+		      <span class="green">3</span>, <span class="red">'two'</span>: <span class="green">2</span>}<br>
+		  >>> keys, values = <span class="green">zip</span>(<span class="purple">*</span>zip_dict.items())<br>
+		  >>> keys, values<br>
+		  (('one', 'three', 'two'), (1, 3, 2))
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>We start with a dictionary, <i>zipped_dict</i>. We then use multiple assignment to assign <i>keys</i> equal
+        to the tuple containing the dictionary keys after its unzipped and <i>values</i> equal to the tuple of
+        dictionary values after it is unzipped. Like with lists, we must place an asterisk (*) in the call to zip
+        before the dictionary object. Notice that we call .items( ) on the dictionary object in the call to zip. If
+        we do not call .items( ) on the dictionary object, we will get an error because zip will only try to unzip
+        the keys, not the values. When we view the contents of <i>keys</i> and <i>values</i>, we can see that all of
+        the dictionary's keys and values are in two separate tuples.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="map.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="#">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+
+	<div class="line"></div>
+
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

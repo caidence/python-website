@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Assignment Operators</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Assignment Operators</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="math.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radi aniview" data-av-animation="slideInUp"">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="userinput.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>Really just Shorthand</h3>
+	  <p>Assignment operators are simple ways to do math on a variable, and reassign its value at the same time.
+        Here is an example of how you would do this without assignment operators. Say you have a variable <i>x</i>
+        which is equal to five, and you want to set the value of <i>x</i> equal to itself plus five. To do this, you
+        could write x = x + 5. This statement takes the variable <i>x</i> and assigns it a new value of itself
+        plus five. Variable reassignment is very common in programming, so common that there is a shorter way to do
+        it. The expression x += 5 is exactly the same as x = x + 5. += is called an <i>assignment operator</i>. There
+        is an assignment operator for each math operator that we learned about in the math section.
+		Another example, say we have that same variable, x = 5. We can also subtract and reassign this variable
+        using -=. That would look something like x -= 3. After this expression, the new value of x will be 2.
+        You can also use *=, /=, **=, %=, and //=. Literally all this expression does, is change the value of the
+        variable to itself after the math operator has performed its operation on the original variable.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> a <span class'"purple">=</span> <span class="green">5</span><br>
+		  >>> d <span class'"purple">=</span> <span class="green">10</span><br>
+		  >>> c <span class'"purple">=</span> <span class="green">7</span><br>
+		  >>> d <span class'"purple">=</span> <span class="green">3</span><br>
+		  >>> <span class="green">print</span>(a <span class="purple">+=</span> <span class="green">5</span>)<br>
+		  10<br>
+		  >>> <span class="green">print</span>(b <span class="purple">-=</span> <span class="green">3</span>)<br>
+		  7<br>
+		  >>> <span class="green">print</span>(c <span class="purple">*=</span> <span class="green">10</span>)<br>
+		  70<br>
+		  >>> <span class="green">print</span>(d <span class="purple">/=</span> <span class="green">1.5</span>)<br>
+		  2
+		</code>
+	  </div>
+	  <p>In the first example, we print a += 5. Because the value of <i>a</i> is five and a += 5 is just short for
+        a = a + 5. We get back the value 10. The next few examples demonstrate that you can use this shorthand
+        assignment operator for any basic math operator. This is a very useful tool to have. Programmers find this so
+        handy, that Python is not even the only language that uses it. Nor is Python the language that invented its
+        syntax. It is commonly used in languages like Java, PowerShell, C, and C++, too!
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="math.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="userinput.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

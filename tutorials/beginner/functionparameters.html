@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Function Parameters</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Function Parameters</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="functions.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="scope.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>Parameters aka Arguments</h3>
+	  <p>Often times, we write functions to take input from the program, manipulate or use the input in some way,
+        and then return the data after we have used or manipulated the input. We can input information to a function
+        by using what are called <i>arguments</i>, also known as <i>parameters</i>. Look at this statement: def
+        example(a, b):. In the preceding statement, in the parentheses there are two arguments, a and b. These are
+        values that we pass to the function when we call it. To see just exactly what I mean, take a look at the
+        example.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+	      >>> <span class="green">def</span> add_two_numbers(x, y):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> x <span class="purple">+</span> y<br>
+		  >>> add_two_numbers(<span class="green">5</span>, <span class="green">7</span>)<br>
+		  12
+		</code>
+	  </div>
+	  <p>The function <i>add_two_numbers</i> takes two arguments, x and y. The function will then return the value
+        of the arguments passed to it. Notice how when we call the function, we put the values 5 and 7 in the
+        parentheses. When the function executes from the function call, x will be replaced by 5 and y will be
+        replaced by 7. These are called positional arguments, because the argument variables are determined by the
+        order (position) that we place them in when we call the function. You can also pass arguments by keyword.
+        We can do this by setting the argument that we want to pass in the function call equal to the parameter that
+        we want the argument to be passed as in the function definition.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Keyword Arguments</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+	      >>> <span class="green">def</span> display(a, b):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(a)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(b)<br>
+		  >>> display(<span class="green">1</span>, <span class="green">2</span>)<br>
+		  1<br>
+		  2<br>
+		  >>> display(b=<span class="green">1</span>, a=<span class="green">2</span>)<br>
+		  2<br>
+	      1
+		</code>
+	  </div>
+	  <p>We create a function that takes two arguments, <i>a</i> and <i>b</i>. This function simply prints the
+        contents of <i>a</i> and then on a new line, will print the contents of <i>b</i>. The firt time we call the
+        function, we use positional arguments. Because we pass 1 as the first argument, <i>a</i> will take on the
+        value of 1 because <i>a</i> is at the first position in the function definition. <i>b</i> will take on the
+        value of 2 because 2 is the value at the second position in the function call and <i>b</i> is at the second
+        position in the function definition. The second time we call the function, we use what is known as  <i>keyword
+        arguments</i>. This is where we use the argument names in the function definition as keywords to pass
+        arguments to the function call. As you can see, we set b=1 and a=2 in the function call. Doing this will
+        set <i>b</i> equal to 1 in the function definition and <i>a</i> equal to 2 in the function definition,
+        because we explicitly tell Python to do so in the function call. Also note, that we put b=2 in the first
+        position. This is just to demonstrate that the position of arguments in the function call is arbitrary when
+        you use keyword arguments.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Defalut Arguments</h3>
+	  <p>Python will throw an error if we do not pass any arguments to a function that uses them. To mitigate this,
+        we can use what are known as <i>default</i> arguments. Default arguments are defined in the function
+        definition and are only used if no argument is passed to that specific parameter.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">def</span> display(a=<span class="green">0</span>, b=<span class="green">0</span>):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(a, b)<br>
+		  >>> display(<span class="green">1</span>, <span class="green">2</span>)<br>
+		  1 2<br>
+		  >>> display()<br>
+		  0 0<br>
+		  >>> display(b=<span class="green">7</span>)<br>
+		  0 7
+		</code>
+	  </div>
+	  <p>This function is almost the same as the one in the last example. The main difference is: this function has
+        default arguments. Both <i>a</i> and <i>b</i> in this function will default to 0 if no value is passed to
+        them when the function is called. The first time we call <i>display</i>, we pass positional arguments to the
+        parameters <i>a</i> and <i>b</i>. This will print the values that we passed to the function, just like the
+        function in the last example. Next, we call the function without passing any arguments. As you can see, the
+        default values of <i>a</i> and <i>b</i> will then be passed to the function which, of course, prints 0 0.
+        Finally, the third time that we call the function, we only pass a value to <i>b</i> as a keyword argument.
+        Because we did not pass a value to <i>a</i>, it will take on its default value of 0 and the function will
+        print 0 7.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="functions.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="scope.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

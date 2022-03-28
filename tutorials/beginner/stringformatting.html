@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>String Formatting</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">String Formatting</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="fileio.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="lambda.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>String Formatting</h3>
+	  <p>In short, string formatting provides us a simple way to create basic template strings where we can pass
+        values into that template to change the value of the final string. There are many ways to format a string,
+        but we will only be looking at a few of the most common in this tutorial. With string formatting, we can
+        perform multiple substitutions on a string in a single expression.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Formatting Expressions</h3>
+	  <p>A very common way to format a string is by using the % character. Using %, we can code many substrings all
+        at once into one string template instead of using longer concatenation expressions. On the left side of %,
+        we put a string template with one or more targets of where we want to format data to. On the right side of
+        %, we put the objects embedded within a tuple, that we want to format into the string template. The syntax is
+		"--- %s --- %s ---" % (<i>target 1</i>, <i>target 2</i>).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Type specific</span><br>
+		  >>> <span class="red">"%d good %s 4 you"</span> <span class="purple">%</span> (<span class="green">1</span>, <span class="red">"example"</span>)<br>
+		  1 good example 4 you<br>
+		  >>> <span class="light-gray"># All types match %s</span><br>
+		  >>> <span class="red">"%s, %s, %s"</span> <span class="purple">%</span> (<span class="green">7.9</span>, [<span class="green">8</span>, 
+		      <span class="green">2</span>, <span class="green">1</span>], <span class="green">3</span>)<br>
+		  7.9, [8, 2, 1], 3
+        </code>
+	  </div>
+	  <p>In the first example, the %d in the string is replaced with a 1 and %s is replaced with "example". %s works
+        with all data types in string formatting. It is unlikely that you will use anything but %s. %s works with
+        every type, so unless you'll be doing specific string formatting, %s is all you need to use in formatting
+        expressions. There are other types besides %s and %d, here are some of the most common.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="red">%s</span> <span class="light-gray"># String</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;&nbsp;5. <span class="red">%c</span> <span class="light-gray"># Character (int or string)</span><br>
+		  2, <span class="red">%r</span> <span class="light-gray"># repr</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;6. <span class="red">%o, %O</span> <span class="light-gray"># Octal, base 8</span><br>
+		  3. <span class="red">%d</span> <span class="light-gray"># Decimal, base 10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  7. <span class="red">%x, %X</span> <span class="light-gray"># Hex Integer, Base 16</span><br>
+		  4. <span class="red">%i</span> <span class="light-gray"># Integer</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;&nbsp;8. <span class="light-gray"><span class="red">%e, %E, %f, %F, %g, %G</span> # Floating point number</span>
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <h3>The Format Call</h3>
+	  <p>The format method is available in all releases of Python 3. It is fairly straight forward, you just call
+        the method on a template string with arguments as the target values. <i>template</i>.format(<i>target 1</i>,
+        <i>target 2</i>) is the syntax when using the format method. <i>template</i> can either be a string or a
+        variable holding a string template, <i>.format</i> is the format method, and <i>target 1</i> and <i>target
+        2</i> are the values that will be formatted into the string template. You can pass arguments to the format
+        method by keyword, position, or both. In the template string, we put curly braces { } where we want the
+        arguments from the format call to appear in the string template.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Positional arguments</span><br>
+		  >>> <span class="red">"{0}, {1}, and {2}"</span>.format(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  1, 2, and 3<br>
+		  >>> <span class="light-gray"># Keyword arguments</span><br>
+		  >>> <span class="red">"{one}, {two}, and {three}"</span>.format(three=<span class="green">3</span>, two=<span class="green">2</span>, 
+		      one=<span class="green">1</span>)<br>
+		  1, 2, and 3<br>
+		  >>> <span class="light-gray"># Keyword and positional arguments</span><br>
+		  >>> <span class="red">"{one}, {0}, and {three}"</span>.format(<span class="green">2</span>, one=<span class="green">1</span>, three=<span class="green">3</span>)<br>
+		  1, 2, and 3<br>
+		  >>> <span class="light-gray"># Positional arguments</span><br>
+		  >>> <span class="red">"{}, {}, and {}"</span>.format(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  1, 2, and 3
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>In the first example, we pass the items to the string based on their index in the argument list to the
+        format call. Next, we pass the values to the string by keyword. The way that you pass a value by keyword to
+        the function call is by placing a keyword in curly braces within the string template and then set their value
+        equal to the method call to format. In the next example, we see that you can use both positional and keyword
+		arguments in the same method call. The final example is the same as the first. The reason that we don't use
+        numbers in the curly braces is because positional arguments are default with the format call; meaning, the
+        numbers are implied in the last example.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>You can also use lists to format strings with the format method call. In the string template, within the
+        curly braces, we can pass the index of the list object in the argument list to format and then we can use
+        list indices on that list object in the template. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> pets = [<span class="red">"cat"</span>, <span class="red">"dog"</span>, <span class="red">"fish"</span>]<br>
+		  >>> pet_names = [<span class="red">"Kitty"</span>, <span class="red">"Puggles"</span>, <span class="red">"Ball"</span>]<br>
+		  >>> <span class="green">print</span>(<span class="red">"I have a {0[0]} named {1[0]}."</span>.format(pets, pet_names))<br>
+		  I have a cat named Kitty.<br>
+		  >>> <span class="green">print</span>(<span class="red">"I have a {0[2]} named {1[2]}."</span>.format(pets, pet_names))<br>
+		  I have a fish named Ball.
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>In the examples, we pass two lists as arguments to the format method. In the curly braces, the first number
+        is selecting which list to use. This number represents the index of the object in the argument list to use.
+        If the first number is 0, it will select the first list. Likewise, if the first number is 1, the object
+        selected will be the object at the second index in the argument list. The second number (the number in square
+        braces [ ]) proceeding the first number in the string template is the index of the object to format into the
+        string template. For instance, {0[0]} means to select the first list in the format method call and format
+        the 0<sup>th</sup> index of that list into the string template.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Unpacking Dictionaries</h3>
+	  <p>We will cover this in more depth in a later tutorial, so do not worry if you do not understand the syntax
+        used in this subsection. Python has a feature called <i>unpacking</i>. This is commonly used with lists and
+        dictionaries, to <i>unpack</i> their values either to a function or, in this case, a string template. We can
+        do this by putting a dictionary's key in the curly braces within the string template. Then when we use the
+		unpacking syntax on the template with the dictionary, the values associated with the keys in the curly braces
+        will be formatted into the string.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> caid = {<span class="red">"first_name"</span>: <span class="red">"Caiden"</span>, <span class="red">"last_name"</span>:
+ 		      <span class="red">"Pyle"</span>}<br>
+		  >>> template = <span class="red">"Hello {first_name} {last_name}"</span><br>
+		  >>> <span class="green">print</span>(template.format(<span class="purple">**</span>caid))<br>
+		  Hello Caiden Pyle
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>First, we create a dictionary named <i>caid</i> and set the key <i>first_name</i> equal to "Caiden" and the
+        key <i>last_name</i> equal to "Pyle". Next, we create a string template with the dictionary's key names
+        inside of the template's curly braces. The key names must be exactly the same within the template as they
+        are in the dictionary. Now when we unpack the dictionary into the string template, the values associated with
+        the keys in the curly braces within the string template will be formatted into the string. In the format
+        method call, notice the double asterisk before the dictionary name. This is how we unpack the dictionary
+        <i>caid</i> into the string template <i>template</i>.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>F" "</h3>
+	  <p>There is a way that we can implant variable names directly into a string template to where when the string 
+        is printed the variable names will be replaced with the value held in that variable. This is basically the
+        same thing as templating in JavaScript.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  name = <span class="green">input</span>(<span class="red">"Name: "</span>)<br>
+		  age = <span class="green">input</span>(<span class="red">"Age: "</span>)<br>
+		  <span class="green">print</span>(<span class="red">f"{name} is {age} years old."</span>)
+		</code>
+	  </div>
+	  <p>The syntax is the same as raw strings. Place an "f" right before the opening quotation mark of the string
+        and place the variable name(s) directly in the curly braces of the string template. This is a very helpful
+        feature, but it is not commonly used in everyday practice. At the time of this writing, using f" " to format
+        strings is not very common since it is not supported in all versions of Python.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="fileio.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="lambda.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+

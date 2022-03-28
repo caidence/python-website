@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>List Operations</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">List Operations</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="stringoperations.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="dictionaryoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+      <h3>count, index</h3>
+	  <p>Lists have some of the same methods as strings, such as count and index, so we will start with those (these
+        two methods work with all sequence objects). Like with strings, <i>index</i> will return the index of the
+        passed item. Also like with strings, you can pass a second argument telling the index method at what index
+        to start its search at. The <i>count</i> method will return how many times an object appears in a list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+	      >>> array = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>,
+     		  <span class="green">1</span>]<br>
+		  >>> array.count(<span class="green">1</span>)<br>
+		  2<br>
+		  >>> array.index(<span class="green">1</span>)<br>
+		  0<br>
+		  >>> array.index(<span class="green">1</span>, <span class="green">1</span>)<br>
+		  3
+	    </code>
+	  </div>
+	  <p>Here we see that count will return the number of times that an element appears in the list. Next, we use
+        <i>index</i> to return the index of the first instance of 1 in the list. The integer 1 appears in the list
+        twice, so count will return 2. Moving on, we see that if you pass a second argument to the index method,
+        it will start the search at that index, just as it will with string objects.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>fun with index</h3>
+	  <p>This subsection is optional reading, below is a simple program using nested index method calls to print the
+        first and second index of an item input by the user in a list. Line three works by using the <i>index</i>
+        method call we learned earlier, line four is where things get interesting. There is a lot of code on line
+        four, so let's break it down. First, we print "Second index value: ". Then we call the index method on
+        <i>array</i> a first time with the first argument being the index of the value we want to find. The second
+        argument to this call is another call to index again with the same value we want to find, but in this call,
+        we add one to it and pass it as the second argument to the first call to index. Remember that if we pass a
+        second argument to <i>index</i>, Python will start the search at this index in the list. Because the second
+        argument in this case is the index of the first value, we are adding one to that index; therefore, starting
+        the search after the index of the first element.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. array = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, 
+		     <span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]<br>
+		  2. value = <span class="green">int</span>(<span class="green">input</span>(<span class="red">"Value: "</span>))<br>
+		  3. <span class="green">print</span>(<span class="red">"First index of value: "</span>, array.index(value))<br>
+		  4. <span class="green">print</span>(<span class="red">"Second index of value: "</span>,
+		     array.index(value, array.index(value) <span class="purple">+</span> 
+			 <span class="green">1</span>))
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <h3>append, insert, pop, remove</h3>
+	  <p>You will probably use <i>append</i> a lot in your programs. Append takes one argument and adds that argument
+        to the end of a list. Insert accepts two arguments, the first being an index of where to put an item at in a
+        list, and the second being the item to put at the index passed as the first argument. pop, by default, will
+        remove the last element in a list and return its value. Pop accepts an optional argument, an index. If you
+        pass this argument to pop, it will remove that index from the list and return its value. It is common to
+        store pop in a variable so that you can modify it or use it later. Remove accepts an object as an argument
+		and removes that object from the list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Append example</span><br>
+		  >>> array = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]<br>
+		  >>> array.append(<span class="green">4</span>)<br>
+		  >>> array<br>
+		  [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>]
+		</code>
+	  </div>
+	  <p>We can see here that all the <i>append</i> method really does is add an item to the end of the list. In the
+        example, we append 4 to the end of the list object. You can also append items to a list by using the +=
+        operator, essentially "adding" an item to the end of a list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Insert accepts two arguments, the first being an index, and the second being an object. The first argument
+        (the index) is used to place the second argument (the object) at that index in the list. For example, if we
+        have a list <i>array</i> and we want to place the number 10 at the first index of the list, we could write
+        array.insert(0, 10). The first argument is the index to place the number 10 (the second argument) at in the
+        list. This will not replace the object at the first index, it will just shift it along with all of the other
+        objects in the list to the right.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Insert example</span><br>
+		  >>> array <span class="purple">=</span> [<span class="green">2</span>, <span class="green">3</span>]<br>
+		  >>> array.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+		  >>> array<br>
+		  [1, 2, 3]
+		</code>
+	  </div>
+	  <p>In this example, we insert the number 1 at the 0<sup>th</sup> index of the list. Remember that list indices
+        start counting at 0, not 1. The second argument passed is 1, meaning that we want to place 1 at the
+        0<sup>th</sup> index of the list, prepending the list with the value 1.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>pop will remove the last item of the list and return it. Pop accepts an optional argument, though. As
+        previously discussed, the optional argument that you can pass to <i>pop</i> is the index of the item
+        in the list you would like to remove or, "pop off the list".
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># pop examples</span><br>
+		  >>> array <span class="purple">=</span> [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]<br>
+		  >>> array.pop()<br>
+		  3<br>
+		  >>> array<br>
+		  [1, 2]<br>
+		  >>> array <span class="purple">=</span> [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]<br>
+		  >>> array.pop(<span class="green">0</span>)<br>
+		  1<br>
+		  >>> array<br>
+		  [2, 3]
+		</code>
+	  </div>
+	  <p>In this example, we start with an array [1, 2, 3]. Next, we use the pop method on <i>array</i> with no
+        arguments. This removes the last element of the list and returns it. As you can see, after we call the
+        pop method on <i>array</i>, it has removed the last element. Next, we are just resetting the value of <i>array</i>
+		to [1, 2, 3]. After that, we call the pop method on <i>array</i> passing an argument, the index of the item
+        we would like to pop off of the list. In this example, we pop the first item off of the list by passing the
+        index 0 to the pop method. Now if we view the contents of <i>array</i>, we see that pop has removed the first
+        item from the list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The <i>remove</i> method removes an object from a list. It accepts one argument, the object to remove. Say
+        we have a list called <i>example</i>. Its value is ['a', 'b', 'd', 'c']. We want to remove the character 'd'
+        from this list, but how? We could do something like this example.remove('d'). This will remove the string
+        object 'd' from our list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+	      >>> <span class="light-gray"># remove example</span><br>
+	      >>> example = [<span class="red">'a'</span>, <span class="red">'b'</span>, <span class="red">'d'</span>,
+     		  <span class="red">'c'</span>]<br>
+		  >>> example.remove(<span class="red">'d'</span>)<br>
+		  >>> example<br>
+		  [<span class="red">'a'</span>, <span class="red">'b'</span>, <span class="red">'c'</span>]
+		</code>
+	  </div>
+	  <p>We start with ['a', 'b', 'd', 'c']. We want to remove the string object 'd' from our list, so we simply pass
+        it as an argument to the remove method like this example.remove('d'). Remove is a simple method: you just
+        call it on the list you want to remove something from, with the object that you want to remove from the list
+		as an argument.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>sort, reverse</h3>
+	  <p>I'm sure that you can guess what these two methods do. sort will sort a list in ascending order, and
+        reverse will reverse all of the elements in a list, making a mirror image of the list. If you want to sort
+        a list in reverse order, you could call the reverse method on a list that has already had the sort method
+        called on it, but there is another cool way to do this, only using the sort method.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Sort in ascending order</span><br> 
+		  >>> array = [<span class="green">2</span>, <span class="green">1</span>, <span class="green">4</span>,
+    		  <span class="green">3</span>]<br>
+		  >>> array.sort()<br>
+		  >>> array<br>
+		  [1, 2, 3, 4]<br>
+		  >>> <span class="light-gray"># Sort in descending order</span><br>
+		  >>> array.sort(reverse<span class="purple">=</span><span class="green">True</span>)<br>
+		  [4, 3, 2, 1]
+		</code>
+	  </div>
+	  <p>Next, we are going to talk about <i>sort</i> and <i>reverse</i>. These are not the only ways to sort and
+        reverse sequences in Python, but they are two of the most common. First, we create an array [2, 1, 4, 3].
+        Next, we call the sort method on it. This, by default, will sort the array in ascending order. We can see
+	    how to sort the list in descending order on the following lines. We can do this by adding an argument switch
+        to the sort method, <i>reverse=True</i>. When you have an argument and set it equal to a Boolean value,
+        this is often called a <i>switch</i>, because you are either <i>switching</i> on or off some functionality of
+		a method or function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> example = [<span class="green">2</span>, <span class="green">1</span>, <span class="green">3</span>]<br>
+		  >>> example.reverse()<br>
+		  >>> example<br>
+		  [3, 1, 2]<br>
+		  >>> example2 = [<span class="red">'a'</span>, <span class="red">'c'</span>, <span class="red">'b'</span>]<br>
+		  >>> example2.reverse()<br>
+		  ['b', 'c', 'a']
+		</code>
+	  </div>
+	  <p>In the example, we create a list called <i>example</i> and set its value as [2, 1, 3]. Next, we call the
+        reverse method on the list. Now when we view the contents of the list; it will be in reverse order of what
+        it previously was. Note, calling <i>reverse</i> on a list does not sort the list in reverse order, it simply
+        reverses the current order of the objects in the list. Continuing with our example, we can see that reverse
+        also works on a list of strings. 
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="stringoperations.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="dictionaryoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

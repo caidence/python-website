@@ -1,0 +1,2529 @@
+/* PAGE LAYOUT -------------------*/
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: "proxima-nova", Helvetica, sans-serif;
+	max-width: 3000px;
+	min-width: 650px;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+.button {
+	overflow: auto;
+}
+/* PAGE LAYOUT -------------------*/
+/* MAIN NAVIGATION -----------------------*/
+.main-heading {
+	width: 100%;
+	overflow: hidden;
+    background-color: #e7e5e4;
+}
+
+.nav {
+	text-align: center;
+	padding-top: 3%;
+	overflow: hidden;
+    background-color: #e7e5e4;
+    
+}
+
+.nav li {
+	text-align: center;
+	display: inline-block;
+	padding: 2em;
+}
+
+.nav li {
+	text-align: center;
+	display: inline-block;
+	padding: 2em 5em;
+}
+
+.nav a {
+	font-size: 2em;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+    font-weight: 600;
+}
+
+#home {
+    color: #4C4556;
+}
+
+#tutorial {
+    color: #872642;
+}
+
+#contact {
+    color: #F6C026;
+}
+
+#about {
+    color: #A0D3F9;
+}
+
+#home:hover {
+    color: #fff;
+}
+
+#tutorial:hover {
+    color: #fff;
+}
+
+#contact:hover {
+    color: #fff;
+}
+
+#about:hover {
+    color: #fff;
+}
+/* MAIN NAVIGATION -----------------------*/
+/* TITLE AREA -----------------------*/
+.main-heading {
+	background-color: #e7e5e4;
+    background-size: cover;
+	margin: 0;
+}
+
+.title {
+	text-align: center;
+	display: block;
+	font-size: 2em;
+	width: 100%;
+	margin: auto;
+}
+
+.title p {
+	color: color: #131313;
+	margin-top: 0;
+}
+
+.title h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  padding-bottom: 0.5em;
+}
+
+h1.elegantshadow {
+  color: rgb(29, 80, 112);
+  background-color: #e7e5e4;
+  letter-spacing: 0.15em;
+  text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474, -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d, -6px 12px 1px #828181, -7px 14px 1px #868585, -8px 16px 1px #8b8a89, -9px 18px 1px #8f8e8d, -10px 20px 1px #949392, -11px 22px 1px #999897, -12px 24px 1px #9e9c9c, -13px 26px 1px #a3a1a1, -14px 28px 1px #a8a6a6, -15px 30px 1px #adabab, -16px 32px 1px #b2b1b0, -17px 34px 1px #b7b6b5, -18px 36px 1px #bcbbba, -19px 38px 1px #c1bfbf, -20px 40px 1px #c6c4c4, -21px 42px 1px #cbc9c8, -22px 44px 1px #cfcdcd, -23px 46px 1px #d4d2d1, -24px 48px 1px #d8d6d5, -25px 50px 1px #dbdad9, -26px 52px 1px #dfdddc, -27px 54px 1px #e2e0df, -28px 56px 1px #e4e3e2;
+}
+
+#sub-title {
+    padding-bottom: 7em;
+}
+/* TITLE AREA -----------------------*/
+/* ABOUT ME ----------------------------*/
+.about-me {
+	background-color: rgb(29, 80, 112);
+	overflow: hidden;
+}
+
+.quote {
+	width: 80%;
+	margin: auto;
+	overflow: hidden;
+	font-size: 1.5em;
+	color: #e7e5e4;
+	font-weight: 400;
+	text-align: center;
+	line-height: 2em;
+	padding: 5%;
+}
+
+.information {
+	overflow: auto;
+	width: 100%;
+	padding-bottom: 5%;
+}
+
+.info-container {
+	margin: auto;
+	width: 100%;
+	overflow: auto;
+}
+
+.info {
+	width: 48%;
+	margin: 1%;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	padding: 0 5%;
+}
+
+.info h1 {
+	font-weight: 100;
+	color: #323a45;
+	text-align: center;
+	font-size: 2.5em;
+}
+
+.info p {
+	color: #939da5;
+	line-height: 2.5em;
+	font-size: 1.25em;
+}
+
+.professional h3 {
+	color: #323a45;
+	font-size: 1.75em;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.professional li {
+	font-size: 1em;
+	color: #939da5;
+	display: block;
+	margin: .25em;
+}
+
+.certs li {
+	font-size: 1.5em;
+}
+/* ABOUT ME ----------------------------*/
+/* PICTURES ----------------------------*/
+.pictures {
+	overflow: hidden;
+	width: 100%;
+	background-color: #131313;
+}
+
+.picture-container {
+	width: 80%;
+	margin: 1% auto 7% auto;
+	overflow: auto;
+}
+
+.picture {
+	float: left;
+	margin: .6vw;
+	overflow: hidden;
+	width: 18.25vw;
+	height: 18.25vw;
+}
+
+.picture img {
+	background-color: #323a45;
+	width: 100%;
+	height: 100%;
+}
+
+.picture-container h3 {
+	text-align: center;
+	text-transform: uppercase;
+	text-align: center;
+	color: #e7e5e4;
+	font-size: 3em;
+	font-weight: 100;
+	padding-bottom: 2%;
+}
+/* PICTURES ----------------------------*/
+/* CONTACT DIV --------------------------*/
+.contact {
+	margin: auto;
+	width: 60%;
+	text-align: center;
+	overflow: hidden;
+	padding-bottom: 5%;
+}
+
+.contact-us h1 {
+	color: #323a45;
+	font-weight: 100;
+	letter-spacing: 0;
+	font-size: 3em;
+	text-align: center;
+	padding-top: 5%;
+	margin-bottom: .75em;
+	margin-top: 0;
+}
+
+.contact-us p {
+	color: #939da5;
+	line-height: 2em;
+	font-size: 1.5em;
+	margin-bottom: 2.5em;
+}
+
+.contact-button a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	color: #131313;
+	padding: 1em;
+	width: 30%;
+	margin: auto;
+	border-radius: 3em;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	border: 2px solid rgb(29, 80, 112);
+}
+
+.contact-button a:hover {
+	color: #fff;
+	background-color: #131313;
+}
+/* CONTACT DIV --------------------------*/
+/* FOOTER DIV --------------------------*/
+.footer {
+	overflow: auto;
+	background-color: #131313;
+	width: 100%;
+	padding-bottom: 5%;
+}
+
+.footer-nav {
+	text-align: center;
+	padding-top: 2em;
+	overflow: auto;
+}
+
+.footer-nav ul {
+	overflow: auto;
+}
+
+.footer-nav li {
+	text-align: center;
+	display: inline-block;
+	padding: 2em;
+	overflow: auto;
+}
+
+.footer-nav a {
+	font-size: 1.75em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #e7e5e4;
+	display: block;
+}
+
+.footer-nav a:hover {
+	color: rgb(255, 255, 255);
+}
+
+.line {
+	display: block;
+	padding-top: 1em;
+	border-bottom: 2px solid #e7e5e4;
+	width: 80%;
+	margin: auto;
+}
+
+.back-to-top {
+	padding-top: 2em;
+}
+
+.back-to-top a {
+	border: 2px solid #e7e5e4;
+	width: 20%;
+	padding: 1em;
+	border-radius: 50px;
+	margin: auto;
+	font-size: 1.25em;
+	color: #323a45;
+	background-color: #e7e5e4;
+}
+
+.back-to-top a:hover {
+	color: #e7e5e4;
+	background-color: #131313;
+}
+/* FOOTER DIV --------------------------*/
+/*MEDIA QUERIES ------------------------*/
+@media (max-width: 1200px) {
+	.nav {
+		padding-top: 1.5%;
+	}
+
+	.nav a {
+		font-size: 1.25em;
+	}
+
+	.title {
+		font-size: 1.5em;
+	}
+	
+	.quote {
+		width: 90%;
+		font-size: 1.25em;
+	}
+
+	.info {
+		width: 98%;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+		font-weight: 400;
+		margin-bottom: 0;
+	}
+
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact-us h1 {
+		font-size: 2.5em;
+	}
+
+	.contact-us p {
+		margin-bottom: 2em;
+	}
+	
+	.contact-button a {
+		padding: 1.5em;
+		width: 30%;
+		font-size: 1em;
+	}
+	
+	.footer-nav a {
+		font-size: 1.25em;
+	}
+	
+	.back-to-top a {
+		width: 20%;
+		padding: 1.5em;
+		font-size: 1em;
+	}
+}
+
+@media (max-width: 1000px) {
+	.nav a {
+		font-size: 1em;
+	}
+
+	.title {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+	}
+	
+	.contact-button a {
+		width: 30%;
+		font-size: .75em;
+	}
+	
+	.back-to-top a {
+		width: 20%;
+		font-size: .75em;
+	}
+}
+/* IPHONE 5, 5S, 5C, 5SE PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 320px)
+	and (max-device-width: 568px)
+	and (-webkit-min-device-pixel-ratio: 2)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* IPHONE 5, 5S, 5C, 5SE LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 320px)
+	and (max-device-width: 568px)
+	and (-webkit-min-device-pixel-ratio: 2)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+
+/* IPHONE 6, 6S, 7, 8 PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 375px)
+	and (max-device-width: 667px)
+	and (-webkit-min-device-pixel-ratio: 2)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* IPHONE 6, 6S, 7, 8 LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 375px)
+	and (max-device-width: 667px)
+	and (-webkit-min-device-pixel-ratio: 2)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+
+/* IPHONE 6+, 7+, 8+ PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 414px)
+	and (max-device-width: 736px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* IPHONE 6+, 7+, 8+ LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 414px)
+	and (max-device-width: 736px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* IPHONE X PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 375px)
+	and (max-device-width: 812px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* IPHONE X LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 375px)
+	and (max-device-width: 812px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GALAXY S4, S5 AND NOTE 3 LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 320px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GALAXY S4, S5 AND NOTE 3 PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 320px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GALAXY S6 X PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 360px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 4)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GALAXY S6 LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 360px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 4)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GOOGLE PIXEL PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 360px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GOOGLE PIXEL LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 360px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 3)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GOOGLE PIXEL XL PORTRAIT ------------------ */
+@media only screen
+	and (min-device-width: 360px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 4)
+	and (orientation: portrait) {
+
+	.main-heading {
+		padding-bottom: 5%;
+	}
+
+	.nav {
+		text-align: center;
+		padding-top: 5%;
+		overflow: auto;
+	}
+
+	.nav ul {
+		overflow: auto;
+	}
+
+	.nav li {
+		display: block;
+		padding: .5em;
+		width: 70%;
+		margin: auto;
+		margin-bottom: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.nav a {
+		font-size: 6em;
+		display: block;
+	}
+	
+	#current a {
+		color: rgba(255, 255, 255, 0.8);
+		background-color:transparent;
+		padding: 0;
+		border-radius: 0;
+	}
+	
+	.title p {
+		font-size: 2.5em;
+		padding-bottom: 1.5%;
+	}
+
+	.title h1 {
+		font-size: 6em;
+		padding-bottom: .2em;
+		font-weight: 500;
+	}
+
+	.quote {
+		font-size: 3em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 4.5em;
+	}
+
+	.info p {
+		font-size: 3em;
+	}
+
+	.professional h3 {
+		font-size: 3em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-weight: 400;
+		font-size: 4.5em;
+		padding-top: 7%;
+		margin-bottom: .75em;
+		margin-top: 0;
+	}
+
+	.contact-us p {
+		line-height: 2em;
+		font-size: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a {
+		padding: 1em;
+		width: 70%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(0, 176, 240);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav li {
+		display: block;
+		padding: 2em;
+		border-bottom: 4px solid rgba(255, 255, 255, 0.8);
+		width: 60%;
+		margin: auto;
+	}
+
+	.footer-nav a {
+		font-size: 4.5em;
+		display: block;
+	}
+
+	.line {
+		display: none;
+	}
+
+	.back-to-top {
+		padding-top: 15%;
+	}
+
+	.back-to-top a {
+		padding: 1em;
+		width: 60%;
+		font-size: 3em;
+		font-weight: 600;
+		border: 4px solid rgb(255, 255, 255);
+		border-radius: 3em;
+		margin-bottom: 1.5em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}
+/* GOOGLE PIXEL XL LANDSCAPE ------------------ */
+@media only screen
+	and (min-device-width: 360px)
+	and (max-device-width: 640px)
+	and (-webkit-min-device-pixel-ratio: 4)
+	and (orientation: landscape) {
+	
+	.download {
+		display: none;
+	}
+
+	.nav ul {
+		width: 100%;
+	}
+
+	.nav a {
+		font-size: 2em;
+	}
+	
+	.title p {
+		font-size: 2em;
+		padding-bottom: 15%;
+	}
+
+	.title h1 {
+		font-size: 5em;
+	}
+	
+	.quote {
+		font-size: 2em;
+	}
+	
+	.info {
+		width: 95%;
+		float: none;
+		margin: auto;
+	}
+
+	.info h1 {
+		font-weight: 500;
+		font-size: 3.75em;
+	}
+
+	.info p {
+		font-size: 2em;
+	}
+
+	.professional h3 {
+		font-size: 2em;
+	}
+
+	.professional li {
+		font-size: 1.25em;
+	}
+	
+	.certs li {
+		font-size: 2em;
+	}
+	
+	.contact {
+		width: 80%;
+		padding-bottom: 5%;
+	}
+
+	.contact-us h1 {
+		font-size: 4em;
+	}
+
+	.contact-us p {
+		font-size: 2em;
+	}
+
+	.contact-button a {
+		width: 50%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.contact-button a:hover {
+		color: rgb(0, 176, 240);
+		background-color: #fff;
+	}
+	
+	.footer {
+		padding-bottom: 5%;
+	}
+
+	.footer-nav a {
+		font-size: 2.5em;
+		display: block;
+	}
+
+	.back-to-top {
+		padding-top: 7%;
+	}
+
+	.back-to-top a {
+		width: 40%;
+		font-size: 2em;
+		padding: 1em;
+	}
+
+	.back-to-top a:hover {
+		color: #323a45;
+		background-color: rgb(255, 255, 255);
+	}
+}

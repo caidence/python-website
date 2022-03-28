@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Multiple Inheritance</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Multiple Inheritance</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="inheritance.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="operatoroverloading.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Before anything else, I'd like to show my favorite quote about multiple inheritance. Dusty Phillips says in his book <i>Python 3
+	    Object-oriented Programming</i> "As a rule of thumb, if you <b>think</b> you need multiple inheritance, you're probably wrong, but if you
+		<b>know</b> you need it, you're probably right." If you are using multiple inheritance, unless you know that you absolutely need it, there
+		is probably a better way to design your program. Many professional programmers even warn against it. Try not to use multiple inheritance
+		unless you absolutely need to!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Just because it can be sticky, doesn't mean that I won't write a tutorial on it; so here we go. In theory, multiple inheritance is simple;
+        a class that inherits from more than one other class. The subclass that inherits from more than one class will inherit attributes from
+		all classes that it inherits from. This can be easier said than done, there are a lot of details to pay attention to with multiple 
+		inheritance and it's almost impossible to implement without having planned it from the beginning.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Directly calling init</h3>
+	  <p>The first method that we will discuss to multiple inheritance is a little more obvious than the second. It is more readable, but is still
+	    considered improper. Honestly, in my opinion, both ways work just fine so it really comes down to the programmer on which version to implement.
+		This first tactic initializes itself by calling all of the parents' __init__ methods directly in its own __init__ method by explicitly using
+		the name of each parent.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+	      1. <span class="green">class</span> <span class="blue">Parent_1</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, 
+		     value_1=<span class="green">0</span>):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_1 = value_1<br>
+          4. <br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_val_1</span>(self, new_value):<br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_1 = new_value<br>
+          7. <br>
+          8. <br>
+          9. <span class="green">class</span> <span class="blue">Parent_2</span>:<br>
+          10. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self,
+		      value_2=<span class="green">0</span>):<br>
+          11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_2 = value_2<br>
+          12. <br>
+          13. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_val_2</span>(self, new_value):<br>
+          14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_2 = new_value<br>
+          15. <br>
+          16. <br>
+          17. <span class="green">class</span> <span class="blue">Parent_3</span>:<br>
+          18. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self,
+		      value_3=<span class="green">0</span>):<br>
+          19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.value_3 = value_3<br>
+          20. <br>
+          21. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_val_3</span>(self, new_value):<br>
+          22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_3 = new_value<br>
+          23. <br>
+          24. <br>
+          25. <span class="green">class</span> <span class="blue">Child</span>(Parent_1, Parent_2, Parent_3):<br>
+          26. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, value_1, value_2, value_3):<br>
+          27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent_1.__init__(self, value_1)<br>
+          28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent_2.__init__(self, value_2)<br>
+          29. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Parent_3.__init__(self, value_3)<br>
+          30. <br>
+          31. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">addition</span>(self):<br>
+          32. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.value_1 <span class="purple">+</span>
+		      self.value_2 <span class="purple">+</span> self.value_3
+	    </code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>
+	    The Child class is will be the main focus of this example. Child inherits from Parend_1, Parent_2, and Parent_3. Because of this, instances
+		created of the child class will be able to call methods from all three parent classes. Notice the Child classes init method. In this method, 
+		it explicitly calls each init method from each of its parents, passing the correct argument to the correct parent. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Parent_1's init accepts one argument: value_1. Likewise, Parent_2 and Parent_3 both accept one argument in their initialization methods. 
+	    When we call each parents' init method explicitly from the child's init, we have to manually pass the correct value to each parent in order
+		properly initialize instances. Also, when we explicitly call each parents' init like this, we have to pass the instance to each parent by 
+		using <i>self</i> as the first argument. Let's look at an interactive session with this file to demonstrate some of the concepts.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> test = Child(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  >>> test.value_1<br>
+		  1<br>
+		  >>> test.value_2<br>
+		  2<br>
+		  >>> test.value_3<br>
+		  3<br>
+		  >>> test.change_val_2(<span class="green">22</span>)<br>
+		  >>> test.value_2<br>
+		  22<br>
+		  >>> test.addition()<br>
+		  25
+		</code>
+	  </div>
+	  <p>First, we create an instance of Child called <i>test</i> and initialize its values: value_1, value_2, and value_3 to equal 1, 2, and 3
+	    respectively. On the next few lines, we can see that test's instance variables are equal to 1, 2, and 3. Since test inherits from Parent_1,
+		Parent_2, and Parent_3; it has access to all of the methods in each parent class. We see this by calling the method <b>change_val_2</b>
+		on test. change_val_2 is a method within Parent_2, but inheritance allows us to call it on instances of the Child class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The addition method in the Child class simply adds all of the instance variables together. I created this method with the intent to
+	    demonstrate that despite variables being initialized in parent classes; they still belong to the child instance. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>This method of initializing instance variables of child classes can get messy quickly. This is especially true when you have existing code
+	    and you want to add a class for a child to inherit from. You would have to modify the child class, parent class and possibly some of the
+		existing parent classes that the child already inherits from! The second method for initializing child classes by using multiple parent
+		init methods is more robust than this solution. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Initialization with super()</h3>
+	  <p>Remember the super method that we learned about previously? This works excellent with inheritance, but it can be a little tricky when multiple
+	    inheritance comes in to play. Particularly when you want to initialize a child using multiple parent classes. How does super know which
+		arguments to send to which parents init method? Well, the short answer is; it doesn't. The long answer is; we can use keyword arguments to
+		easily create an "inheritance chain" so that all arguments will be passed to each parents init method. When we do this, init will take out
+		the arguments that it needs and pass the kwargs to the next parent until all variables are initialized. This is a really confusing concept, 
+		so let's restructure the class from the last example to use this initialization method.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Parent_1</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, 
+		     value_1=<span class="green">0</span>, <span class="purple">**</span>kwargs):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Parent 1"</span>)<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(<span class="purple">**</span>kwargs)<br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_1 = value_1<br>
+          6. <br>
+          7. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_val_1</span>(self, new_value):<br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_1 = new_value<br>
+          9. <br>
+          10. <br>
+          11. <span class="green">class</span> <span class="blue">Parent_2</span>:<br>
+          12. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, 
+		      value_2=<span class="green">0</span>, <span class="purple">**</span>kwargs):<br>
+          13. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Parent 2"</span>)<br>
+          14. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(<span class="purple">**</span>kwargs)<br>
+          15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_2 = value_2<br>
+          16. <br>
+          17. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_val_2</span>(self, new_value):<br>
+          18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_2 = new_value<br>
+          19.<br>
+          20.<br>
+          21. <span class="green">class</span> <span class="blue">Parent_3</span>:<br>
+          22. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, 
+		      value_3=<span class="green">0</span>, <span class="purple">**</span>kwargs):<br>
+          23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"Parent 3"</span>)<br>
+          24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(<span class="purple">**</span>kwargs)<br>
+          25. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_3 = value_3<br>
+          26.<br>
+          27. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">change_val_3</span>(self, new_value):<br>
+          28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.value_3 = new_value<br>
+          29.<br>
+          30.<br>
+          31. <span class="green">class</span> <span class="blue">Child</span>(Parent_1, Parent_2, Parent_3):<br>
+          32. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, 
+		      <span class="purple">**</span>kwargs):<br>
+          33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(<span class="purple">**</span>kwargs)<br>
+          34.<br>
+          35. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">addition</span>(self):<br>
+          36. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.value_1 
+		      <span class="purple">+</span> self.value_2 <span class="purple">+</span> self.value_3
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Take a look at each init method of Parent_1, Parent_2, and Parent_3. What I want you to look at is, each init method accepts one 
+	    keyword argument, along with **kwargs. Also, each parent method passes the **kwargs argument to the super function. We'll get to why this 
+		works in a minute. Now look at the init method of the child class. See how this method does not explicitly accept any arguments other than 
+		kwargs. The Child class only accepts keyword arguments and then immediately passes kwargs to the super function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>This is where the order of parent classes comes in to play. In short, yes, the order of the classes that Child inherits from does matter.
+	    On line thirty-one, you can see that Child inherits from Parent_1, Parent_2, and Parent_3. This line is what I am referring to when I talk about
+		the "order" of parent classes that Child inherits from. The order of the names in the inheritance chain does matter. In this case, Child
+		will first inherit from Parent_1, Parent_2, then Parent_3. Because of this, technically Parent three does not need to call 
+		super().__init__(**kwargs) in its initialization function. However, because we still put this line in Parent_3's init method, the order of
+		parents that Child inherits from is arbitrary.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>To make this program work, we need to pass keyword arguments when creating instances of the Child class. Child's init function will
+	    immediately pass these arguments to be initialized in the three parent classes. Since Parent_1 comes first in the inheritance chain on
+		line thirty-one, the arguments will all be passed to Parent_1's init method. Parent_1 will then strip any arguments that it needs (in this
+		case, value_1) and then pass the rest of the arguments to the initialization function of the next listed parent class on line thirty-one.
+		In the case of this example, that is Parent_2. Parent_2 will then do the same thing as Parent_1. It will take any values from **kwargs, 
+		initialize them accordingly, then pass the rest of the keyword arguments to the next parent's init method. This is why technically, the 
+		last parent class in the inheritance chain does not need the statement super().__init__(**kwargs). Because there is not another parent
+		to pass keyword arguments to. If, however, we do include this statement in the last parent, it will essentially make the order of parents
+		that Child inherits from arbitrary. This is because each parent class will now pass unneeded keyword arguments to the next parent.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Usually, the init method is not a place where you will see print statements. I decided to include the print statements in this example so
+	    that you can see the order of inheritance when we create an instance of Child. The order of inheritance is the same as the order of parent
+		classes in the inheritance list on line thirty-one. This is probably as you'd expect, but I still feel it will help to show exactly how this
+		works.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right"> 
+	    <code>
+		  >>> test = Child(value_1=<span class="green">1</span>, value_2=<span class="green">2</span>,
+ 		      value_3=<span class="green">3</span>)<br>
+		  Parent 1<br>
+		  Parent 2<br>
+		  Parent 3<br>
+		  >>> test.addition()<br>
+		  >>> test.change_val_1(<span class="green">10</span>)<br>
+		  >>> test.addition()<br>
+		  15<br>
+		  >>> test.change_val_2(<span class="green">5</span>)<br>
+		  >>> test.addition()<br>
+		  18
+		</code>
+	  </div>
+	  <p>As we can see here, whenever we create an instance of Child, it will also call the print statements in each of its parents' init methods.
+	    In doing this, we can also see the order of which parent's init methods are called. In this example, the order is Parent_1, Parent_2, then
+		Parent_3. This is because that is the order that Child inherits from the parents on line thirty-one. This program, functionally, works exactly
+		the same as the last program that we looked at. The difference between the two is: this is the proper way to initialize child classes
+		by using multiple parent classes and this method is more robust than the last.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="inheritance.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="operatoroverloading.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Data Types</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Data Types</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="strings.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="variables.html">Next</a>
+	  </div>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>In Python, everything is an object, and every object has a data type. In the previous tutorial, you
+	    learned about strings, which are one of the many Python data types. In Python, we would say that 
+        a String, for example, is a <i>string</i> data type. There are many data types in Python.
+        This tutorial is a brief high-level overview of some of the most common data types in Python 3. I will 
+        cover each data type in detail in later tutorials, this is just an introduction to get your feet wet.
+        Because you learned about strings in the last tutorial, this tutorial will skip strings and pick up where
+        we left off. Lets take a look at another common data type, the integer.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>int</h3>
+	  <p>Int, short for integer, is a whole number with no decimal place. Ints do not have a decimal even
+	    if the decimal value is zero. Ints can be positive or negative. Do not make the mistake of putting
+        quotation marks around a number, this will make the data type of the object a string rather than an int,
+        which can cause you a whole lot of headache later in your program!
+	  </p>
+	</div>
+	<div class="p-container">
+	 <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># These are valid ints</span><br>
+		  2. <span class="green">1078</span><br>
+		  3. <span class="purple">-</span><span class="green">1078</span><br>
+		  4. <br>
+		  5. <span class="light-gray"># These are not ints</span><br>
+		  6. <span class="red">"1078"</span>&nbsp;&nbsp<span class="light-gray"># This is a sting</span><br>
+		  7. <span class="green">1078.0</span>&nbsp;&nbsp<span class="light-gray"># This is a float</span>
+		</code>
+	  </div>
+	  <p>In the example, lines two and three are both valid ints. Ints can be basically any number that
+	    you want, so long as the number does not have a decimal place. Lines six and seven are not ints,
+		which is slightly confusing to newcomers. They are both valid data types, but line six is a string and
+        line seven is a float. Line six is a string due to being enclosed in quotes, and line seven has a decimal,
+        making it a float. It is important to understand that on line seven, even though the decimal value is 
+        zero, which by definition makes it a whole number, it is still considered a float because of the decimal,
+        not an int.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Float</h3>
+	  <div class="left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Examples of float data type</span><br>
+		  2. <span class="purple">-</span><span class="green">192090.000</span><br>
+		  3. <span class="green">1234.56789</span><br>
+		  4. <span class="green">1.0</span>
+		</code>
+	  </div>
+	  <p>If you understand ints, it won't take too much explanation for you to understand floats. Float is
+	    short for <i>floating point number</i>. This basically means numbers that are not whole numbers. Floating
+        point numbers always contain a decimal. Like ints, floats can be positive or negative. The important thing
+        to remember is that if a number has a decimal, it is a float, not an int. 	
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>List</h3>
+	  <p>Lists (often called arrays in other languages) are the most general sequence in Python. Lists are 
+        <i>mutable</i> objects, meaning that it is possible to change the value of a list in place. By definition, 
+	    lists are positionally ordered sequences of arbitrary objects. This means that they are used to 
+	    store any object type in sequential order by position. In layman's terms, a list is an object that stores 
+        other objects. You create a list by using square brackets [ ] and everything between is stored in the list.
+        You separate objects using a comma "," between them in the square brackets. For instance, say you had two
+        strings: "foo" and "bar", and you want to create an object that stores both strings, but keeps them separate
+        from each other. You can use a list! The code would look something like this: ["foo", "bar"]. This will
+        keep the strings separate from one another and store them in a single list data type.
+	  </p>
+	</div>
+	<div class="p-container">
+      <code>
+	    <div class="code-example right aniview" data-av-animation="slideInUp">
+	      1. <span class="light-gray"># Examples of lists</span><br>
+  		  2. [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>]<br>
+		  3. [<span class="green">1.1</span>, <span class="green">2.2</span>, <span class="green">3.3</span>]<br>
+		  4. [<span class="red">"a"</span>, <span class="red">"b"</span>, <span class="red">"c"</span>]<br>
+		  5. [<span class="green">1</span>, <span class="green">3.7</span>, <span class="red">"hi!"</span>]
+	    </div>
+      </code>
+	  <p>Generally speaking, lists contain only one data type, meaning a list of all ints or a list of all floats.
+	    This is often the case, but not always. Unlike many other languages, in Python you can put multiple data 
+		types in the same list. In fact, you can put any data type you want in your list, even other lists! In the
+		example, you can see the basic syntax of a list.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Tuple</h3>
+	  <p>Tuples are much the same as lists. The main difference between lists and tuples is that tuples are 
+        <i>immutable</i>. This means that you cannot change a tuple in place like you can with a list. You cannot
+        add or remove items from a tuple like you can to a list. Tuple syntax is exactly the same as list syntax,
+        the only difference is you use ( ) instead of [ ] to create a tuple.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>If you cannot change tuples, then why not just use lists always? Good question, imaginary student!
+        Tuples have some advantages over lists that are worth noting here. Firstly, tuples cannot be changed.
+        This makes your code "safer" when working with data. You'd be surprised how easy it is to accidently
+        change a list in your code. Secondly, tuple iteration is faster than list iteration. If your only
+        intention is to iterate over the data, you should use a tuple because it would be faster than using a list.
+        Does list vs tuple iteration speed really matter too much? No. Tuple iteration is not noticeably faster than 
+        list iteration, but it is faster, nevertheless. Thirdly, tuples take up less space in memory than lists.
+        This is due to the fact that lists take up extra memory behind the scenes for possible expansion.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Tuple examples</span><br>
+		  2. (<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  3. (<span class="green">1.1</span>, <span class="green">2.2</span>, <span class="green">3.3</span>)<br>
+		  4. (<span class="red">"a"</span>, <span class="red">"b"</span>, <span class="red">"c"</span>)<br>
+		  5. (<span class="green">1</span>, <span class="green">3.7</span>, <span class="red">"hi!"</span>)<br>
+		  6. (<span class="green">1</span>,)<br>
+		  7. <br>
+		  8. (<span class="green">1</span>) <span class="light-gray"># Not a tuple</span>
+		</code>
+	  </div>
+	  <p>Like lists, you can put any data type you want into a tuple. It can contain all just one data type,
+	    or you can have multiple data types in a tuple, it's up to you! Also like lists, you can put tuples
+		inside of your tuple. Unlike lists, if you want a tuple of just one item, you must put a comma after the item, like on
+		line six of the example. If you do not put the trailing comma, Python will interpret the data type to be
+		that of the data type of the item, not a tuple! For example, line eight is not a tuple. Python interprets
+		this line as an int because the item in the braces is an int and there is no trailing comma after it.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Dictionary</h3>
+	  <p>Dictionaries can be difficult to understand, so try to take this section slow. If you are comming from 
+        another language, a dictionary in Python is just a hash table. Dictionaries are lists of
+        mutable key value pairs. The main use of a dictionary is to extract the value using the key. Dictionaries
+        are created using { }. Key value pairs are separated using a comma and keys and values are separated using
+        a colon ":". For more clarity, check out the example. We will discuss dictionaries in depth in a later
+        tutorial.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Dictionary examples</span><br>
+		  2. {key1: value1, key2: value2}<br>
+		  3. {<span class="red">'name'</span>: <span class="red">'bob'</span>, <span class="red">'age'</span>: <span class="green">26</span>}
+		</code>
+	  </div>
+	  <p>In the examples, you can see that there are key value pairs (key: value) in the dictionaries. On line two,
+        key1 is associated with value1. This is what we call a key value pair. Also notice that the key and value
+        are separated by a colon and the key value pairs are separated by a comma. The key is always on the left
+        side of the colon and the value on the right. Keys don't have to just be strings, they can be ints and floats
+        if you want. It is just important that every key is unique. If two or more keys have the same name, Python
+        will only grab the value associated with the last most key in the dictionary.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># The value of 1 is 'hello'</span><br>
+		  2. {<span class="green">1</span>: <span class="red">'hi'</span>, <span class="green">1</span>: <span class="red">'hola'</span>,
+      		 <span class="green">1</span>: <span class="red">'hello'</span>}
+		</code>
+	  </div>
+	  <p>This example shows Python's behavior if you use the same key name more than once. If you try to get the
+        value at 1 in this dictionary, the value will be 'hello' because that is the value at the last key with the
+        name 1. Python will ignore all of the other values. This is why you should make sure your keys are unique.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>set</h3>
+	  <p>Python sets work the same as those used in mathematics. The operations used in Python on sets work the
+        same as set operations in mathematics, too. Some set operations are union, disjoint, and difference. Sets
+        are mutable objects in Python. We will get to sets in a later tutorial, but for now, the important thing
+        to remember is the order of a set does not matter and sets can only contain unique items. How you create
+        a set is basically the same as how you create a list or tuple, except you use { } instead of [ ] or ( ).
+        It is unlikely that you will use sets very often in Python, unless you are a mathematician or data scientist
+        so don't get too worked up if you don't understand them.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Set examples</span><br>
+		  2. {<span class="red">'a'</span>, <span class="red">'b'</span>, <span class="red">'c'</span>}<br>
+		  3. {<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>}<br>
+		  4. {<span class="green">1.1</span>, <span class="green">2.2</span>, <span class="green">3.3</span>}<br>
+		</code>
+	  </div>
+	  <p>Like lists and tuples, sets can contain pretty much any data type that you want. You can make a set of all
+        ints, all floats, or all strings. Also like lists and tuples, you can put multiple data types in a set, even
+        other sets. Technically, sets use the same lookup algorithm as dictionaries, so they are more like
+        dictionaries than lists and tuples, but the way they are used is more like that of lists and tuples. You
+        can think of a set as a dictionary of all keys and no values.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>The type function</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">type</span>(<span class="red">"Hello"</span>)<br>
+		  str<br>
+		  >>> <span class="green">type</span>(<span class="green">2.8</span>)<br>
+		  float<br>
+		  >>> <span class="green">type</span>(<span class="green">5000</span>)<br>
+		  int
+		</code>
+	  </div>
+	  <p>At this point, I thought it useful to introduce you to the type function. You can pass any object to
+        the type function and Python will return that object's type. All you have to do is put an object, or
+        variable referencing an object, into the braces of the type function and the return value is the object's
+        data type. Here are a few examples to make things more clear for you.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Getting Help</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Common object types</span><br> 
+		  2. <span class="green">bool</span>&nbsp;&nbsp;<span class="light-gray"># Boolean (True or False)</span><br>
+		  3. <span class="green">int</span>&nbsp;&nbsp;<span class="light-gray"># Integer</span><br>
+		  4. <span class="green">float</span>&nbsp;&nbsp;<span class="light-gray"># Floating point number</span><br>
+		  5. <span class="green">list</span>&nbsp;&nbsp;<span class="light-gray"># Mutable sequence of objects</span><br>
+		  6. <span class="green">tuple</span>&nbsp;&nbsp;<span class="light-gray"># Immutable sequence of objects</span><br>
+		  7. <span class="green">str</span>&nbsp;&nbsp;<span class="light-gray"># String</span><br>
+		  8. <span class="green">set</span>&nbsp;&nbsp;<span class="light-gray"># Mutable set</span><br>
+		  9. <span class="green">frozenset</span>&nbsp;&nbsp;<span class="light-gray"># Immutable set</span><br>
+		  10. <span class="green">dict</span>&nbsp;&nbsp;<span class="light-gray"># Dictionary, key value mappings</span>
+		</code>
+	  </div>
+	  <p>Python has a few useful functions for getting help with object types. You pass objects to these functions,
+        and be returned with a list of methods that work on the object. The two help functions that I use on a
+        regular basis are <i>help</i> and <i>dir</i>. The syntax of these two functions are help(object) and dir(object).
+        Help will return documentation on the object passed to it, and dir will return methods for the object passed to
+        it. Do not worry too much about the syntax on lines seven and eight in the second example, I will cover this
+        in the <i>list comprehension</i> tutorial. For now, just replace the object that you want to get the methods
+        for in the dir function on these two lines. The first example shows a list of some of the most common object
+        types in Python.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Viewing documentation</span><br>
+		  2. <span class="green">help</span>(<span class="green">str</span>)<br>
+		  3. <span class="green">help</span>(<span class="green">dict</span>)<br>
+		  4.<br>
+		  5. <span class="light-gray"># Viewing an object's methods</span><br>
+		  6. <span class="green">dir</span>(<span class="green">str</span>)<br>
+		  7. [x <span class="green">for</span> x <span class="green">in</span> <span class="green">dir</span>(<span class="green">str</span>)]<br>
+		  8. [x <span class="green">for</span> x <span class="green">in</span> <span class="green">dir</span>(<span class="green">str</span>)
+   		     <span class="green">if not</span> x.startswith(<span class="red">'_'</span>)]
+		</code>
+	  </div>
+	  <p>Lines two and three will display documentation about the str object, and the dict object respectively.
+        The help function displays user-friendly documentation about the object that is passed to it. Lines six
+        and seven will display all methods that you can use on string objects. Line eight will display all methods
+        that you can use on string objects as long as the method name does not start with an underscore "_".
+        As I said earlier,  do not worry about the syntax on lines seven and eight; for now, just use it to get help
+        on objects as you need!
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="strings.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="variables.html">Next</a>
+	  </div>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

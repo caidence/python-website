@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>For Loop</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">For Loop</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="whileloop.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="functions.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+      <h3>For loop</h3>
+	  <p>The for loop is a very basic iterator in Python. It is used to step through items in ordered sequences such
+        as lists, tuples, and strings. The header has the general format: for <i>item</i> in <i>object</i>:. This
+        will execute a block of code for every item in the iterable object. In the previousexample of a for loop,
+        header, <i>item</i> used to refer to the current item in the object that the for loop is executing the
+        block of code for.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> example = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>]<br>
+		  >>> total = <span class="green">0</span><br>
+		  >>> <span class="green">for</span> item <span class="green">in</span> example:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;total <span class="purple">+=</span> item<br>
+		  >>> total<br>
+		  10
+		</code>
+	  </div>
+	  <p>First, we create a list with a few values in it. The objective of this program is to get the sum of the
+        list. Next, we create a variable, <i>total</i>, which we update with every item in the for loop to keep track
+        of the running total sum of the items in <i>example</i>. After that, we have the for loop statement. This
+        line is saying "for every item in the example list, do the code indented below." Since a list is an ordered
+        collection in Python, we can use it with a for loop. In the example, <i>item</i> is used to refer to the
+        current item the for loop is executing code with/on. The for loop will start by executing the indented
+        code on the item at index 0 in the object <i>example</i>. After that, the loop will execute the indented code
+        on index 1, and so on until the loop has executed the code on every item in the list. In the case of this
+        example, all we do is add the item to the variable <i>total</i>. After the loop, when we view the contents
+        of <i>total</i>, we can see that it is equal to the sum of the numbers in <i>example</i>.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> sentence = (<span class="red">'Hello'</span>, <span class="red">"I'm"</span>, <span class="red">'Bill'</span>)<br>
+		  >>> <span class="green">for</span> word <span class="green">in</span> sentence:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(word, end=<span class="red">" "</span>)<br>
+		  Hello I'm Bill
+		</code>
+	  </div>
+	  <p>This program takes a tuple of words and prints them sequentially with a space between each word. Notice how
+        this time we used <i>word</i> to reference the current object in the sequence instead of <i>item</i>. This
+        is just a variable, and its name is arbitrary to the execution of the program.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> test = [(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>), 
+		      (<span class="green">4</span>, <span class="green">5</span>, <span class="green">6</span>)]<br>
+		  >>> <span class="green">for</span> (a, b, c) <span class="green">in</span> test:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(a + b + c, end=<span class="red">' '</span>)<br>
+		  6 15
+		</code>
+	  </div>
+	  <p>A cool feature of Python for loops is <i>tuple assignment</i>. If you are iterating over a list of tuples,
+        the target (word and index were used as the target in the previous two examples) can actually be a tuple
+        of targets. You will see this syntax used a lot with <i>enumerate</i>, and when using dictionary.items().
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> me = {<span class="red">'name'</span>: <span class="red">'Caiden'</span>, <span class="red">'age'</span>: <span class="green">19</span>}<br>
+		  >>> <span class="green">for</span> key, value <span class="green">in</span> me.items():<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(key, <span class="red">' --- '</span>, value)<br>
+		  name --- Caiden<br>
+		  age --- 19
+		</code>
+	  </div>
+	  <p>This is a common scheme in Python. We can print the dictionary key and its value with one for loop. Remember
+        that calling .items() on a dictionary returns a view object which can be treated like a list. The .items()
+        method will return a view object of tuples of a dictionary's key value pairs &ndash; meaning that we can
+        iterate over the key value pairs with a for loop using tuple assignment.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Loop Nesting</h3>
+	  <p>As you've probably guessed, <i>loop nesting</i> is where you put a loop inside of another loop. Loop nesting
+        is very common, especially in algorithms. Nested loops are very useful when you have something like a 2D or
+        3D list or tuple. This is where you have a list of lists or a tuple of tuples. That would look something like
+        this [[1, 2, 3], [4, 5, 6]]. As we see here, the objects inside of the list are lists. What if we wanted to
+        find the sum of all values stored in all lists? We cannot do this the same way that we did in the previous
+        list summing example. This would give us an error because the <i>total</i> variable type would not match the
+        object type that you are trying to add to it. In a case like this, we could use a nested for loop.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> array_2D = [[<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>],
+  		      [<span class="green">4</span>, <span class="green">5</span>, <span class="green">6</span>]]<br>
+		  >>> total = <span class="green">0</span><br>
+		  >>> <span class="green">for</span> array <span class="green">in</span> array_2D:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> array:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total <span class="purple">+=</span> number<br>
+		  >>> total<br>
+		  21
+		</code>
+	  </div>
+	  <p>In the example, we create a list of lists called <i>array_2D</i>. We then initialize a variable,
+        <i>total</i>, to equal zero. Next, we enter the first for loop. This loop will execute for every object in
+        <i>array_2D</i>. On the next line, we enter the second for loop. This loop will execute for every object in
+        the <i>array</i> object in <i>array_2D</i>. The second for loop will add each number in the current list to
+        the <i>total</i> variable. After every number in the current list has been added to the total, the code will
+        then execute on the next object in <i>array_2D</i>. At the end of the program, when we view the contents of
+        <i>total</i>, we can see that it is the sum of every number in every list in <i>array_2D</i>.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="whileloop.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="functions.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

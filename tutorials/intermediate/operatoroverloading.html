@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Operator Overloading</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Operator Overloading</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="multipleinheritance.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="decorators.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>In Python, operators either work, or don't for built-in classes (objects). However, they behave differently depending upon the class that
+	    you use them on. For example, + is a Python operator. It will add two ints together, concatenate two strings, and merge two lists. This
+		is an example of operator overloading. We can create methods that will allow us to use these operators on instances of our own class
+		by using several special methods.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Each operator is actually a method. That is why they behave differently in different contexts. Defining methods for operators (+, -, *, etc.)
+	    is known as <i>operator overloading</i>. For example, to use + with custom objects that we create from user defined classes, the class must
+		contain a method called __add__.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>There are a ton of magic methods that Python provides for operator overloading. Operator overloading is not just limited to mathematical
+	    operators. Below is a list of some of the most commonly overloaded methods.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  <span class="light-gray"># Common operator overloading methods</span><br>
+		  <span class="purple">+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __add__(self, other)<br>
+		  <span class="purple">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __mul__(self, other) <br>
+		  <span class="purple">-</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __sub__(self, other) <br>
+		  <span class="purple">%</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __mod__(self, other) <br>
+		  <span class="purple">/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __truediv__(self, other) <br>
+		  <span class="purple">**</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __pow__(self, other)<br>
+		  <span class="purple">&lt;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __lt__(self, other) <br>
+		  <span class="purple">&lt;=</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __le__(self, other) <br>
+		  <span class="purple">==</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __eq__(self, other) <br>
+		  <span class="purple">!=</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __ne__(self, other) <br>
+		  <span class="purple">></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __gt__(self, other) <br>
+		  <span class="purple">>=</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__ge__(self, other) <br>
+		  [index]&nbsp;&nbsp;&nbsp; __getitem__(self, index) <br>
+		  <span class="green">in</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __contains__(self, value) <br>
+		  <span class="green">len</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __len__(self)
+		</code>
+	  </div>
+	  <p>This is not a comprehensive list of every operator overloading function. This is just a list of some of the most common operator overloading
+	    methods. There are many more operator overloading methods than just the ones listed here. Each operator overloading methods is a Python magic
+		method, and thus will start and end with double underscores. In this list, the
+		operator that will call the method is on the left, and the method that is called when the operator is used is listed next to it on the right.
+		To get a good feel for how these magic methods work, let's take a look at a small example. We will create a Circle class that defines a few
+		of the more common operator overloading methods listed here.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Example</h3>
+	  <p>Let's define a circle class that accepts the radius as an argument. This class will be able to calculate the diameter, area, and 
+	    circumference based on the radius. Let's also write this class so that we can compare it to other instances of the same class.
+		We can use operator overloading to achieve the comparison part!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Circle</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, radius):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.radius = radius<br>
+          4. <br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">diameter</span>(self):<br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius 
+		     <span class="purple">*</span> <span class="green">2</span><br>
+          7. <br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">circumference</span>(self):<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return 2</span> <span class="purple">*</span>
+		     <span class="green">3.1415926</span> <span class="purple">*</span> self.radius<br>
+          10. <br>
+          11. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">area</span>(self):<br>
+          12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return 3.1415926</span> <span class="purple">*</span>
+		      self.radius <span class="purple">**</span> <span class="green">2</span><br>
+          13. <br>
+          14. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__add__</span>(self, other_object):<br>
+          15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> Circle(self.radius
+		      <span class="purple">+</span> other_object.radius)<br>
+          16. <br>
+          17. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__lt__</span>(self, other_object):<br>
+          18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius <span class="purple">&lt;</span>
+		      other_object.radius<br>
+          19. <br>
+          20. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__gt__</span>(self, other_object):<br>
+          21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius <span class="purple">></span>
+		      other_object.radius<br>
+          22. <br>
+          23. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__le__</span>(self, other_object):<br>
+          24. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius <span class="purple">&lt;=</span>
+		      other_object.radius<br>
+          25. <br>
+          26. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__ge__</span>(self, other_object):<br>
+          27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius <span class="purple">>=</span>
+		      other_object.radius<br>
+          28. <br>
+          29. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__eq__</span>(self, other_object):<br>
+          30. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius <span class="purple">&lt;</span>
+		      other_object.radius<br>
+          31. <br>
+          32. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__ne__</span>(self, other_object):<br>
+          33. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.radius <span class="purple">></span>
+		      other_object.radius
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>Each method in this class that starts and ends with a double underscore (excluding __init__) is an operator overloading method. This means
+	    that we are now able to use operators on instances that we create of the Circle class and in doing so, the corresponding operator method will
+		be called. For instance, if we create two instances of Circle called <i>c1</i> and <i>c2</i> and use the plus operator on them (+) like
+		this: c1 + c2, this will call the __add__ method of the Circle class passing c1 as self and c2 as other_object. If we have the two same 
+		instances of Circle and use the equality (==) operator on them: c1 == c2, then the __eq__ method will be called on c1 passing itself as the
+		first argument along with c2 as other_object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Let's look at an interactive session to demonstrate some of the properties of the Circle class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> c1 = Circle(<span class="green">5</span>)<br>
+		  >>> c2 = Circle(<span class="green">3</span>)<br>
+		  >>> c1 <span class="purple">></span> c2<br>
+		  True<br>
+		  >>> c1 <span class="purple">!=</span> c2<br>
+		  True<br>
+		  >>> c1 <span class="purple">==</span> c2<br>
+		  False<br>
+		  >>> c3 = c1 <span class="purple">+</span> c2<br>
+		  >>> c3.radius<br>
+		  8<br>
+		  >>> c3.area()<br>
+		  201.0619264
+		</code>
+	  </div>
+	  <p>First, we create two separate instances of circle: <i>c1</i>, and <i>c2</i>. On the third line of this session, we can see that we are
+	    able to use the greater than operator to compare our two instances. This was made possible when we defined the __gt__ method within our
+		Circle class. When we use the greater than operator on instances of Circle, it will call the __gt__ method defined in the class. Next, 
+		we use the not equal operator to compare the two classes which is defined in Circle by the method __ne__. Likewise, we are able to add
+		two instances of Circle together because we defined the __add__ method in teh Circle class. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>When we "add" two instances of circle, it will add together the radius instance variables of both classes, pass it to the Circle class,
+	    and return the newly created instance of Circle. This is why setting the variable <i>c3</i> equal to: c1 + c2, will set c3 equal to the
+		newly created instance of Circle that is returned by __add__. On the next few lines, we can see that c3 is indeed a completely separate
+        of Circle. We are able to call all Circle's methods on c3 because of this.		
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="multipleinheritance.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="decorators.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

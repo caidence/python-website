@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>User Input</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">User Input</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="assignment.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="boolean.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+      <h3>The Basics</h3>
+	  <p>You've learned how to output data to the console using the print function; similarly, you can input data
+        from the console using the input function. All you have to do is write input( ). Then the program will stop,
+        wait for the user to input something, and then continue once the user presses enter. More often than not,
+        you would store this input in a variable and use it later in your code. You can also display a message with
+        the input function &ndash; just add a string containing your message inside of the braces of the input
+        function. This string usually directs to the user on what the program needs the them to input.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Input examples</span><br>
+		  >>> <span class="green">input</span>()<br>
+		  >>> variable = <span class="green">input</span>()<br>
+		  >>> name = <span class="green">input</span>(<span class="red">"Enter your name: "</span>)
+		</code>
+	  </div>
+	  <p>In the example, the first line will wait for the user to input something and then the program will continue
+        to execute after the user presses enter. The second line is the same as the first, but it will store what
+        the user inputs in a variable so that we can use it later in our code. The third line will prompt the user
+        "Enter your name: ", and store whatever the user enters in a variable called "name".
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Examples</h3>
+	  <p>Like I said earlier, more often than not, input is stored in a variable so that we can use it later in the
+        program. Here is a simple example of a program that will ask a user for their name and tell them hello.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> name = <span class="green">input</span>(<span class="red">"What's your name? "</span>)<br>
+		  >>> <span class="green">print</span>(<span class="red">"Hello "</span> <span class="purple">+</span> name)
+		</code>
+	  </div>
+	  <p>This program will prompt the user, asking them to enter their name. After the user inputs their name, what was entered is stored in a variable
+	    called <i>name</i> so that we can use it later in our program. Finally, the program will print the string: "Hello " and the user's name that
+        was stored in the variable <i>name</i>. Pretty cool stuff, right?		
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The input function will turn everything that you input into a string by default. This makes it impossible to
+        do math with anything that the user inputs without using a neat trick that I will demonstrate next.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Type conversion</h3>
+	  <p>In many other programming languages, this is called <i>type casting</i>. Type conversion is where you take
+        one data type and turn it into another. In a previous tutorial, you learned about data types. The data types
+        we will be focusing on in this section are string (str), integer (int), and floating point numbers (float);
+        for the sake of simplicity.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Converting float to int</span><br>
+		  >>> <span class="green">int</span>(<span class="green">1.8</span>)<br>
+		  1<br>
+		  >>> <span class="light-gray"># Converting int to float</span><br>
+		  >>> <span class="green">float</span>(<span class="green">7</span>)<br>
+		  7.0<br>
+		  >>> <span class="light-gray"># int to string</span><br>
+		  >>> <span class="green">str</span>(<span class="green">7</span>)<br>
+		  '7'
+		</code>
+	  </div>
+	  <p>Converting between data types is simple, you just take the data that you want to convert, and wrap it
+        with the data type you want it to be. When I talk about "wrapping", I really mean something like this
+        int(<i>data to convert</i>). This example will convert whatever type the data is in the parentheses to int
+        data type. What is really happening is you are instantiating a new class that converts that data for you
+        to the data type. Here are a few examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Notice how on the first line, converting a float to an int completely truncates the decimal. In the second
+        example, we convert an integer to a float. Notice how this adds a decimal place to the integer even though
+        it is a whole number. In the final example, we can see an integer being converted to a string.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>type conversion and input</h3>
+	  <p>The reason that I bring up type conversions in this section is because they are very common to use with the
+        input function. Like I said earlier, what if you want the user to input a number so that you can do math
+        with it? Python doesn't allow you to do math with a string, you would need  an int or a float. Type
+        conversions make it fairly easy to solve this problem.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># You could do this</span><br>
+		  2. age = <span class="green">input</span>(<span class="red">"Enter your age: "</span>)<br>
+		  3. int_age = <span class="green">int</span>(age)<br>
+		  4.<br>
+		  5. <span class="light-gray"># This is more common</span><br>
+		  6. age = <span class="green">int</span>(<span class="green">input</span>(<span class="red">"Enter your age: "</span>))
+		</code>
+	  </div>
+	  <p>On line two, the input that the user enters will be a string by default. This is why on line three we
+        convert the age variable (which is a string) to an int. Line six is more common and does the same thing
+        as lines two and three combined. Since we are converting what the user types from a string into a integer,
+        now we can do math with it! You can convert the input variable to an int after it is assigned, but it is
+        more common to cast it to the data type you want on the same line as the input function. Lines two and three
+		in the example do the exact thing as line six, it is up to the programmer to decide how they want to convert
+        input to another type.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="assignment.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="boolean.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

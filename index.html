@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Home</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/index.css">
+
+
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li class="slide"><a href="/" id="home">Home</a></li>
+		<li class="slide"><a href="#tutorials" id="tutorial">Tutorials</a></li>
+		<li class="slide"><a href="contact.html" id="contact">Contact</a></li>
+		<li class="slide"><a href="about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 id="title" class="elegantshadow">Pragmatic Python</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms<p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+<!--------------------------- DOWNLOAD PYTHON -------------------------------->
+	<div class="download">
+	  <a href="https://www.python.org/downloads/release/python-370/" target="_blank">
+	    Download Python
+	  </a>
+	</div>
+<!--------------------------- DOWNLOAD PYTHON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+  
+  
+  
+<!--+++++++++++++++++++++++++ START PREFACE DIV +++++++++++++++++++++++++-->
+  <div class="about">
+    <div class="preface-container">
+<!--------------------------- MISSION STATEMENT -------------------------------->
+      <div class="mission">
+        <h2 class="aniview" data-av-animation="zoomIn">With programming, the only limit is your imagination.</h2>
+	  </div>
+<!--------------------------- MISSION STATEMENT -------------------------------->
+<!--------------------------- GOAL 1 -------------------------------->
+	  <div class="goal-container aniview" data-av-animation="slideInUp">
+	    <h3>Programming</h3>
+		<p>The goal of this website is not only to teach you Python, but 
+		  to teach core programming concepts. Much of what you learn here
+		  will not only apply to Python, but to most other programming languages too.
+		  Python was chosen because it is one of the easiest languages for beginners to get
+		  started with.
+		</p>
+	  </div>
+<!--------------------------- GOAL 1 -------------------------------->
+<!--------------------------- GOAL 2 -------------------------------->
+	  <div class="goal-container aniview" data-av-animation="slideInUp">
+	    <h3>Design</h3>
+		<p>Through this website's tutorials you will learn how to design your
+		  programs using different paradigms such as functional programming and
+		  object oriented (OO). It is important to understand the pro's and con's of
+		  each, and when you should apply which paradigm depending on your specific needs.
+		</p>
+	  </div>
+<!--------------------------- GOAL 2 -------------------------------->
+<!--------------------------- GOAL 3 -------------------------------->
+      <div class="goal-container aniview" data-av-animation="slideInUp">
+	    <h3>Algorithms</h3>
+		<p>They may sound scary, but I assure you that they're not! Algorithms are a part
+		  of every programmer's life, and an important part of programming. Many companies 
+		  hire candidates based on their ability to design, create, and solve algorithms. Everyone
+		  who calls themselves a programmer should at least know the basics of algorithms.
+		</p>
+	  </div>
+<!--------------------------- GOAL 3 -------------------------------->
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END PREFACE DIV+++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START TUTORIAL DIV +++++++++++++++++++++++++-->
+  <div class="tutorials">
+    <div class="tutorial-content">
+<!--------------------------- TITLE -------------------------------->
+	  <div class="tutorial-title aniview" data-av-animation="slideInLeft">
+	    <h2 id="tutorials">Python Tutorials</h2>
+	  </div>
+<!--------------------------- TITLE -------------------------------->
+<!--------------------------- LINK 1 -------------------------------->
+      <div class="tutorial-link aniview" data-av-animation="slideInRight">
+	    <a href="tutorials/beginner/main.html">
+	      <h3>Beginner</h3>
+		    <p>Learn the basics of Python 3</p>
+	    </a>
+	  </div>
+<!--------------------------- LINK 1 -------------------------------->
+<!--------------------------- LINK 2 -------------------------------->
+      <div class="tutorial-link aniview" data-av-animation="slideInRight">
+	    <a href="tutorials/intermediate/main.html">
+	      <h3>Intermediate</h3>
+		    <p>More advanced Python 3 topics</p>
+		</a>
+	  </div>
+<!--------------------------- LINK 2 -------------------------------->
+<!--------------------------- LINK 3 -------------------------------->
+      <div class="tutorial-link aniview" data-av-animation="slideInRight">
+	    <a href="tutorials/serverdev/main.html">
+	      <h3>server-dev</h3>
+		    <p>server-dev PyPI module documentation</p>
+		</a>
+	  </div>
+<!--------------------------- LINK 3 -------------------------------->
+<!--------------------------- LINK 4 -------------------------------->
+      <div class="tutorial-link aniview" data-av-animation="slideInRight">
+	    <a href="tutorials/finale/finale.html">
+	      <h3>Finale</h3>
+		    <p>A real-world-ish Python program</p>
+		</a>
+	  </div>
+<!--------------------------- LINK 4 -------------------------------->
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END TUTORIAL DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h2 class="aniview"  data-av-animation="slideInRight">Questions, comments, concerns?</h2>
+	  <p class="aniview"  data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback? Please let me know! 
+	    All feedback is appreciated and helps me improve your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button aniview" data-av-animation="zoomIn">
+	  <a href="contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="/">Home</a></li>
+		<li><a href="#tutorials">Tutorials</a></li>
+		<li><a href="contact.html">Contact</a></li>
+		<li><a href="about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+
+	<div class="back-to-top aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  <script src="javascript/index.js" rel="text/javascript"></script>
+  </body>
+</html>

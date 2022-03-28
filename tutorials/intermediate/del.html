@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>__del__</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>__del__</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="init.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="inheritance.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>In many OOP languages, there is something called a <i>destructor</i>. This is a method that will perform resource cleanup when the 
+	    object either goes out of scope, or is deleted. Traditionally, it is used to give back resources to the computer that instances of classes
+		consumed such as memory. This is not all too necessary in Python however. This is because Python is what we call a <i>garbage collecting</i>
+		language. This means that Python handles memory and resource management for you behind the scenes without you explicitly telling it to.
+        This greatly reduces the need for a destructor method, but it is not completely useless.		
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>In Python, we still create connections to objects such as databases and files which take up computer resources by keeping the connection 
+	    open. A good use for a destructor is to close these connections that the object may create so that; when the object goes out of scope in the
+		program; the connections will be closed automatically. It is also not uncommon to see code in destructors generate some kind of message to
+		verify that the object has successfully been deleted.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>dunder del</h3>
+	  <p>Python's destructor method is called <i>__del__</i>. It will be called automatically when an object in Python goes out of scope, or you can
+	    call it explicitly by writing: del object_name. This method is where we can write "clean up" code to free any computer resources allocated
+		by the object. We can explicitly delete variables if we want, as well as close file and database connections. To demonstrate this, it is
+		helpful to also have a print statement in the __del__ method to show when the object is deleted.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+	      1. <span class="green">class</span> <span class="blue">Test</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__del__</span>(self):<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">"Removing instance of {}; id: {}"</span><br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(template.format(self.__class__.__name__,
+		     <span class="green">id</span>(self)))
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This is a very rudimentary class. All that instances of this class will do is: have the ability to delete themselves almost as soon as 
+	     they are created. If we were to create an instance of this class called <i>obj</i>, we would invoke __del__ by typing: del obj. This line
+		 of code calls the destructor because destructors are called automatically when objects are deleted. There are a few note-worthy things
+		 here that you may have not seen before, particularly in the format call. First, self.__class__.__name__ will return the name of the class that
+		 the instance belongs to. Next, the <i>id</i> function. You can think of this as the memory address of the object. This function will return
+		 a unique number that identifies where the object lives. In CPython, this function will return the memory address of the object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>This class is not too exciting, but it helps identify when instances are deleted. As I said earlier, Python is a garbage collected language,
+	    which almost eliminates the need for a destructor, but as many programmers say: "explicit is better than implicit". Here is what an interactive
+		session with the <i>Test</i> class would look like.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> t = Test()<br>
+		  >>> del t<br>
+		  Removing instance of Test; id: 1683154868040
+		</code>
+	  </div>
+	  <p>Here, we create an instance of Test called <i>t</i>. The instance is now loaded in memory and taking up valuable resources. Luckily,
+	    the Test class has a destructor so that we can free those resources! We do this with the code on the second line: del t. This line
+        calls the destructor (technically, the destructor is not called explicitly, it is called when the object is deleted) which is why we
+        see the output directly after the object is destroyed.		
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Another example</h3>
+	  <p>Let's look at a slightly more practical example. Granted, the class in the following example is not perfect, and we could easily add to it.
+	    I am using this class to demonstrate an instance where you <i>could</i> use __del__. Even though you can use Python's destructor in this 
+		scenario, there are probably better ways to clean up instances of this class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. import <span class="green">os</span><br>
+		  2.<br>
+		  3. <span class="green">class</span> <span class="blue">File_Operations</span>:<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, file_name):<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.file = <span class="green">open</span>(file_name, <span class="red">'r+'</span>)<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.path = os.path.abspath(file_name)<br>
+		  7.	<br>
+		  8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">file_position</span>(self, offset=<span class="green">0</span>,
+		     whence=<span class="green">0</span>):<br>
+		  9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.file.seek(offset, whence)<br>
+		  10.<br>
+		  11. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">read_all</span>(self):<br>
+		  12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.file.read()<br>
+		  13.<br>
+		  14. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">read_in_chunks</span>(self, 
+		      size=<span class="green">1024</span>):<br>
+		  15. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">while True</span>:<br>
+		  16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = self.file.read(size)<br>
+		  17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if not</span>
+ 		      data:<br>
+		  18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">break</span><br>
+		  19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span>
+		      data<br>
+		  20.	<br>
+		  21. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">write</span>(self, data, o=<span class="green">0</span>,
+    		  w=<span class="green">2</span>):<br>
+		  22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.file_position(offset=o, whence=w)<br>
+		  23. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.file.write(data)<br>
+		  24. <br>
+		  25. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__del__</span>(self):<br>
+		  26. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">"Deleting: {} object\nMemory Address: {}"</span><br>
+		  27. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(template.format(self.__class__.__name__,
+		      <span class="green">hex</span>(<span class="green">id</span>(self))))<br>
+		  28. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.file.close()
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This is a simple class that preforms basic file operations. The constructor (__init__) creates an open connection to a file. Don't worry
+	    about the methods, they just preform some simple file operations, what we want to worry about is the destructor (__del__). The destructor
+		for this class is defined on line twenty-five. Remember, this method is called automatically when the instance is deleted or goes out of scope.
+		Since creating an instance creates a connection to a file, wouldn't it be a good idea to close that connection when we no longer need the 
+		instance? In the destructor, we do this by calling the .close() method on the file connection that we created in the initializer. This will
+		close the file whenever we are done with the instance that opened the file. The destructor also will tell us when it destroys an instance,
+		along with the hexadecimal id value of that instance. 
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="init.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="inheritance.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

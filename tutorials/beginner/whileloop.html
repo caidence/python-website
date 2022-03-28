@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>While Loop</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">While Loop</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="slices.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="forloop.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>While Loop</h3>
+	  <p>The while loop is simple to understand. Basically, it repeatedly executes a block of code until a
+        condition evaluates to false. After all the code in the loop runs, the condition is evaluated again,
+        if the condition is still true, the loop will run again. Usually, within the while loop there is code to
+        update the condition, so that the loop will eventually evaluate to false and end.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> name = <span class="red">"Caiden"</span><br>
+		  >>> <span class="green">while</span> name:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(name, <span class="green">end</span>=<span class="red">
+		      ' '</span>)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;name = name[<span class="greem">1</span>:]<br>
+          Caiden aiden iden den en n 
+		</code>
+	  </div>
+	  <p>This program will print the string as long as the while loop evaluates to true. Remember, any string
+        containing any characters evaluates to true in Python. After <i>name</i> is printed, the name variable is
+        changed to equal itself with the first character removed. The while loop then executes again, printing the
+        new name variable, updating the name variable by removing the first character again, and keeps executing
+        until there are no characters left in the name variable.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>While loops are a good place to ask for user input. They are great for making a menu of options for your
+        programs when you want an interactive interface. You can easily write a program that continues to print a
+        string until a certain character is input.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> choice = <span class="green">None</span><br>
+		  >>> <span class="green">while</span> choice <span class="purple">!=</span> <span class="red">"quit"</span>:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;choice = <span class="green">input</span>(<span class="red">"Type 'quit' to
+    		  exit the loop."</span>).lower()
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This is not a very practical program, but it demonstrates a point. On the first line, we set choice equal
+        to None. This is often a placeholder keyword used just to initialize variables, but not give them a value
+        yet. Next, we start the loop which will not end until the user inputs "quit". This loop will keep prompting
+        the user "Type 'quit' to exit the loop." until the user types "quit". Because we call the str.lower()
+        method on the input statement, the user can type "Quit", "QUIT" or "quit", and the loop will still end.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> condition = <span class="green">0</span><br>
+		  >>> <span class="green">while</span> condition <span class="purple">&lt;</span> <span class="green">5</span>:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(condition, end=<span class="red">' '</span>)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;condition <span class="purple">+=</span> <span class="green">1</span><br>
+		  0 1 2 3 4 
+		</code>
+	  </div>
+	  <p>This program prints the values 0 through 4. It starts by evaluating the variable <i>condition</i>. If the
+        <i>condition</i> is less than 5, the loop will print its value and then add one to the it. This will
+        continue to happen until eventually, the condition is met and the statement evaluates to false, which ends
+        the loop.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="slices.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="forloop.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

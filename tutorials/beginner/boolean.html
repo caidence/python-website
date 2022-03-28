@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Booleans and Comparisons</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Booleans and Compairsons</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="userinput.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="stringoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>Booleans</h3>
+	  <p>Probably the most simple to understand data type is a Boolean. A Boolean can only have two possible values:
+        true or false. That's it, really! They may be simple, but they are very powerful. Other types in Python
+        also have a Boolean value of true or false. I intentionally waited to introduce the Boolean data type until
+        this section because they are commonly used with comparison statements.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">bool</span>(<span class="red">""</span>)<br>
+		  False<br>
+		  >>> <span class="green">bool</span>(<span class="red">"Hi!"</span>)<br>
+		  True<br>
+		  >>> <span class="green">bool</span>(<span class="green">1.9</span>)<br>
+		  True<br>
+		  >>> <span class="green">bool</span>(<span class="green">0</span>)<br>
+		  False<br>
+		  >>> <span class="green">bool</span>([])<br>
+		  False<br>
+		  >>> <span class="green">bool</span>([<span class="green">1</span>, <span class="green">7</span>])<br>
+		  True<br>
+		</code>
+	  </div>
+	  <p>Like I mentioned earlier, objects in Python evaluate to either true or false. To test whether an object
+        evaluates to true or false, we can place the object inside the brackets in the bool( ) function. Python
+        will then return the Boolean value of that object. Generally, empty objects evaluate to
+		false and objects that contain data evaluate to true. You will see this in the following examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>On the first line of the example, we test to see the Boolean value of an empty string. Because the string
+        contains nothing, the test evaluates to false. Any empty data type will evaluate to false unless you
+        program it otherwise. Next, we test the Boolean value of a string with characters in it, because the
+        string is not empty, it evaluates to true. As you can see with the next two tests, any number that is
+        not zero will evaluate to true. The number can be a float, positive or negative, as long as the number
+        is not zero, its Boolean value will be true. After that, we test the Boolean value of an empty list, 
+        which of course evaluates to false because it is empty. Finally, we test the Boolean value of a list
+        with items in it. Once again, this will evaluate to true because the list is not empty. Pretty simple!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Comparisons</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="purple">==</span>&nbsp;&nbsp;<span class="light-gray"># Equality</span><br>
+		  2. <span class="purple">!=</span>&nbsp;&nbsp;<span class="light-gray"># Not equal to</span><br>
+		  3. <span class="purple">&lt;</span>&nbsp;&nbsp;<span class="light-gray"># Less than</span><br>
+		  4. <span class="purple">&gt;</span>&nbsp;&nbsp;<span class="light-gray"># Greater than</span><br>
+		  5. <span class="purple">&lt;=</span>&nbsp;&nbsp;<span class="light-gray"># less than or equal to</span><br>
+		  6. <span class="purple">&gt;=</span>&nbsp;&nbsp;<span class="light-gray"># Greater than or equal to</span>
+		</code>
+	  </div>
+	  <p>Comparisons are statements that either evaluate to true or false. They are basically a test to determine
+        what to do next in the program. In this section, I will introduce some of the most common comparison
+        statements. Here are some examples of a few of the most commonly used. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>These statements are used to compare two objects. The objects can be any data type, but are most commonly
+        the same data type. In the following sections, I will go into more detail with examples to demonstrate
+        how comparison tests work.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>&lt;, &gt;, &lt;=, &gt;=</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">1</span> <span class="purple">&lt;</span> <span class="green">2</span><br>
+		  True<br>
+		  >>> <span class="green">77</span> <span class="purple">&gt;</span> <span class="green">100</span><br>
+		  False<br>
+		  >>> <span class="green">.33</span> <span class="purple">&lt;=</span> <span class="green">.33</span><br>
+		  True<br>
+		  >>> <span class="green">1.9</span> <span class="purple">&gt;=</span> <span class="green">2</span><br>
+		  False
+		</code>
+	  </div>
+	  <p>Comparisons evaluate whether an expression is true or false. With comparisons, we essentially are testing
+        two or more values against each other to get the Boolean value of the expression. In the first example,
+        we test to see if one is less than two. This is true, making the  return value of the test true. Next, we
+        test to see if seventy-seven is greater than one-hundred. This, of course, is false, making the return value
+        of the test false. The rest of these examples are pretty self-explanatory. In the following examples,
+        I will demonstrate how to use these tests with strings, lists, and tuples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> [<span class="green">1</span>, <span class="green">2</span>] <span class="purple">></span> [<span class="green">2</span>]<br>
+		  False<br>
+		  >>> [<span class="green">1</span>, <span class="green">2</span>, <span class="green">0</span>] <span class="purple">></span> 
+		      [<span class="green">1</span>, <span class="green">2</span>]<br>
+		  True<br>
+		  >>> (<span class="green">1</span>, <span class="green">2</span>) <span class="purple">></span> (<span class="green">2</span>)<br>
+		  False<br>
+		  >>> (<span class="green">1</span>, <span class="green">2</span>, <span class="green">0</span>) <span class="purple">></span> 
+		      (<span class="green">1</span>, <span class="green">2</span>)<br>
+		  True
+		</code>
+	  </div>
+	  <p>When you use these statements on lists and tuples, things get a little more interesting. The operator does
+        not compare the length of the lists or tuples, as you might expect. Nor does it compare the sum of the
+        elements in the object. When you use these operations on lists and tuples, it will compare the item at the
+        first index in the objects. This is why in the first example the output is false. Python compares the first
+        item in each list and since two is greater than one, the list on the right is greater than the list on the
+        left. What if both of the first numbers are the same? Then Python will compare the second numbers. If the
+        second number of each list is the same, then Python will compare the third number and so on. You can see how
+        this works in the second example where two lists have the same first and second number, 1 and 2. Because
+        the first list has a third number and the second does not, the first list is considered to be greater than
+        the second. The next two examples demonstrate how this behavior is exactly the same with tuples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="red">"red"</span> <span class="purple">&lt;</span> <span class="red">"rock"</span><br>
+		  True<br>
+		  >>> <span class="red">"a"</span> <span class="purple">></span> <span class="red">"z"</span><br>
+		  False
+		</code>
+	  </div>
+	  <p>Like with lists and tuples, when you use these operations on two strings the values compared are the first
+        characters in the strings. If the first characters are the same in both strings, then the second character
+        is compared and so on. How can we compare strings if their values are not numerical? The answer is Unicode.
+        I am not going to explain in depth how Unicode works here, but basically every character has a number
+        associated with it so that the computer can identify what the character is. We can view what number value
+        a character has by using the <i>ord</i> function. Just know, that when you use these operations on strings,
+        the character's Unicode value is what is being compared.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">ord</span>(<span class="red">"a"</span>)<br>
+		  97<br>
+		  >>> <span class="green">ord</span>(<span class="red">"!"</span>)<br>
+		  33<br>
+		  >>> <span class="green">ord</span>(<span class="red">"A"</span>)<br>
+		  65
+		</code>
+	  </div>
+	  <p>The ord function can only accept one character at a time, otherwise you'll get an error. The function will
+        return the number value of the Unicode mapping of the character passed to it. The numerical value mapped to
+        the character "a" is 97 in this particular coding scheme. The examples demonstrate this and a few more
+        Unicode mappings.
+      </p>
+	</div>
+	<div class="p-container">
+	  <h3>==, !=</h3>
+	  <p>These are probably the two most common comparison checks you will use in Python. The double equal sign (==)
+        checks for equality. What this means is: checking to see if two pieces of data hold the same value. == will
+        return true as long as the values stored in the data are equal to each other otherwise, the expression will
+        evaluate to false. The not equal operator (!=) is just the opposite of ==. != checks to see if two items are
+        not equal, and will return true so long as the objects do not hold the same values. In Python, the exclamation
+        point (!) means not, which is why we call this operator (!=) <i>not equal</i>. Also, if two objects hold the
+        same data, but are not the same data type, then they are not equal. For example, say we have a one item list
+        and a one item tuple. We use the expression [1] == (1,). The return value will be false even though they
+        both contain a 1. This is because the data types are different.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="light-gray"># Equality tests ==</span><br>
+		  >>> [<span class="green">1</span>] <span class="purple">==</span> (<span class="green">1</span>,)<br>
+		  False<br>
+		  >>> <span class="red">"Hello"</span> <span class="purple">==</span> <span class="red">'Hello'</span><br>
+		  True<br>
+		  >>> <span class="green">1</span> <span class="purple">==</span> <span class="green">1.1</span><br>
+		  False<br>
+		  >>> <span class="light-gray"># Not equal to tests !=</span><br>
+		  >>> <span class="green">1</span> <span class="purple">!=</span> <span class="green">1</span><br>
+		  False<br>
+		  >>> <span class="green">1</span> <span class="purple">!=</span> <span class="green">2</span><br>
+		  True<br>
+		  >>> <span class="green">True</span> <span class="purple">!=</span> <span class="green">False</span><br>
+		  True
+		</code>
+	  </div>
+	  <p>Just a quick rundown of what is going on in this example. In the first few lines, we test for equality using ==. Once again, this evaluates whether
+	    the values are the same or not. If the values are the same, the expression will return true, the expression returns false otherwise. In the last half
+		of the example, we are testing to see if the values are <i>not</i> by equal using !=. If the values are not equal, the expression returns true, the expression
+		returns false otherwise. != is just the inverse of ==.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="userinput.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="stringoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Contact</title>
+	<link rel="stylesheet" href="css/contact.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="index.html" id="home">Home</a></li>
+		<li><a href="index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="contact.html" id="contact">Contact</a></li>
+		<li><a href="about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Contact</h1>
+	  <p id="sub-title">Send me a message</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--++++++++++++++++++++ START CONTACT DIV +++++++++++++++++++++++-->
+  <div class="contact">
+    <div class="contact-info">
+<!--------------------------- CONTACT INFO ----------------------->
+	  <div class="info-section section">
+	    <h1 class="aniview" data-av-animation="slideInUp">Contact me</h1>
+		<p class="aniview" data-av-animation="zoomIn">
+          Questions, comments, concerns? Please let me know! 
+		  All feedback is greatly appreciated. I will get back to you as soon as I can.
+          Just keep in mind that I work and go to school full-time.
+          I want to hear about your projects too!
+		</p>
+	  </div>
+<!--------------------------- CONTACT INFO ----------------------->
+	  <div class="contact-section section aniview" data-av-animation="slideInUp">
+	    <h3>Name <span class="red">*</span></h3>
+	    <form action="contact.php" method="post">
+<!----------------------- FIRST NAME ------------------------>
+		<div class="name-section">
+		  <input type="text" name="first_name" id="first_name" class="name">
+		  <label for="first_name" class="name_tag no-margin-top">First Name</label>
+		</div>
+<!----------------------- FIRST NAME ------------------------>
+<!----------------------- LAST NAME ------------------------>
+		<div class="name-section">
+		  <input type="text" name="last_name" id="last_name" class="name">
+		  <label for="last_name" class="name_tag no-margin-top">Last Name</label>
+		</div>
+<!----------------------- LAST NAME ------------------------>
+<!----------------------- EMAIL ------------------------>
+		  <label for="email" class="bring-name-down">Email address <span class="red">*</span></label>
+		  <input type="email" id="email" name="email">
+<!----------------------- EMAIL ------------------------>
+<!----------------------- SUBJECT ------------------------>
+		  <label for="subject">Subject <span class="red">*</span></label>
+		  <input type="text"  id="subject" name="subject">
+<!----------------------- SUBJECT ------------------------>
+<!--------------------------- MESSAGE ----------------------->
+		  <label for="message">Message <span class="red">*</span></label>
+		  <textarea name="message" id="message"></textarea>
+<!--------------------------- MESSAGE ----------------------->
+		  <input type="submit" value="submit" id="submit">
+		</form>
+	  </div>
+	</div>
+  </div>
+<!--++++++++++++++++++++ END CONTACT DIV +++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="index.html">Home</a></li>
+		<li><a href="index.html#tutorials">Tutorials</a></li>
+		<li><a href="/">Contact</a></li>
+		<li><a href="about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+</html>

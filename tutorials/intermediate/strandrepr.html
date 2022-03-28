@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>__str__ and __repr__</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>__str__ and __repr__</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="staticmethods.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="#">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Both str and repr are meant to be string representations of objects, so what is the difference? Well, the goal of str is to be readable and the 
+	    goal of repr is to be unambiguous. repr is used to compute the formal string representatio of an object where str is used more informally. Both
+		of the built-in functions str() and print() really, behind the scenes call the __str__ method of an object. The repr() built-in method calls 
+		__repr__ behind the sense.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The str method is used to print out a "user-friendly" string that represents the object. This is the informal string representation of an object.
+	    The repr method is considered the formal string representation of an object. The string returned by the method should work as valid code to 
+		recreate the object that you call it on. This means that the string that is returned by repr should recreate the object if you call the eval 
+		method on it. In short, __str__ is more for users, __repr__ is more for developers.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>str</h3>
+	  <p>The str method is more to tell what the object is and give some informal information about an object. For instance, you could print the location
+	    in memory, what class the object was created from, and even the arguments the instance variables of the object. It does not matter too much, str
+		is just to give some general info about the object. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Testing</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, val_1, val_2):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.val_1 = val_1<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.val_2 = val_2<br>
+          5. <br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__str__</span>(self):<br>
+		  7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">'&lt;Testing object at {}; args: {}>'</span><br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> 
+		      template.format(<span class="green">id</span>(self), self.__dict__)
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>The str method can really be any representation of the object that you want. Whenever you print or call the str built-in method on an object, 
+	    if the class that the object was created from has a __str__ method, this method will be called. In the example, I decided to put the object's
+		class name in the __str__ method, along with its location in memory, followed by its dictionary of instance variables. __str__ was meant to 
+		represent an object in an informal way. Many programmers will at least put the class name in the output of str, but there can be as much or
+		as little information as you want. Here is a short interactive session with the class we created.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> t = Testing(<span class="green">1</span>, <span class="green">2</span>)<br>
+		  >>> <span class="green">str</span>(t)<br>
+		  "&lt;Testing object at 2417952178976; args: {'val_1': 1, 'val_2': 2}>"<br>
+		  >>> <span class="green">print</span>(t)<br>
+		  &lt;Testing object at 2417952178976; args: {'val_1': 1, 'val_2': 2}>
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <h3>repr</h3>
+	  <p>The repr method is more formal than the str method. The purpose for repr is to be the "actual" string representation of an object. This is more for
+	    developers than users. Both repr and str return a string representing an object. The string returned by repr should be work as valid code to create
+		the same object that you called it on. A good way to test this is by using the eval built-in function. If you call eval(repr(object)), it should 
+		create an exact copy of the object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Testing</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, val_1, val_2):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.val_1 = val_1<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.val_2 = val_2<br>
+          5. <br>
+          6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__repr__</span>(self):<br>
+          7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> <span class="red">'Testing(val_1=%s, val_2=%s)'</span>
+ 		     <span class="purple">%</span> (self.val_1, self.val_2)
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>In this example, we replaced __str__ from the last example with __repr__. You do not have to do this; any class you create can have both a str
+	    and repr method. I just am showing one at a time to hopefully alleviate some confusion. The repr method will return a string representing the
+		current object. Notice how the string that repr will return looks exactly how we would create an instance of an object? This is what I mean that
+		repr should return a string that would act as valid code. You want this method, if possible, to return a string that would create the object the 
+		same way that its current state is when you call the repr method. This method, in this example, will format val_1 and val_2 from the current instance
+		and pass them as keyword arguments to the Testing class within the string. Remember, repr will return a string, not valid code. Here is what
+		an interactive session with this class might look like.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> t = Testing(<span class="green">1</span>, <span class="green">2</span>)<br>
+		  >>> <span class="green">repr</span>(t)<br>
+          'Testing(val_1=1, val_2=2)'<br>
+		  >>> t2 = <span class="green">eval</span>(<span class="green">repr</span>(t))<br>
+		  >>> <span class="green">repr</span>(t)<br>
+          'Testing(val_1=1, val_2=2)'<br>
+		  >>> <span class="green">repr</span>(t2)<br>
+		  'Testing(val_1=1, val_2=2)'
+		</code>
+	  </div>
+	  <p>We start by creating one instance of Testing and passing 1 and 2 to be the instance variables. When we write: repr(t), this will call the__repr__
+	    method in our Testing class. Do you see how the output looks exactly the same as how we created the instance? This is by design, that is what 
+		repr is used for. If we pass the string returned by repr to the eval built-in function, it should run as valid code and essentially create a copy
+		of the instance that we used __repr__ on. We can see how this works by setting a variable &ndash; t2 &ndash; equal to the evaluated string representation
+		of <i>t</i> object. As we can see, now t2 is an exact copy of t.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="staticmethods.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="#">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

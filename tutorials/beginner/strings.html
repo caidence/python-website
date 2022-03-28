@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Strings</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Strings</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="#">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="datatypes.html">Next</a>
+	  </div>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>In Python, there are many different data types. One of the most common
+	    data types is called a string. Strings are used to store textual information
+		such as your name or text stored in a file. A string is a good example of a 
+		<i>sequence</i> which is a positional ordered collection of objects generally
+		read from left to right. Strings are what we call <i>immutable</i> meaning
+		that they cannot be changed in place. String operations create a new string,
+		they never change the origional string. In Python, all objects are either immutable
+		or mutable, but we'll get to this later.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># This is okay</span><br>
+		  2. <span class="red">'This is a valid string in Python'</span><br>
+		  3. <span class="red">"This is another valid string"</span><br>
+		  4.<br>
+		  5. <span class="light-gray"># This won't work</span><br>
+		  6. <span class="red">'This is not a valid string"</span><br>
+		  7. <span class="red">"Neither is this!'</span>
+		</code>
+	  </div>
+	  <p>We can create a string using either a pair of single quotation marks or double
+	  quotation marks with text in-between. Everything between the pair of quotation marks will be
+	  stored in the program as a string. It is important to note that you cannot
+	  mix single and double quotes when making a string. The quotation marks must both
+	  either be single or both be double but not one of each! The code example demonstrates 
+	  valid and invalid strings.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Lines one and two in the example are both valid strings because
+	    they do not mix and match single and double quotation marks. Nither line
+		six or seven will work because
+		the opening quotation mark is not the same as the closing quotation mark. What
+		about lines one and five? Are these strings too? No, these lines are called comments.
+		Comments are lines that are ignored by the program and are purely used for 
+		documentation. Comments are usually used to describe a line of code and can
+		be inline, single-line, or even multi-line (we'll get to multi-line comments
+		in a later tutorial). Single and inline comments are declared using a pound symbol
+		"#". Anything on the line typed after this character will be ignored by the program.
+		Thats enough about comments for this tutorial. Now back to strings!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Escape Sequences</h3>
+	  <p>There are certain characters that you cannot use in a string such as \
+	    and quotation marks. If you created your string with single quotation marks
+		you will not be able to put single quotation marks inside of it. Respectively
+		you cannot put double quotation marks inside a string created with double 
+		quotes.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># This is valid</span><br>
+		  2. <span class="red">"The boy said 'hello everyone!'"</span><br>
+		  3. <span class="red">'The boy said "hello everyone!"'</span><br>
+		  4.<br>
+		  5. <span class="light-gray"># Now with the escape character</span><br>
+		  6. <span class="red">"The boy said \"Hello everyone!\""</span><br>
+		  7. <span class="red">'The boy said \'Hello everyone\''</span><br>
+		  8. <br>
+		  9. <span class="light-gray"># Backslash in a string</span><br>
+		  10. <span class="red">"\\ This is a single backslash"</span>
+		</code>
+      </div>
+	  <p>Escape sequences allow us to put these characters inside of our strings.
+	    For instance, if you wanted to put a single backslash in your string, you would 
+		have to put two consecutive backslashes in your string "\\". Likewise, if you wish to put
+		single quotes in a single quote string or double quotes in a double quote
+		string, you would have to use the backslash escape character in front of the 
+		quotation marks.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Lines two and three work because the quotation marks inside of the 
+	    string are not the same as the quotation marks used to create the string.
+		On lines six and seven we use the escape character (backslash "\") to get the quotation marks
+		inside of the strings. We have to use the escape character because the quotation
+		marks inside of the string are the same as those used to create the string. If you use the 
+		string, the escape character will not show up in it. For example, if you pass one of the strings 
+        to Python's built-in print function, the backslash will not appear in the output.
+		Moving on, line ten is how you would put a single backslash inside of a string.
+      </p>	  
+	</div>
+	<div class="p-container">
+	  <div class="left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Raw strings in action</span><br>
+		  2. <span class="red">r"C:\windows\prefetch"</span><br>
+		  3. <span class="red">R'C:\windows\prefetch'</span>
+		</code>
+	  </div>
+	  <p>A neat feature of Python 3 is something called a <i>raw string</i>. Raw strings
+	    basically turn the escape character off so that you can use backslashes freely as
+		you please in your strings. This is handy in many cases, for example, using a string
+		as a file path to a location on your computer. We can create a raw string by placing
+		an <i>r</i> right before the opening quote of our string (the <i>r</i> can be upper or
+		lowecase). Lines two and three in this example do exactly the same thing.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Tabs and Newlines</h3>
+	  <p>Now would be a good time to quickly introduce tab and newline characters.
+	    With Python strings, there is an easy way to code tabs and newlines using the 
+		escape character. If you want a newline in a string, you can use "\n" which is 
+		the the <i>newline character</i>. Likewise, if you want to code a tab into a string, 
+		you would use the <i>tab character</i> which is "\t". The examples demonstrate
+		how to use these sequences in practice.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="red">"This string has \t a tab in the middle"</span><br>
+		  2. <span class="red">"Line 1\nLine 2"</span>
+		</code>
+	  </div>
+	  <p>In the example, the first line will have a tab in the middle of it if
+	    it is printed or output to the console. The second line will display as 
+		two separate lines with "Line 1" on the first line and "Line 2" on the second.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>print</h3>
+	  <p>Before we go any further, I thought it would be important to introduce you to print().
+	    In Python, print() is one way we can output data to the console. Anything between the
+		braces () is what is output to the screen. For example, if you were to do something like
+		print('Hello'). The program would print 'Hello' to the console. Here are a few examples of printing
+		strings to the console. Side note, any line that starts with >>> in teh examples is a line of code, and any line 
+		not prepended with >>> is console output. You will soon figure out that this is a common way to display programming
+		examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="left code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">print</span>(<span class="red">"Hello world!"</span>)<br>
+		  Hello world<br>
+		  >>> <span class="green">print</span>(<span class="red">"Line 1\nLine 2"</span>)<br>
+		  Line 1<br>
+		  Line 2
+		</code>
+	  </div>
+	  <p>In the code, everything that appears between the () in the print statement
+	    is output to the screen. You can see an example from earlier where we used the
+		newline character (\n) to print a newline.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Basic String Operations</h3>
+	  <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">print</span>(<span class="red">"Hello "</span> <span class="purple">+</span> <span class="red">"world!"</span>)<br>
+		  Hello world!<br>
+		  >>> <span class="green">print</span>(<span class="red">"foo"</span> <span class="purple">*</span> <span class="green">3</span>)<br>
+		  foofoofoo<br>
+		  >>> <span class="green">len</span>(<span class="red">'abc'</span>)<br>
+		  3
+		</code>
+	  </div>
+	  <p>There are a few common string operations that you should be aware of in Python.
+	    You can add strings with a "+" (called <i>concatination</i>), multiply a string
+		a finite number of times, and get the length of characters in a string using len() just to name
+		a few. These operations are not specific just to strings. In fact, len is a <i>sequence function</i>
+		meaning that it works on any data type that is considered a sequence in Python. Where as "+" and "*" are
+        overloaded operators of the string class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>In the first example, we use the "+" operator to essentally "add" two strings together. In programming
+	    this is called concatination. Next, we see that you can multiply a string by a number, which basically just
+		concatinates the string with itself as many times as the expression states. In the example, we multiplied
+		'foo' times 3 which output 'foo' three times in a row: 'foofoofoo'. In the last example, we use len, which is
+		short for length, to return the number of characters in the string between the braces (), in this case 'abc'.
+	    These are just a few of the most basic operations that you can use on strings. There are many more in the tutorials
+	    to come!
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="#">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="datatypes.html">Next</a>
+	  </div>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

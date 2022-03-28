@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Range</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Range</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="tupleoperations.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="conditionals.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>We can easily make a list of numbers in sequential order using Python's built in <i>range</i> function.
+        Range accepts three arguments, two of which are optional. The first argument is what number to start the
+        range list at. The first argument will default to 0 if no number is specified. The second number is what
+        number to end the range list at. This number is exclusive, meaning it will not be included in the range list.
+        For instance, if you wanted to end the list at 10, you would have to pass 11 as the second argument to the
+        range function call. The third item is what is called a step. This number is added to every number that
+        is pulled out of the range function between the range specified. The syntax for range is range(<i>start</i>,
+        <i>stop</i>, <i>step</i>).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">list</span>(<span class="green">range</span>(<span class="green">10</span>))<br>
+		  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br>
+		  >>> <span class="green">list</span>(<span class="green">range</span>(<span class="green">1</span>, <span class="green">10</span>))<br>
+		  [1, 2, 3, 4, 5, 6, 7, 8, 9]<br>
+		  >>> <span class="green">list</span>(<span class="green">range</span>(<span class="green">1</span>, <span class="green">11</span>))<br>
+		  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		</code>
+	  </div>
+	  <p>On the first line, the output will be a list of numbers from 0 to 9. This is because we only specified one
+        number in the <i>range</i> function call. If you only pass one argument to <i>range</i>, the list will start
+        at 0 by default. Because we passed 10 as the argument to <i>range</i>, the last number in the list will be 9.
+        This is because the <i>stop</i> number, in this case 10, is excluded from the list. In the second call to
+        <i>range</i>, we pass two arguments. The first argument is what number to begin the range list at. In this
+        case, we passed 1. The <i>start</i> number passed to <i>range</i> is included in the range list, unlike
+        the <i>stop</i> argument. Because of these factors, the second call to <i>range</i> in the example will
+        create a list range from 1 to 9. The final call to range in this example will create a list ranging from 1
+        to 10. This is because we pass 1 as the <i>start</i> argument, which is inclusive, and we pass 11 as the
+        <i>stop</i> argument, which is exclusive.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>The Step</h3>
+	  <p>As mentioned earlier, the step is an optional third argument that you can pass to the range function. This
+        "step" will be added to each element that is taken out in the range. For example, if we had list(range(1, 
+        11, 2)), this would create a list between 1 and 10 of odd numbers. Because the step argument is 2, range
+        will start at the first number, add two to that number, put that number in the list, add two to that number,
+        etc.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">list</span>(<span class="green">range</span>(<span class="green">1</span>, <span class="green">11</span>, 
+		  <span class="green">2</span>))<br>
+		  [1, 3, 5, 7, 9]<br>
+		  >>> <span class="green">list</span>(<span class="green">range</span>(<span class="green">1</span>, <span class="green">11</span>,
+		  <span class="green">3</span>))<br>
+		  [1, 4, 7, 10]
+		</code>
+	  </div>
+	  <p>On the first line of code, we pass 2 as the <i>step</i> argument. This will create a list of every other
+        number between the specified range. As you can see, the first number in the output list is 1, the step then
+        adds two to this number and adds that number to the list. One plus two is three, so in this case, three will
+        be added to the output list etc. On the third line of this example, the step argument is 3. This will
+		add every 3<sup>rd</sup> item to the output list.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="tupleoperations.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">Beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="conditionals.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

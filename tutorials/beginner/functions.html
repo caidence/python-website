@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Functions</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Functions</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="forloop.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="functionparameters.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+      <h3>The Basics</h3>
+	  <p>Functions are one of the most common paradigms used with Python (appropriately, called <i>functional
+        programming</i>). Functions are a way to package logic so that you can use it at multiple places in your
+        program. We can run a function by <i>calling</i> it, which we will get to later. Functions are objects in
+        Python. In fact, you can treat them just like any other object, even passing them to other functions!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>def</h3>
+	  <p>We can define a function by using the <i>def</i> keyword followed by the function name then a pair of
+        parentheses, and finally a colon. If we were to create a function called <i>my_function</i> the syntax would
+        look like this def my_function():. def is short for <i>define</i>, which is appropriate because we call this
+        statement <i>defining a function</i>. Then we indent all of the code that we want to run when we call the
+        function under the function definition.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">def</span> my_function():<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'This is my funciton'</span>)<br>
+		  >>> my_function()<br>
+		  This is my funciton<br>
+		  >>> my_function()<br>
+		  This is my funciton
+		</code>
+	  </div>
+	  <p>This one of the most basic forms of a function. The function that we defined (my_function) will print
+        "This is my function" every time that we call it. To call a function, we simply write the function name,
+        followed by a set of parentheses. As you can see, we can reuse the code within the function simply by
+        calling the function a second time. There is no limit on how many times that you can call a function, you
+        can call it as many/few times as you want.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Return</h3>
+	  <p>Often times, your functions will <i>return</i> some value. This is useful for storing the output of the
+        function in a variable. We will cover this more in the next tutorial section, but for now let's just focus
+        on the <i>return</i> keyword. <i>return</i> will pass a return value back to where it was called from, the
+        program then begins to execute again from where it was before it called the function. In programming, this
+        this is referred to as "returning control from the function back to the main program."
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> <span class="green">def</span> test():<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> 1 <span class="purple">*</span> 1<br>
+		  >>> test()<br>
+		  1<br>
+		  >>> <span class="green">print</span>(<span class="red">'This is after the function'</span>)<br>
+		  This is after the function
+		</code>
+	  </div>
+	  <p>This is not a very useful program. It is mostly to demonstrate that the return statement will return a
+        value to the part of the program that called the function and then the program will continue to execute
+        after the function call. All this function does is return the value of the expression 1 * 1 to the part of
+        the program that called it.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="forloop.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="functionparameters.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

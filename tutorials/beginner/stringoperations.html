@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>String Operations</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">String Operations</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="boolean.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="listoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Before we go any further, you should probably know what a method is. Methods essentially add functionality
+        to objects. You use methods by appending the method name to the end of an object with a period between the
+        object and the method. To use a method on an object, you would write something like this Object.method_name().
+        Notice how the object and the method are separated by a period. Also notice that after the method name 
+		is a set of parentheses. This is called <i>calling</i> the method on the object. When using methods,
+        you will almost always use the parentheses, but there are some special cases where you won't. Now that
+        you know what a method does, let's look at some of the most common ones used on string objects. This tutorial
+        will not cover all of the string methods, nor will I dive into great detail about the methods that I do
+        cover. This tutorial is meant to demonstrate what a method is, some of the most common string methods, and
+        their most common use cases.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>lower, upper</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> name = <span class="red">"Billy Bob"</span><br>
+		  >>> lowercase_name = name.lower()</span><br>
+		  >>> uppercase_name = name.upper()<br>
+		  >>> <span class="green">print</span>(lowercase_name)<br>
+		  billy bob<br>
+		  >>> <span class="green">print</span>(uppercase_name)<br>
+		  BILLY BOB
+		</code>
+	  </div>
+	  <p>The lower and upper methods do exactly what they are named. The lower method converts all letters in a
+        string to lowercase, and the upper method converts all letters in a string to uppercase. You will find these
+        methods very useful when you are trying to make your programs more robust by validating user input. Let's
+        have a look at the examples.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>We start off by creating a variable called <i>name</i> and setting it equal to the string "Billy Bob".
+        We then create two new variables &ndash; <i>lowercase_name</i> and <i>uppercase_name</i>. We set
+        <i>lowercase_name</i> equal to the variable <i>name</i> by using the lower method. This creates a new string,
+		"billy bob", where all of the letters are lowercase. We then do the same thing on the next line, but with
+        the upper method, which will convert all of the letters in the string to uppercase. Finally, we print the
+        two new variables that we created demonstrating how they work. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>count, find, replace</h3>
+	  <p>Before we move on, you need to know what a function argument is (methods are really just special functions,
+        but we'll get to that later). Arguments are variables that are passed to a function that dictate what
+	    the function will do or return. You pass arguments to functions within the parentheses following the function
+        name. Functions can have many arguments, or none at all. Just remember, when I say <i>argument</i>, I am
+        talking about the value that we pass to the function by putting it in the parentheses. If a function
+		has more than one argument, we can separate them using a comma. What I just described looks something like
+        this function(arg1, arg2, arg3).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Side note, many of the methods we talk about in this tutorial do not only apply to strings, they can apply
+        to other object types too, particularly sequence objects. The first method we will talk about is
+        <i>count</i>, because it is the simplest to understand. The count method will count how many times a
+        character or substring appears in a string. We use it like this string.count('character'). To be clear,
+        <i>string</i> is what we are counting characters in, <i>count</i> is the method we are using on the
+        string object, and <i>'character'</i> is what we are counting or how many times it appears in <i>string</i>.
+        Here are some examples. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> string = <span class="red">"wow cow meow wow"</span><br>
+		  >>> <span class="light-gray"># Count a single character</span><br>
+		  >>> stringcount(<span class="red">'w'</span>)<br>
+		  6<br>
+		  >>> <span class="light-gray"># Count a substring</span><br>
+		  >>> string.count(<span class="red">'wow'</span>)<br>
+		  2
+		</code>
+	  </div>
+	  <p>Here we see that you can count either a single character or a substring. First, we use the count method
+        on <i>string</i> to see how many times the letter 'w' appears in the string. The count method will return
+        how many times the passed value appears in the object that you call it on, in this case, 6. Finally, we
+        search for how many times that the word 'wow' appears in <i>string</i>. Next, let's talk about the <i>find</i>
+        method.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Before we discuss <i>find</i>, you should be familiar with indexes (also called indices). An index is the
+        numerical position that an element is at in an object. Indexes read from left to right and start at 0 by
+        default. This is pretty confusing, so here is an example. Say we have a string <i>"example"</i>. Each
+        character in the string has an index starting at 0 and counting from left to right. The <i>e</i> character
+        is at index 0. The <i>x</i> character is at index 1. The <i>a</i> character is at index 2, and so on. Almost
+        every object you work with in Python can be used with indexes. Many methods even return an index! The
+        <i>find</i> method is a perfect example of a method that returns an index. The <i>find</i> method returns
+        only one index, though. By default, find starts its search at the first index of the string, but you can
+        change this by passing a second argument to the method &ndash; the second argument being the index to start
+        searching at. For instance, if you wanted to start searching for the letter "a" from the 10<sup>th</sup>
+        index on, you would write string.find("a", 9). The second argument being nine because the first index starts
+        at 0.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> string = <span class="red">"coding is cool!"</span><br>
+		  >>> string.find(<span class="red">'o'</span>)<br>
+		  1<br>
+		  >>> string.find(<span class="red">'o'</span>, <span class="green">2</span>)<br>
+		  11<br>
+		  >>> string.find(<span class="red">"?"</span>)<br>
+		  -1
+		</code>
+	  </div>
+	  <p>In the first call to find, we search for the letter "o". Because we did not pass an index for where to
+        begin the search, find will start the search for "o" at the 0<sup>th</sup> index. If there are more than
+        one "o" characters in the string, find will only return the index of the first character match that it finds.
+        In the second example, we pass 2 as a second argument to the find method. Because of the second argument,
+		find will start its search at the 3<sup>rd</sup> index of the string. In the last example, we see that if
+        the find method cannot find the character in the string, it will return -1.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Moving on to our last function for this subsection, <i>replace</i>. <i>replace</i> does exactly what its
+        name implies &ndash; it replaces characters in a string with a new character. You need to pass at least two
+        arguments to this method. The first item is the character in the string that you want to replace, and the
+        second argument is the character that you want to replace the first argument with. The replace method will
+        replace all of the characters in the string by default. You can pass a third optional argument to replace,
+        the number of characters in the string you would like to replace. Say we have a string "Python is cool".
+        We want to replace the o's with zeros. We would write something like this to accomplish that task,
+        string.replace('o', '0').
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> string = <span class="red">"Python is cool"</span><br>
+		  >>> string.replace(<span class="red">"o"</span>, <span class="red">"@"</span>)<br>
+		  Pyth@n is c@@l<br>
+		  >>> string.replace(<span class="red">"o"</span>, <span class="red">"@"</span>, <span class="green">1</span>)<br>
+		  Pyth@n is cool
+		</code>
+	  </div>
+	  <p>We can see when that we call the first replace method on the string, it replaces every "o" character with the "@" character. This is the default behavior 
+	    of <i>replace</i>. We see how to change this default behavior when we call the <i>replace</i> method again with a third argument, 1. The third argument
+		tells the replace method how many characters to replace. In our case, we set 1 as the third argument making the replace method only replace the first
+		"o" in the string.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Index, Split</h3>
+	  <p>Our last two string methods that we are going to talk about in this section are <i>index</i> and
+        <i>split</i>. <i>index</i> will return the index of the first instance of the character passed to it.
+        Index accepts a second optional argument, the index of the string to start the search at (much the same as
+        <i>find</i>). With strings, the index and find methods can almost always be used interchangeably.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> string = <span class="red">"coding is cool!"</span><br>
+		  >>> string.index(<span class="red">'o'</span>)<br>
+		  1<br>
+		  >>> string.index(<span class="red">'o'</span>, <span class="green">2</span>)<br>
+		  11
+		</code>
+	  </div>
+	  <p>Here we see that <i>index</i> works basically the same as <i>find</i>. The only real difference when
+         using <i>find</i> and <i>index</i> is: <i>find</i> will return -1 if it cannot find the character in the
+         string, whereas <i>index</i> will raise a ValueError.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The split method is very useful. <i>split</i> will take a string and turn it into a list of strings. It
+        accepts an optional argument called a <i>delimiting</i> character. By default, <i>split</i> will turn each
+        word in a string into a single list index because the default delimiting character is a space " ".
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> string = <span class="red">"split is preety neat!"</span><br>
+		  >>> string.split()<br>
+		  [<span class="red">'split'</span>, <span class="red">'is'</span>, <span class="red">'pretty'</span>, <span class="red">'neat!'</span>]<br>
+		  >>> string = <span class="red">"commas, will split, this string"</span><br>
+		  >>> string.split(<span class="red">','</span>)<br>
+		  [<span class="red">'commas'</span>, <span class="red">'will split'</span>, <span class="red">'this string'</span>]
+		</code>
+	  </div>
+	  <p>In the first example, we see that the default behavior of <i>split</i> is to split every word in a string
+        into a separate list item. Going on, we see that you can pass an argument to the method, which will act as a
+        delimiting character to tell Python where you want the list split points at. In this example, we use a comma
+        (,) as the delimiting character, telling Python to split the string and make a separate list index every time
+        that there is a comma. Also note that the delimiting character will not appear in the strings in the list.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="boolean.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="listoperations.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

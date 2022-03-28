@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Advanced String Formatting</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Advanced String Formatting</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="#">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="enumerate.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>String formatting is usually used to present data in a certain way. The syntax can be intimidating and pretty complex. It definitely takes some 
+	    getting used to, but it is very powerful and well worth learning for sure! You can do almost anything you want with the syntax that you're about
+		to learn. We'll start with string alignment using the format call. 
+	  </p>
+	</div>
+	<div class="p-container">
+	<h3>Alignment</h3>
+	  <div class="code-example left">
+	    <code>
+		  >>> <span class="red">"{0:10} - {0:>10}"</span>.format(<span class="red">"spam"</span>)<br>
+		  'spam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spam'
+		</code>
+	  </div>
+	  <p>In the string template, inside of the curly braces, the first number is the index of the argument in the format call. {:10} means to put the first
+	    positional argument in a field that is 10 characters wide. {0:>10} means to put the first positional argument into a string that is 10 characters
+		wide where the text is aligned to the right. If the text is more than 10 characters, you will not notice a difference in the
+		alignment.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  1. <span class="green">print</span>(<span class="red">"{:>25}"</span>.format(<span class="red">"I'm aligned right"</span>))<br>
+		  2. <span class="green">print</span>(<span class="red">"{:&lt;25}"</span>.format(<span class="red">"I'm aligned left"</span>))<br>
+		  3. <span class="green">print</span>(<span class="red">"{:^25"</span>.format(<span class="red">"I'm centered"</span>))<br>
+		  "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm aligned right"<br>
+		  "I'm aligned left&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<br>
+		  "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm centered&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+		</code>
+	  </div>
+	  <p>The first line puts the text into a string that is 25-characters wide and aligns the text to the right. The second line puts the text into a 
+	    25-character long string and aligns the text to the left. The final example puts the text into a 25-character long string and aligns the text
+		in the center of it. The "padding" character is a space by default, but we can change this by placing a character before the alignment character 
+		(&lt;, >, ^) in the string formatting template. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">print</span>(<span class="red">"{:!>25}"</span>.format(<span class="red">"I'm aligned right"</span>))<br>
+		  2. <span class="green">print</span>(<span class="red">"{:@&lt;25}"</span>.format(<span class="red">"I'm aligned left"</span>))<br>
+		  3. <span class="green">print</span>(<span class="red">"{:=^25}"</span>.format(<span class="red">"I'm centered"</span>))<br>
+		  "!!!!!!!!I'm aligned right"<br>
+		  "I'm aligned left@@@@@@@@@"<br>
+		  "======I'm centered======="
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <h3>Working with Numbers</h3>
+	  <p>You can also convert to other types using string formatting. For instance, you can convert integers to binary numbers by using a simple string
+	    format call.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  1. number = <span class="green">int</span>(<span class="green">input</span>(<span class="red">"Number to convert: "</span>))<br>
+		  2. <span class="green">print</span>(<span class="red">"Binary: {:b}"</span>.format(number))
+		</code>
+	  </div>
+	  <p>This program asks the user for a number to convert to binary and then prints that number in binary format. It begins by storing the integer value
+	    input by the user in a variable called <i>number</i>. The second line of code takes the value stored in <i>number</i>, converts it to binary, and
+		prints it in string format. Notice how we cast the input to be of type integer. This is because you cannot convert a float to binary.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">from</span> datetime <span class="green">import</span> datetime<br>
+		  >>> <span class="red">"{:%m/%d/%Y}"</span>.format(datetime.now())<br>
+		  8/16/2018
+		</code>
+	  </div>
+	  <p>It is also very easy to format dates how you want using advanced formatting syntax combined with the <i>datetime</i> module. We can easily format
+	    the current date into our programs using this code. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>This is a simple program that will output the current date in the format <i>month/day/year</i>. The letters within the curly braces prepended by %
+	    characters do matter and are specific to the datetime module. Don't worry too much about the first line if you don't know what it does. We have
+		not covered this syntax or its meaning just yet.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>String formatting also makes it easy to convert decimal numbers to a percent value. We can do this by using the syntax: "{:%}".format(<i>decimal</i>).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> questions = <span class="green">93</span><br>
+		  >>> correct = <span class="green">81</span><br>
+		  >>> <span class="red">"Grade: {:%}"</span>.format(correct<span class="purple">/</span>questions)<br>
+		  'Grade: 87.096774%'<br>
+		  >>> <span class="red">"Grade: {:.2%}"</span>.format(correct<span class="purple">/</span>questions)<br>
+		  'Grade: 87.10%'<br>
+		  >>> <span class="red">"Grade: {:.3%}"</span>.format(correct<span class="purple">/</span>questions)<br>
+		  'Grade: 87.097%'
+		</code>
+	  </div>
+	  <p>This is a simple way to print percentages in a more easy-to-read format. In the curly braces within the template string, the % tells Python that
+	    we want to format a decimal number to a percentage. {:.2%} means that we want to format a decimal to percent format and to print only two decimal
+		places. Likewise, {:.3%} will format a decimal number to a percentage with three decimal places. This is also a good example demonstrating that
+		we can put more than one formatting instruction within a single pair of curly braces.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>String formatting also makes it relatively easy to format numbers in order to make them more readable. For instance, we can easily comma separate 
+	    large numbers and choose how many decimal places that we want. Have a look at the examples for clarification.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">print</span>(<span class="red">"{:,}"</span>.format(<span class="green">1000000</span>))<br>
+		  1,000,000<br>
+		  >>> <span class="green">print</span>(<span class="red">"{:.2f}"</span>.format(<span class="green">100</span>))<br>
+		  100.00<br>
+		  >>> <span class="green">print</span>(<span class="red">"{:,.4f}"</span>.format(<span class="green">10000</span>))<br>
+		  10,000.0000
+		</code>
+	  </div>
+	  <p>The first example is how to comma separate large numbers. Comma separate means to place a comma every three digits going from right to left. The
+	    second example demonstrates how to get a specific number of digits after the decimal place. "{:.2f}" means to format the number to have two digits
+		to the right of the decimal. The "f" in the expression "{:.2f}" specifies that we want this to be formatted to look like a floating point number.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="#">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="enumerate.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

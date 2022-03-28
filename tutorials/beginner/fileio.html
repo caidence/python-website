@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>File I/O</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">File I/O</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="scope.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="stringformatting.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>With Python, we can read from and write to files that reside on the local computer. We create a file object
+        by using the <i>open</i> built in function, passing the file location as a first argument, and the mode to
+        open the file in as the second argument. This gives the ability to read and or write to/from a file.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Opening Files</h3>
+	  <p>Like I said previously, we can use the <i>open</i> function with an external file name followed by a
+        processing mode. The call to <i>open</i> uses the processing mode argument to determine what methods
+        that we can call on the file object for data transfer.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> file = <span class="green">open</span>(<i>filename</i>, <i>mode</i>)<br>
+		  >>> file.<i>method</i>()
+		</code>
+	  </div>
+	  <p>The first argument is the name of the file to open. This can be an absolute or relative path to the file. If
+        no path is present, the file is assumed to be in the same directory as the program. The second argument is
+        what mode that you want to open the file in. This determines what methods you can call on the file object.
+        By default, if no mode is passed the file object will be opened in read mode "r". The most common modes are
+        read "r", write "w", and append "a". Write, will overwrite the contents of a file. If you want to add to the
+        file rather than overwrite it, open the file in append mode. You can also read from, and write to binary
+        files. To read from a binary file, list "rb" as the mode argument in the open function. Likewise, if you
+		wish to write to a binary file, use "wb" as the mode argument.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Writing to Files</h3>
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. file = <span class="green">open</span>(<span class="red">'file.txt'</span>, <span class="red">'w'</span>)<br>
+		  2. file.write(<span class="red">'Line 1\n'</span>)<br>
+		  3. file.write(<span class="red">'Line 2\n'</span>)<br>
+		  4. file.close()
+		</code>
+	  </div>
+	  <p>First, we open "file.txt" for writing and store the file object in a variable called <i>file</i>. Next, we
+        write the string "Line 1\n" to the file object. Remember that "\n" is the newline character. On the next line,
+        we write another string to the file object, "Line 2\n". Finally, we close the file by calling the close
+        method on the file object. Always remember to close a file once you're done with it! Note, if you open a
+        file with "w", the contents of the file will be overwritten, open a file with "a" if you wish to add to the
+        existing file contents.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Reading from Files</h3>
+	  <p>The example in this subsection assumes that the file "file.txt" has already been written to by the example
+        in the previous subsection.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> file = <span class="green">open</span>(<span class="red">'file.txt'</span>, <span class="red">'r'</span>)<br>
+		  >>> file.read()<br>
+		  'Line 1\nLine 2\n'<br>
+		  >>> <span class="green">print</span>(file.read())<br>
+		  Line 1<br>
+		  Line 2
+		</code>
+	  </div>
+	  <p>We start by creating a file object in read mode. We can read the contents of the file into a string with the
+        <i>read</i> method. As you can see, the new line characters will literally be included in the string unless
+        we actually print it. By default, the read method will read the entire contents of the file into a string,
+        this can be a problem for very large files. We'll look at a way to work around this in a later
+        tutorial. A neat trick is something called a <i>file iterator</i>. This will print the lines of a file
+        one by one.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># File iterator</span><br>
+		  2. <span class="green">for</span> line <span class="green">in open</span>(<span class="red">'file.txt'</span>, <span class="red">'r'</span>):<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="reen">print</span>(line, end=<span class="red">''</span>)
+		</code>
+	  </div>
+	  <p>File iterators are nice because they will read and print one line of the file on each loop iteration. You do
+        not have to do anything special for this, file iterators just do it automatically! The syntax is very
+        readable, they are easy to code, and they are very memory efficient.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>File Saftey</h3>
+	  <p>You should always close your files when you are done using them. This can be hard to remember sometimes,
+        but it is very important. If you don't close your files, it can cause your program to crash and/or lose data
+        from your file. What if an error occurs before you get the chance to close a file? Unfortunately, this may
+        cause data loss and unexpected behavior from your program. Fortunately, however, there is a safer way to
+        open files than the way that we have been using. The syntax is with open('file') as <i>variable</i>:. This
+        syntax is what we call a <i>context manager</i> in Python. If you open your files this way, your file will
+        close automatically when you are done with it or if the program errors out. Here is how to code some of the
+        previous examples with this safe syntax.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="green">with open</span>(<span class="red">'file.txt'</span>, <span class="red">'w'</span>) <span class="green">as</span> file:<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="red">'Line 1\n'</span>)<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;file.write(<span class="red">'Line 2\n'</span>)<br>
+		  4.<br>
+		  5. <span class="green">with open</span>(<span class="red">'file.txt'</span>, <span class="red">'r'</span>) <span class="green">as</span> file:<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(file.read())
+		</code>
+	  </div>
+	  <p>As you can see, the with statement is a block of code. All statements that you want to execute with the open
+        file object are indented within the code block. The file will close automatically after the code block runs.
+        The "as file" part of the with header is naming the file object "file". The block is basically saying
+        "with this open file named as this, do this block of code."
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="scope.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio aniview" data-av-animation="slideInUp">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio aniview" data-av-animation="slideInUp">
+	    <a href="stringformatting.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

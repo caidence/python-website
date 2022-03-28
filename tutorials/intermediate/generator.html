@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Generators</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Generators</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="listcomprehension.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="generatorexpressions.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Generator functions look and work much like regular functions. The difference is, generators are a simple way of creating an iterator. Because
+	    generators do not construct a result all
+		at once, they drastically improve the use of memory by a program, but usually at the cost of slower runtime. Generators do not return the
+		entirety of a result all at once, because of this, they save their state and 
+		retain information such as variables and scope between results. The main difference between a generator and a function is that a generator <i>
+		yields</i> a value rather than returning one. The yield statement will suspend the state of the function and return a value back to the caller,
+		but retains the state of the function so that it can resume later from where it left off. When the generator is resumed, it will pick up where
+		it left off from the last yield run. Simply put, a generator is a function that returns an object that we can iterate over one value at a time.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Yield</h3>
+	  <p>It can be hard to comprehend at first, but it is pretty simple if you just stop and think about it. The yield keyword acts like return, but it will
+	    return a value, pause the function and retain its state, and continue where it left off on successive calls. There can be more than one
+		yield keyword in a generator, there can even be a return keyword in a generator function, but as long as there is at least one yield keyword, 
+		Python will interpret it as a generator function.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">generator</span>(number):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> <span class="red">"{} + 1 = {}"</span>.format(number, number<span class="purple">+</span><span class="green">1</span>)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> <span class="red">"{} + 2 = {}"</span>.format(number, number<span class="purple">+</span><span class="green">2</span>)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> <span class="red">"{} + 3 = {}"</span>.format(number, number<span class="purple">+</span><span class="green">3</span>)<br>
+		  >>> test = generator(<span class="green">5</span>)<br>
+		  >>> <span class="green">next</span>(test)<br>
+		  '5 + 1 = 6'<br>
+		  >>> <span class="green">next</span>(test)<br>
+		  '5 + 2 = 7'<br>
+		  >>> <span class="green">next</span>(test)<br>
+		  '5 + 3 = 8'
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>In the example above, we create a generator function called <i>generator</i>. There are three <i>yield</i> statements within this function. 
+	    After the function, we create a generator object called <i>test</i> by setting <i>test</i> equal to a function call to the generator. A simple way
+	    iterate over generators is by using the <i>next</i> function on the generator object. Yield will return a value and control to the caller and the next
+		time that we call <i>next</i> on the generator object, the function will continue where it left off. The first yield statement in this example will print the number
+		passed to the function plus one. If the function is called with <i>next</i>, only the first yield statement will execute. If <i>next</i> is called
+		on the object a second time, the second yield statement will execute. If <i>next</i> is called on the object a third time, the third yield statement
+		will execute. In the case of this function, if <i>next</i> is called on the object a fourth time, Python will raise a StopIteration exception. This
+		because after the third yield statement, there is no more function to continue to.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Because generator functions are iterators, we can treat them as iterable objects. A common scheme in Python is using the values returned by a 
+	    generator by using a for loop. Each time that the loop is executed, the generator object will <i>generate</i> a new value. The main advantage
+		of generators is that they do not load an entire object to memory at once, they wait until we tell them to generate portions of the object.
+		This saves memory space in programs, but is a bit slower because the generator has to generate a new value when we iterate over it. This means that
+		the generator code executes with every iteration.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">squares</span>(array):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> array:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> number <span class="purple">**</span> <span class="green">2</span><br>
+		  >>> <span class="green">for</span> i <span class="green">in</span> squares(<span class="green">range</span>(<span class="green">5</span>)):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(i, end=<span class="red">" : "</span>)<br>
+		  0 : 1 : 4 : 9 : 16 : 
+		</code>
+	  </div>
+	  <p>On the first line we create a generator function called <i>squares</i>. This generator function accepts a list of numbers and will square the values
+	    in the list. Since the <i>yield</i> keyword is in the for loop, the function will stop every time the for loop executes. This means that if we call
+		<i>next</i> on the generator object that we create, only one value will be returned at a time. When we use a for loop on a generator object, next()
+		is called automatically. We can see this with the for loop after the function. In this loop, we create a generator object to iterate over by 
+		making a call to the function and passing a range of numbers. Since, <i>next</i> is called automatically with for loops, the loop will print out
+		all of the results from the generator object until we exhaust the object. Because we are using a generator function, the code within the generator
+		is actually called with every iteration of the for loop.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>A Deeper Look</h3>
+	  <p>If you remember nothing else from reading this page, remember this: generator functions are functions that behave like an iterator. I have talked
+	    about iterators a lot, but what are they? In Python, an iterator is defined by a class that uses the <i>iterator protocol</i>. This protocol will 
+		look for two methods within a class: __iter__ and __next__. The reason that we use iterators is mostly to save time and space in our programs. Every
+		object that we use in Python is actually a class. These classes either support the iterator protocol, or don't. Generators are iterators. This is why
+		we are able to iterate over a function call to a generator function, because the call will actually create a generator object. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Once again, generators do not load an object completely into memory, they just create a way to generate pieces of information as needed. To demonstrate
+	    this, I am going to compare a list object and a generator object. Say we have a normal function <i>cubed</i>. This function accepts a list of numbers
+		as an argument and creates a new list that contains the cubed values of the numbers in the argument list. If we pass a list to this function, it will
+		create the new list of the cubed values and store it into memory so that we can access it later and use it as we please. Now let's say that we turn
+		this function into a generator. If we do so and pass the same argument list, our program would not create a new results list, instead, it would create
+		a generator object. Keep in mind that we can iterate over generator objects the same way that we can with lists. The difference between our generator
+		object and the list is, the generator object does not immediately call the function for every item in the argument list like the normal function does.
+		This means that the generator object takes up less space than the list object created by the normal function. The generator object will not execute
+		the function code until we decide that we want to use it.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> test = [<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>,
+   		      <span class="green">5</span>, <span class="green">6</span>, <span class="green">7</span>, <span class="green">8</span>, 
+			  <span class="green">9</span>, <span class="green">10</span>]<br>
+		  >>> <span class="light-gray"># Normal function (not a generator)</span><br>
+		  >>> <span class="green">def</span> <span class="blue">cubed</span>(array):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;results = []<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> array:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results.append(number <span class="purple">**</span> <span class="green">3</span>)<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> results<br>
+		  >>> cubed(test)<br>
+		  [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]<br>
+		  >>> <span class="light-gray"># Generator function</span><br>
+		  >>> <span class="green">def</span> <span class="blue">cubed_gen</span>(array):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> array:<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> number <span class="purple">**</span> <span class="green">3</span><br>
+		  >>> cubed_gen(test)<br>
+		  &lt;generator object cubed at 0x000002256A05DD00>
+		</code>
+	  </div>
+	  <p>There is a lot going on here, so let's break it down. On the first line of code, we create a list called <i>test</i>. This is the list object
+	    we are going to pass to both functions to compare how they run. On the third line of code, we create a function called <i>cubed</i>. THIS IS NOT
+		A GENERATOR FUNCTION. I created this function in order to compare its output to a generator function. The <i>cubed</i> function accepts a list aside
+		an argument and will create a new list containing cubed values of the items in the argument list. It is important to recognize that this function
+		creates a list object and returns the entire object all at once because this is the difference between traditional and generator functions. When we 
+		call this function, the code runs and the new list object is returned all at once. Proceeding this output, we create a generator function that achieves 
+		similar results. Notice, when we call <i>cubed_gen</i>, we do not get back a results list, instead, we get back a generator object. This is because
+		the code within the generator function has not run yet on the list that we passed to it as an argument. The code will only run if we iterate over the generator
+		object. This has the advantage of saving memory space because we do not have to load the list object into memory. Remember, now if we iterate over
+		this generator object, the code within the generator function is run for every item in the list passed to the generator function at the time that
+		we iterate over the object.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="listcomprehension.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="generatorexpressions.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

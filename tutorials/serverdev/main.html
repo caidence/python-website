@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Tutorials</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">server-dev docs</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START PREFACA +++++++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>short description</h3>
+	  <p>This module is a Python wrapper for vCenter Management RESTful API 6.5.
+        The goal of this module is to act as a Python bridge for managing vCenter, esx
+        servers, and virtual machines. This module works on Linux and Windows, and supports
+        Python 2 and 3.
+	  </p>
+	</div>
+    <div class="p-container">
+      <h3>important</h3>
+      <p>This module currently only supports esx servers that are running ESXi 6.5.
+        Aside from the ESXi version, some functions and methods require ssh access
+        and esx shell to be enabled on ESXi serveres in order to function properly.
+      </p>
+    </div>
+    <div class="p-container">
+      <h3>installation</h3>
+        <div class="code-example right aniview" data-av-animation="slideInUp">
+            <code>
+              <span class="light-gray"># Windows install</span><br>
+              python -m pip install server-dev<br><br>
+              <span class="light-gray"># Linux install</span><br>
+              pip install server-dev<br><br>
+              <span class="light-gray"># clone repo</span><br>
+              git clone https://github.com/Caidentp/server-dev
+            </code>
+          </div>
+        <p>I published server-dev to PyPI, so you can install it as you can any other
+          PyPI package &ndash; with pip. I have also included a requirements.txt file
+          for convinence, but if you do not know the install directory, look to the
+          example on how to install server-dev requirements. The only depandancies
+          for server-dev are paramiko, json, and requests. If you do not want to
+          install the module with PyPI, you can clone the repository from
+          <a href="https://github.com/Caidentp/server-dev" target="_blank">here</a>.
+        </p>
+    </div>
+	<div class="p-container">
+      <h3>dependancies</h3>
+	  <div class="code-example right aniview" data-av-animation="slideInUp">
+	    <code>
+		  <span class="light-gray"># PyPI package names to install</span><br>
+          json<br>
+          requests<br>
+          paramiko
+		</code>
+	  </div>
+	  <p>server-dev has some functionallity that relies on ssh and esxcli commands.
+        I used paramiko as my ssh module to make server-dev cross-platform. To call
+        the RESTful API, I used the requests and json Python modules.
+	  </p>
+	</div>
+    <div class="p-container">
+      <h3>quick start guide</h3>
+      <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  <span class="light-gray"># authenticate to vCenter server</span><br>
+          <span class="green">from</span> serverdev <span class="green">import</span> <span class ="purple">*</span><br>
+          VCenterSession(<span class="red">'your vCenter ip'</span>, <span class="red">'your username'</span>, <span class="red">'your password'</span>)
+		</code>
+	  </div>
+      <p>Before we can interact with any of the objects in vCenter, we have to
+        authenticate to the vCenter server. This is done by instantiating the VCenterSession
+        class with your vCenter credentials. Almost all functions and methods in this module
+        require you to be authenticated to your vCenter server.
+      </p>
+    </div>
+    <div class="p-container">
+      <p>Now we can interact with esx servers and virtual machines by instantiating them. With the
+        class defined in server-dev.
+      </p>
+      <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  <span class="light-gray"># instantiate esx</span><br>
+          host = EsxServer(<span class="red">'esx ip address'</span>, <span class="red">'username'</span>, <span class="red">'password'</span>)<br>
+          virtual_machines = host.get_vms()
+		</code>
+	  </div>
+    </div>
+    <div class="p-container">
+      <p>Now that we have our vCenter objects, we can call methods on them to control the physical
+      objects.
+      </p>
+      <div class="code-example fun-example aniview" data-av-animation="slideInUp">
+	    <code>
+          host.enter_maint_mode()<br>
+          <span class="green">for</span> vm <span class="green">in</span> virtual_machines:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;vm.poweroff()
+		</code>
+	  </div>
+    </div>
+    <div class="p-container">
+      <p>The example puts the esx server into maintainence mode and will power off all of its virtual
+        machines.
+      </p>
+     </div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

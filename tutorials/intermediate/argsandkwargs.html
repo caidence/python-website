@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>*args and **kwargs</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>*args and **kwargs</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="generatorexpressions.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="classes.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Many people who are new to programming and learned or are learning Python as their first language (myself included), have a rough time
+	    understanding *args and **kwargs. I am going to try and clear up some misconceptions in this part of the website. Thought they seem magic, 
+		I can assure you that they're not. Before we get in to learning how these two work, there is one thing that you should understand. The
+		names <i>args</i> and <i>kwargs</i> do not matter, it is just convention that we use these names. You could just as easily use *foo and 
+		**bar. The only thing about the syntax that is important is the asterisk and the double asterisk, not the names that follow them.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Really just Objects</h3>
+	  <p>The title of this subsection is a little misleading but it was much shorter than "Really just variables packaged into objects". 
+	    That is really all that *args and **kwargs do, is package an arbitrary number of variables into an object. *args will package variables
+		into a tuple and **kwargs will package items into a dictionary. Here is a program to demonstrate this.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> <span class="light-gray"># *args, really just a tuple</span><br>
+		  >>> <span class="green">def</span> <span class="blue">example_args</span>(<span class="purple">*</span>args):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(args)<br>
+		  >>> example_args(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  (1, 2, 3)<br>
+		  >>><br>
+		  >>> <span class="light-gray"># **kwargs, really just a dictionary</span><br>
+		  >>> <span class="green">def</span> <span class="blue">example_kwargs</span>(<span class="purple">**</span>kwargs):<br>
+		  >>> &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(kwargs)<br>
+		  >>> example_kwargs(one=<span class="green">1</span>, two=<span class="green">2</span>, three=<span class="green">3</span>)<br>
+		  {'one': 1, 'two': 2, 'three': 3}
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>With the first function, we use *args in the function definition. The function definition is probably the most common place to use
+	    *args and **kwargs. Since we put *args in the function header, every argument that is passed to the function will be packaged into a tuple
+		called <i>args</i>. We can iterate over this tuple in the function. All that <i>example_args</i> does is print the variable <i>args</i> to
+		demonstrate that it is a tuple object.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The second function, <i>example_kwargs</i>, will take all keyword arguments passed to the function and map them into key value pairs in
+	    a dictionary. We cannot pass positional arguments to **kwargs just like we cannot pass keyword arguments to *args. We can however, put 
+		*args and **kwargs in a function definition which will accept keyword and positional arguments. If we are going to use both *args and **kwargs,
+		*args must be the first argument and **kwargs must be the second. Also, in the function call, positional arguments must appear before
+		keyword arguments.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+	      >>> <span class="light-gray"># *args must be before **kwargs in the function header</span><br>
+	      >>> <span class="green">def</span> <span class="blue">args_and_kwargs</span>(<span class="purple">*</span>args, 
+		      <span class="purple">**</span>kwargs):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(args)<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(kwargs)<br>
+	      >>> args_and_kwargs(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>,
+		      four=<span class="green">4</span>, five=<span class="green">5</span>)<br>
+		  (1, 2, 3)<br>
+		  {'four': 4, 'five': 5}
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>All that <i>args_and_kwargs</i> does is print the tuple and dictionary objects created from the passed positional arguments and keyword
+	    arguments. Positional arguments will be packaged into a tuple together and keyword arguments will be a packaged into a dictionary with each
+		argument mapped to its keyword as a key value pair. *args must appear before **kwargs in the function header and positional arguments must
+		be passed to the function before keyword arguments in order for this to work.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Because *args and **kwargs create objects called <i>args</i> and <i>kwargs</i> respectively, we can treat these variables as objects within
+	    functions. We can treat <i>args</i> as a tuple within functions because *args packes positional arguments into a tuple. Likewise, we can
+		treat <i>kwargs</i> as dictionary because **kwargs packages keyword arguments into a dictionary with the keyword being the key and its
+		argument being the value.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">max_number</span>(<span class="purple">*</span>args):<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;max_num = args[<span class="green">0</span>]<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> number <span class="green">in</span> args:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> number <span class="purple">></span> max_num:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_num = number<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> max_num<br>
+		  >>> max_number(<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>,
+		  <span class="green">15</span>, <span class="green">6</span>, <span class="green">7</span>)<br>
+		  15
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p><i>max_number</i> is a simple function that will return the maximum number from all the positional arguments passed to it. It works by 
+	    packaging all of the positional arguments into a tuple object called <i>args</i>. We can now use <i>args</i> just like we would use a tuple.
+		This is why we are able to iterate over it in a for loop.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  >>> <span class="green">def</span> <span class="blue">print_pairs</span>(<span class="purple">**</span>kwargs):<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> key, value <span class="green">in</span> kwargs.items():<br>
+          ... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(key, <span class="red">'is'</span>, value)<br>
+		  >>><br>
+		  >>> print_pairs(first_name=<span class="red">'John'</span>, last_name=<span class="red">'Smith'</span>)<br>
+		  first_name is John<br>
+		  last_name is Smith
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>This program is not too exciting; it is just to demonstrate that **kwargs really creates a dictionary called <i>kwargs</i>. All that
+	    the function <i>print_pairs</i> does is print the key value pairs of the dictionary created by **kwargs.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Unpacking</h3>
+	  <p>When we use *args and **kwargs in the function header, it is called <i>packing</i> variables. This is because we are "packing" values
+	    into the variable name that follows the asterisk. We can also use the asterisk syntax when we call a function. This is called <i>unpacking</i>
+		because you are taking an object, i.e. a list, dictionary, or tuple, and "unpacking" its values into function arguments.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">  
+	    <code>
+		  1. <span class="green">def</span> <span class="blue">print_args</span>(arg1, arg2, arg3):<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'arg1:'</span>, arg1)<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'arg2:'</span>, arg2)<br>
+		  4. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">'arg3:'</span>, arg3)<br>
+		  5.<br>
+		  6. test = (<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>)<br>
+		  7. print_args(<span class="purple">*</span>test)<br>
+		  arg1: 1<br>
+		  arg2: 2<br>
+	 	  arg3: 3
+		</code>
+	  </div>
+	  <p>In this example, we have a function named <i>print_args</i> that will print the values of the three arguments passed to it.
+	    After the function, we create a tuple named <i>test</i>. We then unpack the values in <i>test</i> as the arguments to the function 
+		in the function call by writing print_args(*test). This will unpack the first index in <i>test</i> as the first argument in the function
+		and so on. Notice how we use the variable name <i>test</i> before the asterisk. This is important and what makes the tuple unpacking work.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Similarly, we can unpack the values of a dictionary as the arguments to a function. If we do this, it is important that the argument names 
+	    in the function header match the key names in the dictionary that we are unpacking. This will map the dictionary's values associated with
+		that key name to the arguments.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">def</span> <span class="blue">greeting</span>(first_name, last_name):<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">f'Hello, {first_name} {last_name}'</span>)<br>
+		  3. <br>
+		  4. person1 = {<span class="red">'first_name'</span>: <span class="red">'Josh'</span>, <span class="red">'last_name'</span>:
+		     <span class="red">'Williams'</span>}<br>
+		  5. person2 = {<span class="red">'first_name'</span>: <span class="red">'Logan'</span>, <span class="red">'last_name'</span>:
+		     <span class="red">'Smith'</span>}<br>
+		  6. <br>
+		  7. greeting(<span class="purple">**</span>person1)<br>
+          8. greeting(<span class="purple">**</span>person2)<br>
+		  Hello, Josh Williams<br>
+		  Hello, Logan Smith
+		</code>
+	  </div>
+	</div>
+	<div class="p-container">
+	  <p>First, we define a function called <i>greeting</i>. This function takes two arguments: <i>first_name</i> and <i>last_name</i>. The function
+	    will print a formatted string that greets the person. Following the function, we create two dictionaries, <i>person1</i> and <i>person2</i>.
+		Notice how the keys in the dictionaries match the argument names in the function header? This is very important and is how we are able
+		to unpack the keys' values as arguments to the function. When we call the function with the dictionary object, we prepend the dictionary
+		name with a double asterisk (**).
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="generatorexpressions.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="classes.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

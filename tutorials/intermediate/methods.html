@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Methods</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Methods</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="classes.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="init.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Methods are what adds functionality to our classes. Methods look and act just like functions, but they are defined in and belong to
+	    a class. We can define a class that only contains class variables (also called <i>class attributes</i>), but this is pretty much pointless because
+		objects that we create from it won't do anything. This is where methods come in to play! With methods, we can create instances from our
+		classes that are more unique and interesting than instance_one and instance_two that we created in the last tutorial!
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Methods are the equivalent of functions, but are used in OOP. They define the operations that we can perform on instances and classes.
+	    Classes can have more than one method and, more often than not, they do. Just remember, a class should only really do one thing, if a
+		class definition gets huge; we should probably restructure our program. Generally speaking, methods only have access to the data of the
+		instance that they are used on. As you will learn in later tutorials, this is not always the case, this is just the most common case
+		for methods. Succinctly put, methods are a procedure associated with an object which is defined by a class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>self</h3>
+	  <p>Before we go any further, I thought that I'd introduce the <i>self</i> argument that is often times used as the first argument
+	    in methods. With classes, usually, 
+	    methods are used to manipulate instances in some way. Often times, we want a method to only manipulate the instance that we use it on.
+		(This is not the only use for <i>self</i>, but it is one of the main ones.) To do this, we have to pass the instance to the method as
+		the first argument. When you see methods that have <i>self</i> as the first argument, this argument is actually passing the instance that
+		you call the method on to the method. By passing the instance to a method through <i>self</i>, we can use dot notation to only manipulate
+		data within the instance passed to the method. You can think of <i>self</i> like the <i>this</i> keyword used in languages like Java and C++. Although
+		<i>self</i> in Python is similar to <i>this</i> in other languages, they are not exactly the same.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>The only thing that matters about the <i>self</i> argument is its position. You could use <i>this</i> in place of <i>self</i> and your program
+	    would work exactly the same way. Just remember, the first argument in methods (not all methods but we'll get to that later) refers to
+		the instance that you call the method on. The first argument can be anything you want, but I recommend that you always use <i>self</i>.
+		Using <i>self</i> is a strong Python convention and you might confuse people who have to read your code if you use any other name.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>A first look</h3>
+	  <p>As I said earlier, methods look and work just like functions. Methods are defined within a class and use self as the first argument (usually).
+	    Let's create an example class that has two methods -- method_1 and method_2. All these methods will do, is print their name. Notice how we use
+		"self" as the first argument? This argument refers to the instance, for example, if we write: instance = Example(), the name of this instance
+		is <i>instance</i>. Now if we write: instance.method_1(), this will call method_1 and pass <i>instance</i> as the first argument (self) to the
+        method.		
+		We can create instances, and call these methods on the instances that we create by using the syntax: instance_name.method_name().
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Example</span>:<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">method_1</span>(self):<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"This is method 1"</span>)<br>
+		  4.<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">method_2</span>(self):<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"This is method 2"</span>)
+		</code>
+	  </div>
+	  <p>To the right, we have a class with two methods -- <i>method_1</i> and <i>method_2</i>. These are probably two of the most rudimental methods
+	    that you will ever see. All that both of these methods do, is print their name. We can create instances of the class and call these methods
+		on them. Because of the <i>self</i> argument, now we are only able to call these methods on instances. We cannot call the method directly
+		from the class. If we try, we will get a TypeError because no instance will be passed as the first argument. Have a look at the interactive session
+		to see exactly what I mean.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> e1 = Example()<br>
+		  >>> e1.method_1()<br>
+		  This is method 1<br>
+		  >>> e1.method_2()<br>
+		  This is method 2<br>
+		  >>> <br>
+		  >>> <span class="light-gray"># This wont work</span><br>
+		  >>> Example.method_1()
+		</code>
+	  </div>
+	  <p>Notice how we are able to call the methods on instances, but not the class itself. This is because of the <i>self</i> argument. When we
+        use <i>self</i> as the first argument, we are really passing; or trying to pass; an instance to the method. This is done by default when calling a method
+		on an instance. Likewise, if there was no <i>self</i> argument in the method definitions, we could call the methods on the class object, 
+		but not instances of the class.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Let's create the same class without the <i>self</i> first positional argument. This will reverse what happens when we call the method on
+	    class and the instances of the class. Without the <i>self</i> argument, if we try to call the method on instances, we will get a Type Error. This
+		is because the instance will try to pass itself as the first argument to the method and the method does not accept any arguments. However,
+		if we call the method on the class, it works because the method does not require an argument and the class, unlike instances of the class,
+		does not pass itself as an argument to the method. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Example</span>:<br>
+		  2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">method_1</span>():<br>
+		  3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"This is method 1"</span>)<br>
+		  4.<br>
+		  5. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">method_2</span>():<br>
+		  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">print</span>(<span class="red">"This is method 2"</span>)
+		</code>
+	  </div>
+	  <p>In this example, we are only able to call the methods on the class, but not the instances. This is because when we try to call the method
+	    using an instance of the class, it will pass itself as the first argument and the method does not take any arguments. We can call it from
+		the class because there are no arguments so it just acts as a direct extension of the class itself. Let's look at an interactive Python 
+		session to demonstrate this (assuming that the class has been imported).
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> Example.method_1()<br>
+		  This is method 1<br>
+		  >>> Example.method_2()<br>
+		  This is method 2<br>
+		  >>> instance = Example()<br>
+		  >>> <br>
+		  >>> <span class="light-gray"># This wont work</span><br>
+		  >>> instance.method_1()
+		</code>
+	  </div>
+	  <p>See how the methods will work if we call them directly off of Example? It is also important to note, that with no arguments, we are not 
+	    able to call the methods from instances of the class. This is because the instance tries to pass itself as the first argument to the method
+		and the methods of this class accept no arguments. You can do pretty much 
+		anything with a method that you can do with a function. Methods can accept more than one argument, just like functions. They can also call 
+		other methods from within the class or functions from outside the class. Methods are a very flexible part of OOP.
+	</div>
+	<div class="p-container">
+	  <p>Our classes can now have 
+		class attributes as well as methods. There are, however, special methods that make OOP much more useful and interesting than anything
+		that we have done so far. We will take a look at a few of these special methods in the next tutorial.
+	  </p>
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="classes.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="init.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

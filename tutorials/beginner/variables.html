@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Variables</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">Variables</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio aniview" data-av-animation="slideInUp">
+	    <a href="datatypes.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container aniview" data-av-animation="slideInUp">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container aniview" data-av-animation="slideInUp">
+	  <div class="next radio">
+	    <a href="math.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Variables are incredibly useful in any programming language. You can think of a variable
+	    as a placeholder or container for data types. In Python, variables can be changed and used as many
+        times as you want &ndash; there are not type restrictions as there are in languages like C and C++.
+		You can create a variable by using the syntax <i>variable_name = data</i>. When you use a variable later
+		in your code, when the code is executed, the variable is replaced with the data you set it equal
+		to previously.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  1. <span class="light-gray"># Variable examples</span><br>
+		  2. list_variable = [<span class="green">1</span>, <span class="green">2</span>, 
+		     <span class="green">3</span>]<br>
+		  3. int_variable = <span class="green">77</span><br>
+		  4. float_variable = <span class="green">1.2</span>
+		</code>
+	  </div>
+	  <p>Looking at line three of the example, if later in your code you wanted to use the value 77, you could
+        use int_variable in its place and the program would interpret it as 77. This because we stored that value
+        in the variable <i>int_variable</i>. int_variable is now a container for the value 77, you might think of
+        it now as an alias for the value 77. Variables are very convenient, as you can imagine, especially for
+        larger sets of data such as a large dictionary or a list. In the next section I created some examples of
+        how variables can be used.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Examples</h3>
+	  <p>In this section, I will be using the Python's print function to demonstrate how variables work. Hopefully,
+	    after reading this section, you will have a solid understanding of how variables work.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="right code-example aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> name = <span class="red">"Caiden"</span><br>
+		  >>> <span class="green">print</span>(name)<br>
+		  Caiden<br>
+		  >>> name = <span class="red">"Bob"</span><br>
+		  >>> <span class="green">print</span>(name)<br>
+		  Bob
+		</code>
+	  </div>
+	  <p>On the first line, we create a variable called <i>name</i> and set its value equal to my name, Caiden.
+        You can see that when we use the variable <i>name</i> in our program, that it will replace the variable
+        with the value stored in it. We can change the variable later on if we want, which will override the
+        its current value, which is <i>Caiden</i>. The first time we print the variable, we get the result "Caiden".
+        Next, we change the variable to store the value "Bob", which overrides the old value and replaces it with
+        the new value, Bob. When we print the variable again, it no longer will print "Caiden", it will print
+		"Bob".
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Variables can store almost anything, even other variables! In the next example, we can see how
+        this works, as well as a few more tricks when we create variables. We can declare multiple variables
+        on the same line, called <i>multiple variable declaration</i>. You can do this by separating the variables
+        with commas and the data with commas. In multiple variable declaration, the first variable will equal
+        the first object, the second variable will equal the second object, and so on.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left aniview" data-av-animation="slideInUp">
+	    <code>
+		  >>> a = <span class="green">1</span><br>
+		  >>> b = a<br>
+		  >>> <span class="green">print</span>(b)<br>
+		  1<br>
+		  >>> <span class="light-gray"># Multiple variable declaration</span><br>
+		  >>> a, b = <span class="green">1</span>, <span class="green">2</span><br>
+		  >>> <span class="green">print</span>(a, b)<br>
+		  1 2<br>
+		  >>> <span class="light-gray"># Swapping variable values</span><br>
+		  >>> a, b = b, a<br>
+		  >>> <span class="green">print</span>(a, b)<br>
+		  2 1
+		</code>
+	  </div>
+	  <p>This example starts off with setting a variable <i>a</i> equal to the value 1. We then set a variable
+       <i>b</i> equal to the variable <i>a</i>, and then print the variable <i>b</i>. Because <i>b</i> is a
+        variable that points to another variable, when we print <i>b</i>, it will print the value of the variable
+        that <i>b</i> points to. In this case, <i>b</i> points to <i>a</i> so when we print <i>b</i>, we get back
+        the value of <i>a</i>. Next, we declare two variables on the same line. We make variables <i>a</i> and
+        <i>b</i>, and we set <i>a</i> equal to 1 and <i>b</i> equal to 2. Next, we swap the values of the variables
+        on one line by using multiple variable declaration again. a, b = b, a will swap the values of variables
+        <i>a</i> and <i>b</i>. This works because now <i>a</i> points to the value at <i>b</i> and <i>b</i> points
+        to the value at <i>a</i>. This is a neat feature specific to Python. In other programming languages,
+        swapping variables requires three lines of code.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>variable names</h3>
+	  <p>Naming variables is pretty straight forward. It is considered best practice to name your variables
+        something meaningful and try to avoid using single letter variable names such as <i>a</i> and <i>b</i>.
+        I use these names often in examples, but you should not use them in practice! There are not too many
+        restrictions on what you can name a variable. The only rules you have to follow are: variable names can only
+        contain uppercase and lowercase letters, underscores, and numbers. Variable names cannot start with a number.
+        Variable names can start with an underscore, but this is used in special cases, which we will demonstrate in
+        a later tutorial. Also, try to avoid naming variables the same as Python classes and functions.  For example,
+        if you were to name a variable <i>print</i>, now you would have a variable named print and a function named
+        print, and this can cause conflictions later in your program. One last note, if you name a variable something
+        with multiple words in the name, for instance if you were to name a variable "i love python", the Python
+        convention is to lowercase all letters in the variable name, and to separate the words with underscores.
+		Following convention, your variable would look like this <i>i_love_python</i>. You do not have to follow
+        this convention, but it is strongly recommended!
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container aniview" data-av-animation="slideInUp">
+      <div class="previous radio">
+	    <a href="datatypes.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container aniview" data-av-animation="slideInUp">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">beginner tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container aniview" data-av-animation="slideInUp">
+	  <div class="next radio">
+	    <a href="math.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Classes</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Classes</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="argsandkwargs.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="methods.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The basics</h3>
+	  <p>If you have read any of the previous tutorials, you've probably seen me use the word "object" to refer to different data types. Really, every
+	    object type is a class and datatype just refers to what kind of object something is. We have really been using classes all along! 
+		Simply put, a class is a coding structure used to implement our own custom objects. Classes are
+		part of what we call <i>object-oriented programming</i> (OOP). OOP is a more effective way to code because it is reusable and reduces
+		code redundancy. It allows us to define our own objects which we can create our own methods for. Classes are essentially a template
+		to create your own objects that also defines how our program can interact with the objects that we create.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>OOP is a form of programming that focuses on using objects to design a program. An object is a component of programming that preforms
+	    specific actions (based on the programming language) and interacts with other parts of a program. Classes allow us an easy way to structure
+		our code in a way that makes more logical sense to us as humans. The behavior of objects is determined by methods which are subroutines that have 
+		the ability to operate on and manipulate objects and classes. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Why Classes?</h3>
+	  <p>Classes are an easy way to structure real objects in the real world around us. There are many advantages to using OOP over functional
+	    programming. With using OOP, you can optimize code organization. OOP defines standard ways to easily organize data and procedures in
+		your code. If you use OOP smartly, it will help yourself and others more easily understand what is happening in your code. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Building off of organization, another advantage of OOP is encapsulation. By encapsulation,
+	    I am referring to how data is conveniently stored alongside the methods that create and manipulate it. This makes it easy to hide code from the
+		public interface. If we want, we can easily change this hidden code without changing the interface on the public side of the program.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Probably one of the most notable advantages of OOP is inheritance. This is a feature of OOP that allows us to easily build off of code 
+	    that we have already written. It lets us define data in one place, use it and, or override it in another place if need be. It allows us to
+		extend our own code, or even built-in code. Inheritance makes our programs easily scalable.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>OOP makes coding easier on the programmer because it is very flexible and offers great reusability. We are able to "borrow" code from
+	    other classes that we have created and use that code in new classes. We are also able to import classes that
+		we write into other programs so that we can use the objects that our classes define in the new code.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Of course, these are not all of the advantages of using OOP. It is a really good idea to start using an OOP approach for your programs. OOP
+	    is a pretty ubiquitous concept and is standard in all major programming languages. OOP reduces code maintenance overhead and is probably the
+		most popular paradigm that programmers use today.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>Getting Started</h3>
+	  <p>Starting off, it is important that you understand the difference between an <i>instance</i> and a <i>class</i>. Classes act as a blueprint
+	    for default behavior of instances. You can think of a class as a factory for instances. Instance objects are the objects that your program
+		processes. Every time that you call a class, you will create a new instance of that class. There can exist more than one instance from the 
+		same class in a program at the same time and each instance can have its own data. Just remember, classes are templates to create instances
+		and instances are the objects in a program that we interact with.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>Here is a class on the most basic level. We define a class by using the <i>class</i> keyword followed by the name of the class. <i>x</i>
+	    and <i>y</i> are called <i>class variables</i>. These two variables will be the same for all instances of the class we create unless
+		we explicitly change them change them. If we change either of these variables in the class, it will change the variable in each instance of the class.
+		However, if we change these variables from an instance, it will not change the variables in the other instances. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example right">
+	    <code>
+		  >>> <span class="green">class</span> <span class="blue">Example</span>:<br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;x = <span class="green">10</span><br>
+		  ... &nbsp;&nbsp;&nbsp;&nbsp;y = <span class="green">3</span><br>
+		  >>><br>
+		  >>> instance_one = Example()<br>
+		  >>> instance_two = Example()
+		</code>
+	  </div>
+	  <p>Here, we create a class called <i>Example</i> which has two class variables -- x, and y. x and y will be the same value for each instance
+	    that we create of the class. As you can see, we create instances with the format: instance_name = class_name( ). <i>instance_one</i>
+		and <i>instance_two</i> are completely separate objects. If we manipulate one, it will not manipulate the other. Instead of saing that the 
+		object type of <i>instance_one</i> and <i>instance_two</i> is string, or tuple, or list; we say that the object type of <i>instance_one</i>
+		and <i>instance_two</i> is <i>Example</i>. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>To access the variables of our objects, we use the syntax: instance_name.variable_name. We can change the class variables 
+	    for all classes by using the syntax: class_name.variable = new_value. By using this syntax, we effectively change the 
+		value of the class variable for every instance of the class. Building off of the example from earlier, here is how to access variables from
+		the instance, as well as change the class variables for all instances.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> instance_one.x<br>
+		  10<br>
+		  >>> instance_two.x<br>
+		  10<br>
+		  >>> Example.x = <span class="green">5</span><br>
+		  >>> instance_one.x<br>
+		  5<br>
+		  >>> instance_two.x<br>
+		  5<br>
+		  >>> instance_two.z = <span class="green">6</span><br>
+		  >>> instance_two.z<br>
+		  6<br>
+		  >>> instance_one.y = <span class="green">45</span></br>
+		  >>> instance_one.y<br>
+		  45<br>
+		  >>> instance_two.y<br>
+		  3
+		</code>
+	  </div>
+	  <p>There is a lot of important information here so let's break it down. On the first and third lines, we access the class variable <i>x</i>
+	    by typing the instance name appended with a period followed by the variable name. In the class <i>Example</i>, the class variable <i>x</i> is 10,
+		thus, every instance created from the <i>Example</i> class will have a variable <i>x</i> which equals 10. The same applies for the class 
+		variable <i>y</i>. After we see that each instance has a variable <i>x</i>, we write "Example.x = 5". Remember, <i>Example</i> is the name
+		of our class, meaning that this statement will change the value of the variable <i>x</i> in every instance of the class to 5. We see this
+		by viewing the value of the x variable of instance_one and instance_two. Next, we set the variable <i>z</i> of instance_two to equal
+		6. But wait, <i>Example</i> does not have a class variable named <i>z</i>, so how is this possible? This is completely legal in Python.
+		This line will create a variable named <i>z</i> in instance_two, but not instance_one. Please don't do this, more often than not, there is a better
+		way to write your classes than to create variables this way. Finally, we change the value of <i>y</i> in instance_one. When we now view the
+		value stored at <i>y</i> for both instances, we see that its value in instance_one is now 45, but it did not change the value of it in
+		instance_two.
+	  </p>
+	</div>
+	<div class="p-container"> 
+	  <p>This is how classes work on the most basic level. There is a lot more ot OOP than assigning variables to objects. We will take a deeper
+	    dive into some of the more useful aspects of OOP in later tutorials. This tutorial was just created to briefly introduce you to what we 
+		will be working with for many of the tutorials to come.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="argsandkwargs.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="methods.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Static Methods</title>
+	<link rel="stylesheet" href="../../css/tutorial.css">
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1>Static Methods</h1>
+	  <p>Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="classmethods.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="strandrepr.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+	  <h3>The Basics</h3>
+	  <p>Sometimes, there are methods that you want to create that are closely related to a class, but do not need the class itself or an instance of
+	    the class to operate. Static methods do not know anything about the class necessarily, they just work with, or alter parameters of the class.
+		Static methods do not require any arguments, but you can pass arguments if you'd like. They do not need the class to work on or an instance to
+		work on. Because of this, they do not need a self or cls argument. We create static methods by using an @staticmethod decorator directly
+		above the method definition. If you have a function or method that is closely related to a class, but does not need to alter or use the class
+		or any instances of the class, then it would probably be a good idea to make is a static method.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <h3>example</h3>
+	  <p>There are few use cases for using static methods so it was hard of me to think of an example to show here, but Corey Schafer had a great example
+		on his YouTube channel, so I am going to do something similar. Say we have a class to keep track of our workers. All of our workers want us
+		to add functionality to the class so that it will tell them whether it is a work day or not. Work days are Monday through Friday. We do not
+		need any variables from the class or any instance to tell our workers whether it is a work day or not. This is, however, closely related to 
+		our worker class, so we can create a static method that tells employees if the current day is a work day or not. This class could look something like
+		the following.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example fun-example">
+	    <code>
+		  1. <span class="green">class</span> <span class="blue">Worker</span>:<br>
+          2. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, first, last,
+		     badge=<span class="green">None</span>):<br>
+          3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.first = first<br>
+          4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.last = last<br>
+          5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.badge = badge<br>
+          6. <br>
+          7. &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@staticmethod</span><br>
+          8. &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">is_work_day</span>():<br>
+          9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">from</span> datetime <span class="green">import</span> datetime<br>
+          10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> datetime.today().weekday() <span class="purple">&lt;</span>
+		      <span class="green">5</span>:<br>
+          11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return True</span><br>
+          12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return False</span>
+		</code>
+	  </div>
+    </div> 
+	<div class="p-container">
+	  <p>The focus of this example will be the static method <i>is_work_day</i>. This method will return True if the current day is a work day and False
+	    otherwise. Line nine imports a module called datetime that has a method that will check the current day for us. on line ten: datetime.today().weekday()
+		will return what date it is in the form of a number. Monday is 0, Tuesday is 1 ... Sunday is 6. We check to see the value of this number in the if
+		block. If the number is between zero and five, that means it is a weekday, thus, making it a workday. 
+	  </p>
+	</div>
+	<div class="p-container">
+	  <p>This method does not require any information from the class or any of its instances. All it needs to know in order to operate is what the
+	    current day is. What day it is unrelated to the worker class, but workdays are related to the class. This method can be called on any
+		instance that we create of the class, as well as the class itself.
+	  </p>
+	</div>
+	<div class="p-container">
+	  <div class="code-example left">
+	    <code>
+		  >>> w1 = Worker(<span class="red">'Nick'</span>, <span class="red">'Doe'</span>)<br>
+		  >>> w1.is_work_day()<br>
+		  True<br>
+		  >>> w2 = Worker(<span class="red">'John'</span>, <span class="red">'Smith'</span>)<br>
+		  >>> w2.is_work_day()<br>
+		  True<br>
+		  >>> Worker.is_work_day()<br>
+		  True
+		</code>
+	  </div>
+	  <p>In this interactive session, we create two instances of Worker. This is to demonstrate that static methods work the same across all instances
+	    of a class. As you can see, when we call the static method from each instance, it will give us the same result (I ran this code on Monday, that's
+		why it returns True for me). Going a little further down, we can see that we can also call the static method directly from the class itself. This
+		makes sense because static methods do not require an instance or a class to operate, that's why they can be called, and work the same when called
+		from instances or the class.
+	  </p>
+	</div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START PAGES +++++++++++++++++++++-->
+  <div class="pages">
+    <div class="radio-container">
+      <div class="previous radio">
+	    <a href="classmethods.html">Previous</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="all radio">
+	    <a href="main.html#tutorials">Intermediate tutorials</a>
+	  </div>
+	</div>
+	<div class="radio-container">
+	  <div class="next radio">
+	    <a href="strandrepr.html">Next</a>
+	  </div>
+	</div>
+  </div>
+
+<!--+++++++++++++++++++++ END PAGES +++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1>Questions, comments, concerns?</h1>
+	  <p>Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="/">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>

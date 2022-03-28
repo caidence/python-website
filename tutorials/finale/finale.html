@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Finale</title>
+	<link rel="stylesheet" href="../../css/tutorialCommon.css">
+    <link rel="stylesheet" href="../../css/finale.css">
+    
+<!----------------------- Javascript aniview libraries ---------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/jquery-aniview@1.0.2/dist/jquery.aniview.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var options = {
+                animateThreshold: 25,
+                scrollPollInterval: 20
+            }
+            $('.aniview').AniView(options);
+        });
+    </script>
+<!----------------------- Javascript aniview libraries ---------------------------->
+  </head>
+  
+  <body>
+<!--+++++++++++++++++++++++++ START HEADER DIV +++++++++++++++++++++++++-->
+  <div class="main-heading" id="#top">
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+    <div class="nav">
+	  <ul>
+	    <li><a href="../../index.html" id="home">Home</a></li>
+		<li id="current"><a href="../../index.html#tutorials" id="tutorial">Tutorials</a></li>
+		<li><a href="../../contact.html" id="contact">Contact</a></li>
+		<li><a href="../../about.html" id="about">About</a></li>
+	  </ul>
+	</div>
+<!--------------------------- MAIN NAVIGATION -------------------------------->
+<!--------------------------- TITLE -------------------------------->
+    <div class="title">
+      <h1 class="elegantshadow">A real-world-ish Python Program</h1>
+	  <p id="sub-title">Python 3 | Tutorials | Algorithms</p>
+	</div>
+<!--------------------------- TITLE -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END HEADER DIV +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++ START TUTORIAL AREA +++++++++++++++++++++-->
+  <div class="tutorial-area">
+    <div class="p-container">
+      <h3>Preface</h3>
+      <p>Learning how to program from scratch is hard. Especially when programing does not become fun until you start making practical applications.
+        Well, what does a practical application look like? I found myself asking this question many times while I was still a beginner programmer.
+        There is no right answer to this question, programs come in all different shapes and sizes. I did, however, want to show here what a medium-sized
+        program does look like and the coding style that might be used in production. Below is a computer program that uses abstract classes to create
+        three different types of linked lists followed by a class to test the three linked list classes. This is not a tutorial, just an example, therefore;
+        I will note be describing what is happening in the code, just showcasing it. If you do
+        not understand what is going on here, don't worry! This is just to show how a real-world program might be constructed from scratch. One last thing
+        to note is that in production (hopefully), this program would be split in to probably multiple separate files. I keep everything on one page here
+        for the sake of simplicity and avoiding imports.
+      </p>
+    </div>
+    <div class="p-container">
+      <div class="code-example fun-example" id="finale">
+        <code>
+            <span class="green">from</span> abc <span class="green">import</span> ABCMeta, abstractmethod<br>
+            <span class="green">import</span> unittest<br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">AbstractLinkedList</span>(metaclass=ABCMeta):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Defines methods common to different types of linked lists."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, head_node):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = head_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = head_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> head_node <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size = <span class="green">0</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size = <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__len__</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> self.size<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__getitem__</span>(self, index: <span class="red">'int'</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is not None and</span> index <span class="purple"><</span> <span class="green">len</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple"><</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if abs</span>(index) <span class="purple">></span> <span class="green">len</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index = <span class="green">len</span>(self) <span class="purple">+</span> index<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe = self.head<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe = probe.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> probe.data<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__setitem__</span>(self, index: <span class="red">'int'</span>, data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is not None and</span> index <span class="purple"><</span> <span class="green">len</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple"><</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if abs</span>(index) <span class="purple">></span> <span class="green">len</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index = <span class="green">len</span>(self) <span class="purple">+</span> index<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe = probe.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probe.data = data<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__iter__</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is not None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;condition = <span class="green">True</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">while</span> condition:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">yield</span> temp.data<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.head <span class="green">or</span> temp <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;condition = <span class="green">False</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__str__</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">"{}({})"</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> template.format(self.__class__.__name__, self.__dict__)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__repr__</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">"<{} object at {}>"</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mem_address = <span class="red">'0x'</span> <span class="purple">+</span> <span class="red">'{:0>16}'</span>.format(<span class="green">hex</span>(<span class="green">id</span>(self)).upper()[<span class="green">2</span>:])<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> template.format(self.__class__.__name__, mem_address)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@abstractmethod</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">push</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Add a node to the beginning of a list.<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node_data: this will become the data instance variable<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of a node class<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">pass</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@abstractmethod</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">append</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Add a new node to the end of a list.<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node_data: this will become the data instance variable<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of a node class<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">pass</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@abstractmethod</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">insert</span>(self, index: <span class="red">'int'</span>, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Insert a node into a linked list by position.<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index: position to insert a node at<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node_data: this will become the data instance variable<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of a node class<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">pass</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">@abstractmethod</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">delete</span>(self, index: <span class="red">'int'</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Delete a node by position.<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index: position of node to be deleted<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">pass</span><br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">AbstractNode</span>(<span class="green">object</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Defines methods common to all types of linked list nodes."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.data = data<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.next = <span class="green">None</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__str__</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template = <span class="red">"{}({}) object at <{}>"</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return template.format(self.__class__.__name__, self.__dict__, <span class="green">id</span>(self))<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__repr__</span>(self):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> <span class="red">"Node(data={0})"</span>.format(self.data)<br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">SNode</span>(AbstractNode):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Singly linked list node."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, data=<span class="green">None</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(data)<br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">DNode</span>(AbstractNode):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Doubly linked list node."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, data=<span class="green">None</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.previous = <span class="green">None</span><br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">CNode</span>(AbstractNode):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Circular linked list node."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, data=<span class="green">None</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.next = self<br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">SinglyLinkedList</span>(AbstractLinkedList):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Class for singly linked list."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, head_node=<span class="green">None</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(head_node)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">push</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = SNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">append</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = SNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">insert</span>(self, index, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">>=</span> <span class="green">len</span>(self) <span class="green">or</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">==</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.push(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = SNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index<span class="purple">-</span><span class="green">1</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">delete</span>(self, index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">>=</span> <span class="green">len</span>(self) <span class="green">or</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">==</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = self.head.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">break</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous = temp<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous.next = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = previous<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">-=</span> <span class="green">1</span><br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">DoublyLinkedList</span>(AbstractLinkedList):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Class for doubly linked list."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, head_node=<span class="green">None</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(head_nodes)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">push</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = DNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head.previous = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">append</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = DNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.previous = self.tail<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">insert</span>(self, index, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">>=</span> <span class="green">len</span>(self) <span class="green">or</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">==</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.push(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = DNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index<span class="purple">-</span><span class="green">1</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.previous = temp<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next.previous = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">delete</span>(self, index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">>=</span> <span class="green">len</span>(self) <span class="green">or</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">==</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = self.head.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head.previous = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">break</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous = temp<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous.next = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = previous<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp.next.previous = previous<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">-=</span> <span class="green">1</span><br>
+<br>
+<br>
+			<span class="green">class</span> <span class="blue">CircularLinkedList</span>(AbstractLinkedList):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">"""Class for circular linked list."""</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">__init__</span>(self, head_node=<span class="green">None</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">super</span>().__init__(head_node)<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">push</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = CNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">append</span>(self, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = CNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">insert</span>(self, index, new_node_data):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">>=</span> <span class="green">len</span>(self) <span class="green">or</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">==</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.push(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node = CNode(new_node_data)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index<span class="purple">-</span><span class="green">1</span>):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_node.next = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp.next = new_node<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">+=</span> <span class="green">1</span><br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">delete</span>(self, index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">>=</span> <span class="green">len</span>(self) <span class="green">or</span> self.head <span class="green">is None</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">raise</span> IndexError(<span class="red">'List index out of range.'</span>)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> index <span class="purple">==</span> <span class="green">0</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> self.head <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = <span class="green">None</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.head = self.head.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail.next = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">else</span>:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">for</span> x <span class="green">in range</span>(index):<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">break</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous = temp<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous.next = temp.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">if</span> temp <span class="green">is</span> self.tail:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail = previous<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tail.next = self.head<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.size <span class="purple">-=</span> <span class="green">1</span><br>
+<br>
+<br>
+            <span class="light-gray"># Converts a linked list to a list for testing</span><br>
+            <span class="green">def</span> <span class="blue">convert</span>(linked_list):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">return</span> [x <span class="green">for</span> x <span class="green">in</span> linked_list]<br>
+<br>
+<br>
+            <span class="green">class</span> <span class="blue">TestSinglyLinkedList</span>(unittest.TestCase):<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_push_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.push(<span class="green">0</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">0</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_push_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">2</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.head.next = SingleLLNode(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.push(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_append_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_append_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_insert_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_insert_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">4</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">3</span>, <span class="green">4</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">1</span>, <span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_insert_at_head</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">2</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_insert_out_of_range</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">9</span>, <span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_delete_node_at_head</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">0</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_delete_node_at_tail</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">with</span> self.assertRaises(IndexError):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">10</span>)<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_singly_delete_node_in_middle</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = SingleLinkedList(SingleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+<br>
+            <span class="green">class</span> <span class="blue">TestDoublyLinkedList</span>(unittest.TestCase):<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_push_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.push(<span class="green">0</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">0</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_push_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">2</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.head.next = DoubleLLNode(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.push(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_append_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_append_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_insert_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_insert_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">4</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">3</span>, <span class="green">4</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">1</span>, <span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_insert_at_head</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">2</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_insert_out_of_range</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">9</span>, <span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_delete_node_at_head</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">0</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_delete_node_at_tail</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">with</span> self.assertRaises(IndexError):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">10</span>)<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_doubly_delete_node_in_middle</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = DoubleLinkedList(DoubleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+<br>
+            <span class="green">class</span> <span class="blue">TestCircularLinkedList</span>(unittest.TestCase):<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_push_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.push(<span class="green">0</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">0</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_push_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">2</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.push(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_append_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_append_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_insert_empty_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_insert_populated_list</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">4</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">3</span>, <span class="green">4</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">1</span>, <span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>, <span class="green">4</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_insert_at_head</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">2</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">0</span>, <span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_insert_out_of_range</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.insert(<span class="green">9</span>, <span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_delete_node_at_head</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">0</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_delete_node_at_tail</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">with</span> self.assertRaises(IndexError):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">10</span>)<br>
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="green">def</span> <span class="blue">test_circular_delete_node_in_middle</span>(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list = CircularLinkedList(CircleLLNode(<span class="green">1</span>))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">2</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.append(<span class="green">3</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">2</span>, <span class="green">3</span>], convert(linked_list))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;linked_list.delete_node(<span class="green">1</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.assertEqual([<span class="green">1</span>, <span class="green">3</span>], convert(linked_list))<br>
+<br>
+<br>
+            <span class="green">if</span> __name__ <span class="purple">==</span> <span class="red">'__main__'</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;unittest.main()
+        </code>
+      </div>
+    </div>
+  </div>
+<!--+++++++++++++++++++++ END TUTORIAL AREA +++++++++++++++++++++-->
+
+
+
+
+<!--+++++++++++++++++++++++++ START CONTACT SECTION +++++++++++++++++++++++++-->
+  <div class="contact">
+<!--------------------------- CONTACT US -------------------------------->
+    <div class="contact-us">
+	  <h1 class="aniview" data-av-animation="slideInRight">Questions, comments, concerns?</h1>
+	  <p class="aniview" data-av-animation="slideInLeft">
+        Have a question? Go ahead and ask me! Have any feedback?
+	    Please let me know! All feedback is appreciated and helps me improve
+		your experience.
+	  </p>
+	</div>
+<!--------------------------- CONTACT US -------------------------------->
+<!--------------------------- CONTACT BUTTON -------------------------------->
+    <div class="contact-button button aniview" data-av-animation="zoomIn">
+	  <a href="../../contact.html">Contact me</a>
+	</div>
+<!--------------------------- CONTACT BUTTON -------------------------------->
+  </div>
+<!--+++++++++++++++++++++++++ END CONTACT SECTION +++++++++++++++++++++++++-->
+
+
+
+<!--+++++++++++++++++++++++++ START FOOTER +++++++++++++++++++++++++-->
+  <div class="footer">
+    <div class="footer-nav">
+	  <ul>
+	    <li><a href="../../index.html">Home</a></li>
+		<li><a href="../../index.html#tutorials">Tutorials</a></li>
+		<li><a href="../../contact.html">Contact</a></li>
+		<li><a href="../../about.html">About</a></li>
+	  </ul>
+	<div>
+	
+	<div class="line"></div>
+	
+	<div class="back-to-top button aniview" data-av-animation="zoomIn">
+	  <a href="#top">Back to Top</a>
+	</div>
+  </div>
+<!--+++++++++++++++++++++++++ END FOOTER +++++++++++++++++++++++++-->
+  </body>
+</html>
